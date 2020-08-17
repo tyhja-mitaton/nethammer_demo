@@ -4,6 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\InfoBlock */
+/* @var $imgFiles backend\models\UploadImage */
 
 $this->title = 'Create Info Block';
 $this->params['breadcrumbs'][] = ['label' => 'Info Blocks', 'url' => ['index']];
@@ -15,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'imgFiles' => $imgFiles
     ]) ?>
 
 </div>

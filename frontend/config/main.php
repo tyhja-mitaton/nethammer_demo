@@ -14,6 +14,8 @@ return [
     'modules' => [
         'user' => [
             'as frontend' => \dektrium\user\filters\FrontendFilter::class,
+            /*'class'  => 'dektrium\user\Module',
+            'admins' => ['admin']*/
         ],
         'files' => [
             'class' => 'floor12\files\Module',
@@ -31,7 +33,7 @@ return [
             ],
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            /*'identityClass' => 'common\models\User',*/
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity', 'httpOnly' => true, 'path' => '/', 'domain' => '.' . CURRENT_DOMAIN],
         ],
@@ -57,14 +59,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];

@@ -14,9 +14,9 @@ return [
             'admins' => ['admin'],
             'enableConfirmation' => false,
             'enableRegistration' => false,
-            'modelMap' => [
+            /*'modelMap' => [
                 'User' => \common\models\User::class,
-            ],
+            ],*/
         ],
     ],
     'components' => [

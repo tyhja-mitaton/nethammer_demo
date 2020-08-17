@@ -2,12 +2,14 @@
 
 namespace backend\controllers;
 
+use backend\models\UploadImage;
 use Yii;
 use common\models\InfoBlock;
 use backend\models\InfoBlockSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * InfoBlockController implements the CRUD actions for InfoBlock model.
@@ -65,13 +67,17 @@ class InfoBlockController extends Controller
     public function actionCreate()
     {
         $model = new InfoBlock();
+        $imgFiles = new UploadImage();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $imgFiles->imageFiles = UploadedFile::getInstances($imgFiles, 'imageFiles');
+            $imgFiles->upload();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'imgFiles' => $imgFiles
         ]);
     }
 

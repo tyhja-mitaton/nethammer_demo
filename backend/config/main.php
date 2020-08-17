@@ -11,14 +11,19 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+       /* 'user' => [
+            'class'  => 'dektrium\user\Module',
+            'admins' => ['admin']
+        ]*/
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
             'baseUrl' => '/admin',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            /*'identityClass' => 'common\models\User',*/
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity', 'path' => '/', 'httpOnly' => true, 'domain' => '.' . CURRENT_DOMAIN,],
         ],
@@ -38,14 +43,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
