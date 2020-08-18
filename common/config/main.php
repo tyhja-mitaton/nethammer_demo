@@ -18,6 +18,12 @@ return [
                 'User' => \common\models\User::class,
             ],*/
         ],
+        'files' => [
+            'class' => 'floor12\files\Module',
+            'storage' => '@app/storage',
+            'cache' => '@app/storage_cache',
+            'token_salt' => 'some_random_salt',
+        ],
     ],
     'components' => [
         'cache' => [

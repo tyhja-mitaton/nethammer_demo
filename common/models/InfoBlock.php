@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "info_block".
@@ -16,12 +17,30 @@ use Yii;
  */
 class InfoBlock extends \yii\db\ActiveRecord
 {
+    const MAIN_PAGE_SLIDER = 1;
+    const INFO_BLOCK = 2;
+    const SERVICE_BLOCK = 3;
+    const PRODUCT_BLOCK = 4;
+    const CASE_BLOCK = 5;
+    const VACANCY_BLOCK = 6;
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
         return 'info_block';
+    }
+
+    public function behaviors()
+    {
+        return [
+            'files' => [
+                'class' => 'floor12\files\components\FileBehaviour',
+                'attributes' => [
+                    'imgs',
+                ],
+            ],
+            ];
     }
 
     /**
@@ -33,7 +52,8 @@ class InfoBlock extends \yii\db\ActiveRecord
             [['title', 'btn_name', 'type'], 'required'],
             [['description'], 'string'],
             [['type'], 'integer'],
-            [['title', 'btn_name', 'imgs'], 'string', 'max' => 255],
+            [['title', 'btn_name'], 'string', 'max' => 255],
+            ['imgs', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 10],
         ];
     }
 
@@ -44,11 +64,27 @@ class InfoBlock extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'btn_name' => 'Btn Name',
-            'type' => 'Type',
-            'imgs' => 'Imgs',
+            'title' => 'Заголовок',
+            'description' => 'Описание',
+            'btn_name' => 'Имя кнопки',
+            'type' => 'Тип',
+            'imgs' => 'Изображения',
         ];
+    }
+
+    public function getUrl()
+    {
+        $path = '';
+        switch ($this->type) {
+            case self::MAIN_PAGE_SLIDER: $path = 'slider';break;
+            case self::INFO_BLOCK: $path = 'info';break;
+            case self::SERVICE_BLOCK: $path = 'service';break;
+            case self::PRODUCT_BLOCK: $path = 'product';break;
+            case self::CASE_BLOCK: $path = 'case';break;
+            case self::VACANCY_BLOCK: $path = 'vacancy';break;
+        }
+
+        return Url::toRoute("site/$path");
+
     }
 }

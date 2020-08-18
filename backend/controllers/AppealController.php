@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\InfoBlock;
-use backend\models\InfoBlockSearch;
+use frontend\models\Appeal;
+use backend\models\AppealSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * InfoBlockController implements the CRUD actions for InfoBlock model.
+ * AppealController implements the CRUD actions for Appeal model.
  */
-class InfoBlockController extends Controller
+class AppealController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Lists all InfoBlock models.
+     * Lists all Appeal models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new InfoBlockSearch();
+        $searchModel = new AppealSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Displays a single InfoBlock model.
+     * Displays a single Appeal model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Creates a new InfoBlock model.
+     * Creates a new Appeal model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new InfoBlock();
+        $model = new Appeal();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Updates an existing InfoBlock model.
+     * Updates an existing Appeal model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Deletes an existing InfoBlock model.
+     * Deletes an existing Appeal model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Finds the InfoBlock model based on its primary key value.
+     * Finds the Appeal model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return InfoBlock the loaded model
+     * @return Appeal the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = InfoBlock::findOne($id)) !== null) {
+        if (($model = Appeal::findOne($id)) !== null) {
             return $model;
         }
 

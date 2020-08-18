@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\InfoBlock */
+/* @var $model frontend\models\Review */
 
-$this->title = 'Create Info Block';
-$this->params['breadcrumbs'][] = ['label' => 'Info Blocks', 'url' => ['index']];
+$this->title = 'Create Review';
+$this->params['breadcrumbs'][] = ['label' => 'Reviews', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="info-block-create">
+<div class="review-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\InfoBlock;
-use backend\models\InfoBlockSearch;
+use frontend\models\Review;
+use backend\models\ReviewSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * InfoBlockController implements the CRUD actions for InfoBlock model.
+ * ReviewController implements the CRUD actions for Review model.
  */
-class InfoBlockController extends Controller
+class ReviewController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Lists all InfoBlock models.
+     * Lists all Review models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new InfoBlockSearch();
+        $searchModel = new ReviewSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Displays a single InfoBlock model.
+     * Displays a single Review model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Creates a new InfoBlock model.
+     * Creates a new Review model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new InfoBlock();
+        $model = new Review();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Updates an existing InfoBlock model.
+     * Updates an existing Review model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Deletes an existing InfoBlock model.
+     * Deletes an existing Review model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class InfoBlockController extends Controller
     }
 
     /**
-     * Finds the InfoBlock model based on its primary key value.
+     * Finds the Review model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return InfoBlock the loaded model
+     * @return Review the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = InfoBlock::findOne($id)) !== null) {
+        if (($model = Review::findOne($id)) !== null) {
             return $model;
         }
 

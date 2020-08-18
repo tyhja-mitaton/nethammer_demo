@@ -3,12 +3,10 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
-use backend\models\UploadImage;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\InfoBlock */
 /* @var $form yii\widgets\ActiveForm */
-/* @var $imgFiles backend\models\UploadImage */
 ?>
 
 <div class="info-block-form">
@@ -35,10 +33,10 @@ use backend\models\UploadImage;
         '5' => 'вакансия на странице "Вакансии"'
     ], ['prompt' => 'Выберите тип...']) ?>
 
-    <?= $form->field($imgFiles, 'imageFiles[]')->fileInput(['multiple' => true])?>
+    <?= $form->field($model, 'imgs')->widget(floor12\files\components\FileInputWidget::class)?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

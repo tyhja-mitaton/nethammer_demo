@@ -4,13 +4,14 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
 AppAsset::register($this);
+Yii::$app->name = 'Nethammer';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -32,13 +33,20 @@ AppAsset::register($this);
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => '',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'Главная', 'url' => ['/site/index']],
+        ['label' => 'О компании', 'items' => [
+                ['label' => 'Кейсы', 'url' => ['/site/cases']],
+                ['label' => 'Вакансии', 'url' => ['/site/vacancies']],
+                ['label' => 'Отзывы', 'url' => ['/site/review']]
+            ]
+        ],
+        ['label' => 'Продукты', 'url' => ['/site/products']],
+        ['label' => 'Услуги', 'url' => ['/site/services']],
+        ['label' => 'Контакты', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
