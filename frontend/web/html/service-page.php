@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <?php include 'head.php'; ?>
-        <title>Вакансии</title>
+        <title>Страница услуги</title>
     </head>
 
     <body>

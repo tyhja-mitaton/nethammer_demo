@@ -30,7 +30,7 @@
                             <a class="nav-link" href="html/services.php">Услуги</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Продукты</a>
+                            <a class="nav-link" href="html/products.php">Продукты</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Контакты</a>

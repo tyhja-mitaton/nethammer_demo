@@ -17,7 +17,7 @@
 
 body {
 	margin: 0;
-    padding: 60px 0 0;
+    padding: 0;
     background: #17193f;
     color: #fff;
     font-family: 'Open Sans', Helvetica Neue, sans-serif;
@@ -81,6 +81,10 @@ img {
         border: 1px solid #2059ed;
         background: transparent;
         color: #5f5f61;
+        
+        &:hover, &:focus {
+            color: #2059ed;
+        }
     }
     
     i {
@@ -126,6 +130,16 @@ img {
     }
 }
 
+.subtitle {
+    font-size: 30px;
+    font-weight: 700;
+    color: #3f405f;
+    
+    @media(max-width:992px){
+        font-size: 18px;
+    }
+}
+
 .section-title {
     display: flex;
     align-items: center;
@@ -139,4 +153,4 @@ img {
     margin: 0;
 }
 
-@import "header", "footer", "job", "services", "contact-us";
+@import "header", "footer", "job", "category", "contact-us", "product";

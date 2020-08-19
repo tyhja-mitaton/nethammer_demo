@@ -1,4 +1,4 @@
-.services-list {
+.category-list {
     background: #fff;
     color: #7a7a80;
     
@@ -29,7 +29,7 @@
         display: grid;
         align-items: center;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr auto 1fr;
+        grid-template-rows: auto;
         grid-column-gap: 30px;
         grid-row-gap: 30px;
         grid-template-areas:
@@ -47,9 +47,22 @@
             grid-template-rows: auto;
         }
     }
+
+    .title {
+        grid-area: title;
+        align-self: end;
+        color: #3f405f;
+        font-size: 36px;
+        margin: 0 0 10px;
+
+        @media(max-width:768px){
+            font-size: 18px;
+        }
+    }
     
     .img {
         grid-area: img;
+        margin: 0 auto;
     }
     
     .desc {
@@ -65,19 +78,7 @@
     }
 }
 
-.service-title {
-    grid-area: title;
-    align-self: end;
-    color: #3f405f;
-    font-size: 36px;
-    margin: 0 0 10px;
-    
-    @media(max-width:768px){
-        font-size: 18px;
-    }
-}
-
-.service-page {
+.category-page {
     background: url(../images/header-bg.png) no-repeat top right;
     
     .page-title {

@@ -34,6 +34,8 @@ footer {
     }
     
     a {
+        color: #fff;
+        
         &:hover, &:focus {
             color: #2059ed;
         }
@@ -66,10 +68,6 @@ footer {
         @media(max-width:992px){
             margin: 8px 0;
         }
-    
-        a {
-            color: #fff;
-        }
     }
     
     ul {
@@ -101,6 +99,10 @@ footer {
 
         a {
             color: #cfcfe4;
+            
+            &:hover, &:focus {
+                color: #2059ed;
+            }
         }
     }
 }
