@@ -1,0 +1,97 @@
+.contact-us {
+    position: relative;
+    padding: 30px 0 60px;
+    background: url(../images/contact-bg.png) no-repeat right bottom;
+    background-size: contain;
+    font-size: 18px;
+    
+    @media(max-width:992px){
+        background: transparent;
+        padding-bottom: 0;
+    }
+    
+    > * {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .section-title {
+        color: #fff;
+        
+        @media(max-width:992px){
+            margin-left: -30px;
+        }
+    }
+    
+    form {
+        position: relative;
+        background: #33386c;
+        color: #fff;
+        padding: 40px;
+        margin: 20px 40px;
+        min-height: 380px;
+        
+        @media(max-width:992px){
+            margin: -10px -15px 0;
+            padding: 40px 15px;
+        }
+    
+        &:after {
+            content: "";
+            position: absolute;
+            top: auto;
+            right: -40px;
+            bottom: -30px;
+            left: auto;
+            display: block;
+            width: 180px;
+            height: 120px;
+            background: url(../images/contacts-dots.png) no-repeat center center;
+            background-size: contain;
+            
+            @media(max-width:992px){
+                display: none;
+            }
+        }
+    }
+    
+    .form-group {
+        max-width: 45%;
+        
+        @media(max-width:992px){
+            max-width: 100%;
+        }
+    }
+    
+    .form-control {
+        border: 0;
+        border-bottom: 1px solid #e7e7f5;
+        background: transparent;
+        padding-left: 0;
+        padding-right: 0;
+        color: #fff;
+    }
+    
+    .btn {
+        width: 45%;
+        
+        @media(max-width:992px){
+            width: 100%;
+        }
+    }
+    
+    img {
+        position: absolute;
+        z-index: 3;
+        top: -80px;
+        left: auto;
+        right: -40px;
+        width: 400px;
+        max-width: 50%;
+        box-shadow: 7px 0 79px 2px rgba(11, 14, 49, .63);
+        
+        @media(max-width:992px){
+            display: none;
+        }
+    }
+}

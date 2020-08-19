@@ -1,0 +1,142 @@
+@import "libs", "custom";
+
+/*
+Если сомневаетесь, используйте единицы rem для размера шрифта, пикселы
+— для границ и единицы еm — для большинства других свойств.
+
+@font-face {
+    font-family: 'FontAwesome';
+    font-display: auto;
+    src: url('../fonts/fontawesome-webfont.eot');
+    src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+}
+*/
+
+body {
+	margin: 0;
+    padding: 60px 0 0;
+    background: #17193f;
+    color: #fff;
+    font-family: 'Open Sans', Helvetica Neue, sans-serif;
+    font-size: 16px;
+    
+    @media(max-width:992px){
+        font-size: 14px;
+    }
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+a {
+    color: #2059ed;
+    
+    &:hover, &:focus {
+        text-decoration: none;
+        color: #333;
+    }
+}
+
+a, button {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+label {
+    font-weight: 700;
+}
+button, input, select, textarea {
+    min-height: 50px;
+    
+    &:focus {
+        outline: 0;
+        box-shadow: none !important;
+    }
+}
+textarea {
+    resize: none;
+}
+img {
+    max-width: 100%;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+    &-blue {
+        background: #2059ed;
+        color: #fff;
+    }
+    
+    &-blue-o {
+        border: 1px solid #2059ed;
+        background: transparent;
+        color: #5f5f61;
+    }
+    
+    i {
+        font-size: 70%;
+        margin-left: 15px;
+    }
+}
+
+.icon {
+	position: relative;
+    display: inline-block;
+	height: 24px;
+    width: 24px;
+    
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+        left: 0;
+		background-color: #141414;
+		width: 100%;
+		height: 100%;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+        -webkit-mask-position: center center;
+        mask-position: center center;
+	}
+
+	&.delivery:before{
+		-webkit-mask-image: url('../../img/quick-delivery.svg');
+		mask-image: url('../../img/quick-delivery.svg');
+	}
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 20px;
+    
+    @media(max-width:992px){
+        font-size: 24px;
+        margin: 0;
+    }
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    background: url(../images/title-sircle.png) no-repeat left center;
+    background-size: contain;
+    color: #33386c;
+    font-weight: 700;
+    position: relative;
+    height: 100px;
+    padding-left: 40px;
+    margin: 0;
+}
+
+@import "header", "footer", "job", "services", "contact-us";
