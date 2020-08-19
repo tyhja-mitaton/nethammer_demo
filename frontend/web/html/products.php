@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <?php include 'head.php'; ?>
-        <title>Услуги</title>
+        <title>Продукты</title>
     </head>
 
     <body>
@@ -25,7 +25,7 @@
                         <h2 class="title">Система онлайн-мониторинга работы промышленного оборудования и станков с ЧПУ</h2>
                         <img class="img" src="images/product1.png" alt="">
                         <div class="desc">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
-                        <a href="html/service-page.php" class="btn btn-blue-o">
+                        <a href="html/product-page.php" class="btn btn-blue-o">
                             Подробнее <i>→</i>
                         </a>
                     </div>
@@ -35,7 +35,7 @@
                         <h2 class="title">Система управления охотничьими ресурсами региона</h2>
                         <img class="img" src="images/product2.png" alt="">
                         <div class="desc">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
-                        <a href="html/service-page.php" class="btn btn-blue-o">
+                        <a href="html/product-page.php" class="btn btn-blue-o">
                             Подробнее <i>→</i>
                         </a>
                     </div>
@@ -45,7 +45,7 @@
                         <h2 class="title">Система управления планами развития муниципальных образований и регионов</h2>
                         <img class="img" src="images/product3.png" alt="">
                         <div class="desc">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
-                        <a href="html/service-page.php" class="btn btn-blue-o">
+                        <a href="html/product-page.php" class="btn btn-blue-o">
                             Подробнее <i>→</i>
                         </a>
                     </div>

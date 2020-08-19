@@ -130,6 +130,16 @@ img {
     }
 }
 
+.subtitle {
+    font-size: 30px;
+    font-weight: 700;
+    color: #3f405f;
+    
+    @media(max-width:992px){
+        font-size: 18px;
+    }
+}
+
 .section-title {
     display: flex;
     align-items: center;
@@ -143,4 +153,4 @@ img {
     margin: 0;
 }
 
-@import "header", "footer", "job", "services", "contact-us";
+@import "header", "footer", "job", "category", "contact-us", "product";

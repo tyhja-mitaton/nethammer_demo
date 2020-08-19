@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                <a class="logo" href="index.php">
+                <a class="logo" href="html/index.php">
                     <img src="images/logo.png" alt="">
                 </a>
                 <form class="search-form d-block d-lg-none">
@@ -36,31 +36,6 @@
         </div>
     </div>
 </footer>
-
-<!-- Модальное окно -->
-
-<div class="modal fade" id="modal" tabindex="-1">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <p><b>Оставить заявку</b></p>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <input type="text" placeholder="Введите Имя">
-                    <input type="text" placeholder="+7 (" data-inputmask="'mask':'+7 (999) 999-9999'" data-mask>
-                    <div class="checkbox">
-                        <input type="checkbox" id="agree2"> <label class="gray" for="agree2">Я принимаю условия <a href="#" data-toggle="modal" data-target="#modal2">пользовательского соглашения</a></label>
-                    </div>
-                    <div class="text-center">
-                        <button class="red-btn">Отправить</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Скрипты -->
 
