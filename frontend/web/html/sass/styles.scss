@@ -17,7 +17,7 @@
 
 body {
 	margin: 0;
-    padding: 60px 0 0;
+    padding: 0;
     background: #17193f;
     color: #fff;
     font-family: 'Open Sans', Helvetica Neue, sans-serif;
@@ -81,6 +81,10 @@ img {
         border: 1px solid #2059ed;
         background: transparent;
         color: #5f5f61;
+        
+        &:hover, &:focus {
+            color: #2059ed;
+        }
     }
     
     i {

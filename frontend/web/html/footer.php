@@ -21,7 +21,7 @@
                             <li><a href="#">Отзывы</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Продукты</a></li>
+                    <li><a href="html/products.php">Продукты</a></li>
                     <li><a href="html/services.php">Услуги</a></li>
                     <li><a href="#">Контакты</a></li>
                 </ul>
