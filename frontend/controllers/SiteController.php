@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\InfoBlock;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -14,6 +15,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\data\ActiveDataProvider;
 
 /**
  * Site controller
@@ -75,6 +77,23 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    public function actionJob()
+    {
+        $model = InfoBlock::find()->where(['type' => InfoBlock::VACANCY_BLOCK]);
+        $provider = new ActiveDataProvider([
+            'query' => $model,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
+        ]);
+        return $this->render('job', ['provider' => $provider]);
     }
 
     /**
