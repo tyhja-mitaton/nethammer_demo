@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'btn_name',
             'type',
+            'salary',
             'imgs',
         ],
     ]) ?>

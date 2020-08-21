@@ -2,44 +2,26 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
+/* @var $model \frontend\models\Appeal */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Contact';
+$this->title = 'Связаться с нами';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
+<section class="contact-us">
+<div class="container">
+    <h2 class="section-title"><?= Html::encode($this->title) ?></h2>
+            <?php $form = ActiveForm::begin(['id' => 'contact-form', 'errorCssClass' => 'error']); ?>
 
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
+                <?= $form->field($model, 'author')->textInput(['placeholder' => 'Дмитрий', 'value' => 'site@mail.ru'])->label('Имя') ?>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+                <?= $form->field($model, 'phone')->textInput(['placeholder' => '+7 995 995 95 95'])->label('E-mail или телефон') ?>
 
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'subject') ?>
-
-                <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                ]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                </div>
-
+                    <?= Html::submitButton('Отправить <i class="fas fa-chevron-right"></i>', ['class' => 'btn btn-blue', 'name' => 'contact-button']) ?>
+    <img src="images/contacts-robot.jpg" alt="">
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
-
 </div>
+</section>

@@ -13,6 +13,7 @@ use yii\helpers\Url;
  * @property string|null $description
  * @property string $btn_name
  * @property int $type
+ * @property int $salary
  * @property string|null $imgs
  */
 class InfoBlock extends \yii\db\ActiveRecord
@@ -51,7 +52,7 @@ class InfoBlock extends \yii\db\ActiveRecord
         return [
             [['title', 'btn_name', 'type'], 'required'],
             [['description'], 'string'],
-            [['type'], 'integer'],
+            [['type', 'salary'], 'integer'],
             [['title', 'btn_name'], 'string', 'max' => 255],
             ['imgs', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 10],
         ];
@@ -68,6 +69,7 @@ class InfoBlock extends \yii\db\ActiveRecord
             'description' => 'Описание',
             'btn_name' => 'Имя кнопки',
             'type' => 'Тип',
+            'salary' => 'Зарплата',
             'imgs' => 'Изображения',
         ];
     }
