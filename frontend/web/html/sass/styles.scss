@@ -87,6 +87,17 @@ img {
         }
     }
     
+    &-white {
+        border: 1px solid #fff;
+        background: transparent;
+        color: #fff;
+        
+        &:hover, &:focus {
+            border-color: #2059ed;
+            color: #2059ed;
+        }
+    }
+    
     i {
         font-size: 70%;
         margin-left: 15px;
@@ -168,4 +179,4 @@ img {
     margin: 0;
 }
 
-@import "header", "footer", "job", "category", "contact-us", "contacts", "product", "reviews", "cases";
+@import "header", "footer", "job", "category", "contact-us", "contacts", "product", "reviews", "cases", "home";

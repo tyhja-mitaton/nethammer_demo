@@ -47,3 +47,9 @@ $('.case-slider').owlCarousel({
         }
     }
 });
+
+$('.home-slider').owlCarousel({
+    dotsSpeed:1200,
+    dragEndSpeed:1200,
+    items:1
+});

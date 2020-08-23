@@ -2,69 +2,121 @@
 <html lang="ru">
     <head>
         <?php include 'head.php'; ?>
-        <title>Вакансии</title>
+        <title>Nethammer</title>
     </head>
 
     <body>
-        <div class="job-page">
+        <div class="home-page">
             <?php include 'header.php'; ?>
             
             <div class="container">
-                <h1 class="page-title">Вакансии</h1>
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Главная</a></li>
-                        <li class="breadcrumb-item active">Вакансии</li>
-                    </ol>
-                </nav>
-            </div>
-            
-            <section class="job-list">
-                <div class="container">
-                    <div class="accordion" id="vacancies">
-                        <div class="vacancy">
-                            <h2 class="job-title" data-toggle="collapse" data-target="#vacancy<?= $i ?>">
-                                Frontend-разработчик <span>45 000 руб</span>
-                            </h2>
-                            <div id="vacancy<?= $i ?>" class="collapse show" data-parent="#vacancies">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <div class="home-slider">
+                    <div class="item">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 order-md-1">
+                                <img src="images/slide1.png" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p class="title">Сложные веб-системы и программирование</p>
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+                                <a class="btn btn-white" href="html/service-page.php">
+                                    Подробнее <i>→</i>
+                                </a>
                             </div>
                         </div>
-                        <?php for($i = 0; $i < 3; $i++) { ?>
-                        <div class="vacancy">
-                            <h2 class="job-title" data-toggle="collapse" data-target="#vacancy<?= $i ?>">
-                                Вакансия <?= $i ?> <span>45 000 руб</span>
-                            </h2>
-                            <div id="vacancy<?= $i ?>" class="collapse" data-parent="#vacancies">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                    <div class="item">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 order-md-1">
+                                <img src="images/slide2.png" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p class="title">Разработка сайтов и поддержка веб-сервисов</p>
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+                                <a class="btn btn-white" href="html/service-page.php">
+                                    Подробнее <i>→</i>
+                                </a>
                             </div>
                         </div>
-                        <?php } ?>
+                    </div>
+                    <div class="item">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 order-md-1">
+                                <img src="images/slide3.png" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p class="title">Онлайн-мониторинг работы промышленного оборудования</p>
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+                                <a class="btn btn-white" href="html/service-page.php">
+                                    Подробнее <i>→</i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
-            
-            <section class="contact-us">
-                <div class="container">
-                    <h2 class="section-title">Связаться с нами</h2>
-                    <form>
-                        <div class="form-group error">
-                            <label>Имя</label>
-                            <input class="form-control" type="text" placeholder="Дмитрий" value="site@mail.ru">
+               
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tab1">
+                                    <img src="images/grafic.png" alt="">
+                                    <span>
+                                        <b>Опыт и технологии</b> <span>заголовком/цифрами и небольшим описанием</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tab2">
+                                    <img src="images/steps.png" alt="">
+                                    <span>
+                                        <b>Направление работы</b> <span>может преимущества или еще какая-то визуальная штука с</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tab3">
+                                    <img src="images/people.png" alt="">
+                                    <span>
+                                        <b>Клиенты</b> <span>заголовком/цифрами и небольшим описанием</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tab4">
+                                    <img src="images/products.png" alt="">
+                                    <span>
+                                        <b>Продукты</b> <span>заголовком/цифрами и небольшим описанием</span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tab1">
+                                <p class="tab-title">Описание</p>
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+                            </div>
+                            <div class="tab-pane fade" id="tab2">
+                                <p class="tab-title">Описание</p>
+                                <p>Dim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+                            </div>
+                            <div class="tab-pane fade" id="tab3">
+                                <p class="tab-title">Описание</p>
+                                <p>Cnim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+                            </div>
+                            <div class="tab-pane fade" id="tab4">
+                                <p class="tab-title">Описание</p>
+                                <p>Znim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>E-mail или телефон</label>
-                            <input class="form-control" type="text" placeholder="+7 995 995 95 95">
-                        </div>
-                        <button class="btn btn-blue">
-                            Отправить <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <img src="images/contacts-robot.jpg" alt="">
-                    </form>
+                    </div>
                 </div>
-            </section>
+            </div>
             
-
+            <?php include 'contact-us.php'; ?>
+            
             <?php include 'footer.php'; ?>
         </div>
     </body>

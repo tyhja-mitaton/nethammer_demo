@@ -99,6 +99,48 @@ h4, .h4 {
     }
 } 
 
+.nav-tabs {
+    display: flex;
+    align-items: flex-start;
+    border: 0;
+    
+    @media(max-width:992px){
+        margin: 0 0 20px;
+    }
+    
+    .nav-item {
+        width: 48%;
+        margin: 5px 1%;
+    }
+    
+    .nav-link {
+        border: 0;
+        border-radius: 0;
+        background: #3a4480;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        min-height: 120px;
+        font-size: 14px;
+        color: #fff;
+        
+        @media(max-width:992px){
+            min-height: 80px;
+            padding: 10px;
+        }
+        
+        &.active {
+            color: #fff;
+            background: #7487dd;
+        }
+        
+        &:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+    }
+}
+
 .navbar-toggler {
     padding: 0;
     bottom: 0;
