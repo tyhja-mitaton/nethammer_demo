@@ -3,13 +3,15 @@ var gulp = require('gulp'),
   csscomb = require('gulp-csscomb'), 
   cleancss = require('gulp-clean-css'),
   rename = require('gulp-rename'),
+  combineMedia = require('gulp-combine-media'),
   autoprefixer = require('gulp-autoprefixer')
 
 gulp.task('styles', function () {
   return gulp.src('sass/**/*.scss')
     .pipe(sass({outputStyle: 'expanded'}))
-    .pipe(autoprefixer(['last 15 versions']))
+    .pipe(autoprefixer(['last 5 versions']))
 	.pipe(csscomb())
+    .pipe(combineMedia())
     .pipe(gulp.dest('../css'))
 })
 
@@ -19,12 +21,11 @@ gulp.task('watch', function () {
 
 gulp.task('compress', function () {
   return gulp.src('sass/**/*.scss')
-	.pipe(sass({outputStyle: 'expanded'}))
-    .pipe(autoprefixer(['last 5 versions']))
+	.pipe(sass({outputStyle: 'compressed'}))
+    .pipe(autoprefixer(['last 1 versions']))
 	.pipe(csscomb())
-    .pipe(cleancss({level: {1: {specialComments: 0}}}))
+    .pipe(combineMedia())
+    .pipe(cleancss({level: 2}))
     .pipe(rename({suffix: '.min', prefix: ''}))
     .pipe(gulp.dest('../css'))
 })
-
-
