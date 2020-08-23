@@ -16,7 +16,7 @@
                     <li>
                         <a href="#">О компании</a>
                         <ul>
-                            <li><a href="#">Кейсы</a></li>
+                            <li><a href="html/cases.php">Кейсы</a></li>
                             <li><a href="html/job.php">Вакансии</a></li>
                             <li><a href="html/reviews.php">Отзывы</a></li>
                         </ul>
