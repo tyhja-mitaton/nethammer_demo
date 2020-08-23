@@ -12,9 +12,9 @@
                     </button>
                 </form>
                 <ul class="footer-menu">
-                    <li><a href="#">Главная</a></li>
+                    <li><a href="html/index.php">Главная</a></li>
                     <li>
-                        <a href="#">О компании</a>
+                        <a href="html/index.php">О компании</a>
                         <ul>
                             <li><a href="html/cases.php">Кейсы</a></li>
                             <li><a href="html/job.php">Вакансии</a></li>
