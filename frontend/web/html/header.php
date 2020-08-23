@@ -23,7 +23,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Кейсы</a>
                                 <a class="dropdown-item" href="html/job.php">Вакансии</a>
-                                <a class="dropdown-item" href="#">Отзывы</a>
+                                <a class="dropdown-item" href="html/reviews.php">Отзывы</a>
                             </div>
                         </li>
                         <li class="nav-item">

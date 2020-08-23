@@ -18,12 +18,12 @@
                         <ul>
                             <li><a href="#">Кейсы</a></li>
                             <li><a href="html/job.php">Вакансии</a></li>
-                            <li><a href="#">Отзывы</a></li>
+                            <li><a href="html/reviews.php">Отзывы</a></li>
                         </ul>
                     </li>
                     <li><a href="html/products.php">Продукты</a></li>
                     <li><a href="html/services.php">Услуги</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="html/contacts.php">Контакты</a></li>
                 </ul>
             </div>
             <div class="col-lg-3">

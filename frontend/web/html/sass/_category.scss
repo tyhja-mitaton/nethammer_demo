@@ -81,24 +81,6 @@
 .category-page {
     background: url(../images/header-bg.png) no-repeat top right;
     
-    .page-title {
-        position: relative;
-        margin: 40px 0 20px;
-        
-        &:before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            display: block;
-            width: 150px;
-            height: 150px;
-            top: -53px;
-            left: -60px;
-            background: url(../images/title-sircle.png) no-repeat center center;
-            background-size: contain;
-        } 
-    }
-    
     .h2 {
         font-size: 36px;
         margin: 0 0 30px;
