@@ -6,8 +6,10 @@
     </head>
 
     <body>
+       
+        <?php include 'header.php'; ?>
+
         <div class="home-page">
-            <?php include 'header.php'; ?>
             
             <div class="container">
                 <div class="home-slider">

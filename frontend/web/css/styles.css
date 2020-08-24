@@ -500,8 +500,17 @@ i {
 }
 
 header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
   padding-top: 20px;
   padding-bottom: 30px;
+}
+
+header + * {
+  padding-top: 180px;
 }
 
 header .logo {
@@ -1343,9 +1352,15 @@ footer a:focus {
     font-size: 22px;
   }
 
+  header + * {
+    padding-top: 150px;
+  }
+
   header {
     padding-top: 15px;
     padding-bottom: 15px;
+    background: rgba(28, 31, 71, 0.9);
+    border-bottom: 1px solid #191c43;
   }
 
   header .logo img {
@@ -1549,6 +1564,11 @@ footer a:focus {
   .nav-tabs span span {
     display: none;
   }
+
+  .home-slider .title {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1603,7 +1623,6 @@ footer a:focus {
 
   .home-slider .title {
     font-size: 18px;
-    letter-spacing: 2px;
   }
 
   .home-slider .btn {

@@ -6,8 +6,10 @@
     </head>
 
     <body>
+       
+        <?php include 'header.php'; ?>
+
         <div class="contact-page">
-            <?php include 'header.php'; ?>
             
             <div class="container">
                 <h1 class="page-title">Контакты</h1>

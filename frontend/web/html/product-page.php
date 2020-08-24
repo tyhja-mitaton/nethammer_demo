@@ -6,8 +6,10 @@
     </head>
 
     <body>
+       
+        <?php include 'header.php'; ?>
+
         <div class="product-page">
-            <?php include 'header.php'; ?>
             
             <div class="container">
                 <h1 class="page-title">Продукты</h1>

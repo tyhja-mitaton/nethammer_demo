@@ -6,8 +6,10 @@
     </head>
 
     <body>
+       
+        <?php include 'header.php'; ?>
+
         <div class="cases-page">
-            <?php include 'header.php'; ?>
             
             <div class="container">
                 <h1 class="page-title">Кейсы</h1>
