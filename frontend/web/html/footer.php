@@ -37,6 +37,31 @@
     </div>
 </footer>
 
+<div class="modal fade" id="modal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <p><b>Оставить заявку</b></p>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Имя">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Телефон">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="4" placeholder="Комментарий"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-blue btn-block">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Скрипты -->
 
 <script src="js/jquery.js"></script>

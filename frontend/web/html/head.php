@@ -33,5 +33,3 @@
 <link rel="stylesheet" href="css/font-awesome.css">
 <link rel="stylesheet" href="css/jquery.fancybox.css">
 <link rel="stylesheet" href="css/styles.css">
-
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">

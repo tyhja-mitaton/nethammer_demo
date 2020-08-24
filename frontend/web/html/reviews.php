@@ -20,7 +20,7 @@
             </div>
             
             <div class="container">
-                <button class="btn btn-blue-o" type="button">Оставить отзыв</button>
+                <button class="btn btn-blue-o" type="button" data-toggle="modal" data-target="#modal">Оставить отзыв</button>
             </div>
             
             <div class="container-fluid">
