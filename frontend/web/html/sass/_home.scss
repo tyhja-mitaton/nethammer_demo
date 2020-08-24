@@ -1,0 +1,112 @@
+.home-page {
+    background: url(../images/home-bg.png) no-repeat right top, url(../images/home-bg2.png) no-repeat left center;
+    background-size: 100% auto;   
+}
+
+.tab-pane {
+    color: #cfcfe4;
+}
+
+.tab-title {
+    font-size: 36px;
+    color: #dfdfef;
+    font-weight: 900;
+    margin: 0 0 20px;
+    
+    @media(max-width:768px){
+        font-size: 20px;
+    }
+}
+
+.nav-tabs { 
+    img {
+        margin-right: 10px;
+        
+        @media(max-width:992px){
+            width: 30px;
+        }
+    }
+    
+    span span {
+        display: block;
+        font-size: 12px;
+        
+        @media(max-width:992px){
+            display: none;
+        }
+    }
+}
+
+.home-slider {
+    margin: 30px 0 60px;
+    
+    .title {
+        margin: 0 0 20px;
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 3px;
+        
+        @media(max-width:992px){
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+        
+        @media(max-width:768px){
+            font-size: 18px;
+        }
+    }
+    
+    .btn {
+        display: inline-flex;
+        width: 280px;
+        margin: 40px 0 15px;
+        
+        @media(max-width:768px){
+            margin: 15px 0;
+        }
+    }
+    
+    img {
+        @media(max-width:768px){
+            margin: 20px auto;
+        }
+    }
+    
+    .owl-controls {
+        position: absolute;
+        top: -40px;
+        left: auto;
+        right: 0;
+    }
+    
+    .owl-dots {
+        list-style-type: none; 
+        counter-reset: num;
+        align-items: flex-end;
+        line-height: 1;
+        margin: 0;
+
+        .owl-dot {
+            color: #e7e7f5;
+            margin: 0 8px;
+            
+            &:before {
+                content: '0' counter(num); 
+                counter-increment: num;
+                font-size: 14px;
+                transition: all 0.3s ease-in-out;
+            }
+        
+            &.active {
+                &:before {
+                    font-size: 24px;
+                    font-weight: 700;
+                }
+            }
+            
+            span {
+                display: none;
+            }
+        }
+    }
+}

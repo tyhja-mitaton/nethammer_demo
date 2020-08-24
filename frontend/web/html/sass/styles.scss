@@ -1,27 +1,42 @@
 @import "libs", "custom";
 
-/*
-Если сомневаетесь, используйте единицы rem для размера шрифта, пикселы
-— для границ и единицы еm — для большинства других свойств.
-
 @font-face {
-    font-family: 'FontAwesome';
+    font-family: 'Gilroy';
     font-display: auto;
-    src: url('../fonts/fontawesome-webfont.eot');
-    src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype');
+    src: url('../fonts/Gilroy-Regular.eot');
+    src: url('../fonts/Gilroy-Regular.eot') format('embedded-opentype'), url('../fonts/Gilroy-Regular.woff') format('woff'), url('../fonts/Gilroy-Regular.ttf') format('truetype');
     font-style: normal;
     font-display: swap;
     font-weight: 400;
 }
-*/
+
+@font-face {
+    font-family: 'Gilroy';
+    font-display: auto;
+    src: url('../fonts/Gilroy-Bold.eot');
+    src: url('../fonts/Gilroy-Bold.eot') format('embedded-opentype'), url('../fonts/Gilroy-Bold.woff') format('woff'), url('../fonts/Gilroy-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    font-display: auto;
+    src: url('../fonts/Gilroy-Black.eot');
+    src: url('../fonts/Gilroy-Black.eot') format('embedded-opentype'), url('../fonts/Gilroy-Black.woff') format('woff'), url('../fonts/Gilroy-Black.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 900;
+}
 
 body {
 	margin: 0;
     padding: 0;
     background: #17193f;
     color: #fff;
-    font-family: 'Open Sans', Helvetica Neue, sans-serif;
-    font-size: 16px;
+    font-family: 'Gilroy', Helvetica Neue, sans-serif;
+    font-size: 18px;
     
     @media(max-width:992px){
         font-size: 14px;
@@ -60,8 +75,13 @@ button, input, select, textarea {
 textarea {
     resize: none;
 }
+
 img {
     max-width: 100%;
+}
+
+i {
+    font-style: normal;
 }
 
 .btn {
@@ -71,6 +91,7 @@ img {
     height: 50px;
     text-transform: uppercase;
     font-weight: 700;
+        letter-spacing: 1px;
     
     &-blue {
         background: #2059ed;
@@ -83,6 +104,17 @@ img {
         color: #5f5f61;
         
         &:hover, &:focus {
+            color: #2059ed;
+        }
+    }
+    
+    &-white {
+        border: 1px solid #fff;
+        background: transparent;
+        color: #fff;
+        
+        &:hover, &:focus {
+            border-color: #2059ed;
             color: #2059ed;
         }
     }
@@ -122,11 +154,26 @@ img {
 .page-title {
     font-size: 36px;
     font-weight: 700;
-    margin: 0 0 20px;
+    position: relative;
+    margin: 40px 0 20px;
+//    margin: 0 0 20px;
     
     @media(max-width:992px){
         font-size: 24px;
         margin: 0;
+    }
+    
+    &:before {
+        content: "";
+        position: absolute;
+        top: -38px;
+        left: -45px;
+        z-index: 0;
+        display: block;
+        width: 120px;
+        height: 120px;
+        background: url(../images/title-sircle.png) no-repeat center center;
+        background-size: contain;
     }
 }
 
@@ -136,7 +183,7 @@ img {
     color: #3f405f;
     
     @media(max-width:992px){
-        font-size: 18px;
+        font-size: 22px;
     }
 }
 
@@ -146,11 +193,12 @@ img {
     background: url(../images/title-sircle.png) no-repeat left center;
     background-size: contain;
     color: #33386c;
-    font-weight: 700;
+    font-weight: 900; 
+    font-size: 36px;
     position: relative;
     height: 100px;
     padding-left: 40px;
     margin: 0;
 }
 
-@import "header", "footer", "job", "category", "contact-us", "product";
+@import "header", "footer", "job", "category", "contact-us", "contacts", "product", "reviews", "cases", "home";

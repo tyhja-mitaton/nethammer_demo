@@ -1,3 +1,7 @@
+.container {
+    position: relative;
+}
+
 h1, .h1, h2, .h2, h3, .h3 {
     margin-top: 0;
     font-weight: 600;
@@ -13,6 +17,30 @@ h3, .h3 {
 }
 h4, .h4 {
     font-size: 1rem;
+}
+
+.modal-content {
+    background: #33386c;
+    
+    .form-group {
+        margin: 0 0 15px;
+    }
+}
+
+.modal-header {
+    flex-direction: row-reverse;
+    align-items: center;
+    
+    p {
+        margin: 0;
+    }
+    
+    .close {
+        text-shadow: none;
+        color: #fff;
+        opacity: 1;
+        padding: 0 1rem;
+    }
 }
 
 .owl-theme {
@@ -50,6 +78,7 @@ h4, .h4 {
             right: 15px;
         }
     }
+    
     .owl-controls {
         .owl-prev:before {
             background: url(../images/prev.png) no-repeat center center;
@@ -58,7 +87,83 @@ h4, .h4 {
             background: url(../images/next.png) no-repeat center center;
         }
     }
+    
+    .owl-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        margin: 30px 0 0;
+        
+        .owl-dot {
+            
+            &:hover {
+                span {
+                    background: #2059ed;
+                }
+            }
+            
+            &.active {
+                span {
+                    background: #2059ed;
+                    height: 25px;
+                    width: 25px;
+                }
+            }
+
+            span {
+                width: 12px;
+                height: 12px;
+                margin: 0 10px;
+                border: 1px solid #2059ed;
+                background: transparent;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
 } 
+
+.nav-tabs {
+    display: flex;
+    align-items: flex-start;
+    border: 0;
+    
+    @media(max-width:992px){
+        margin: 0 0 20px;
+    }
+    
+    .nav-item {
+        width: 48%;
+        margin: 5px 1%;
+    }
+    
+    .nav-link {
+        border: 0;
+        border-radius: 0;
+        background: #3a4480;
+        padding: 15px 10px;
+        display: flex;
+        align-items: center;
+        min-height: 120px;
+        color: #fff;
+        font-size: 16px;
+        
+        @media(max-width:992px){
+            min-height: 80px;
+            padding: 10px;
+        }
+        
+        &.active {
+            color: #fff;
+            background: #7487dd;
+        }
+        
+        &:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+    }
+}
 
 .navbar-toggler {
     padding: 0;

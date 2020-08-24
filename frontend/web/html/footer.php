@@ -12,18 +12,18 @@
                     </button>
                 </form>
                 <ul class="footer-menu">
-                    <li><a href="#">Главная</a></li>
+                    <li><a href="html/index.php">Главная</a></li>
                     <li>
-                        <a href="#">О компании</a>
+                        <a href="html/index.php">О компании</a>
                         <ul>
-                            <li><a href="#">Кейсы</a></li>
+                            <li><a href="html/cases.php">Кейсы</a></li>
                             <li><a href="html/job.php">Вакансии</a></li>
-                            <li><a href="#">Отзывы</a></li>
+                            <li><a href="html/reviews.php">Отзывы</a></li>
                         </ul>
                     </li>
                     <li><a href="html/products.php">Продукты</a></li>
                     <li><a href="html/services.php">Услуги</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="html/contacts.php">Контакты</a></li>
                 </ul>
             </div>
             <div class="col-lg-3">
@@ -36,6 +36,31 @@
         </div>
     </div>
 </footer>
+
+<div class="modal fade" id="modal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <p><b>Оставить заявку</b></p>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Имя">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Телефон">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="4" placeholder="Комментарий"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-blue btn-block">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Скрипты -->
 

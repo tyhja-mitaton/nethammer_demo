@@ -6,8 +6,10 @@
     </head>
 
     <body>
+       
+        <?php include 'header.php'; ?>
+
         <div class="service-page">
-            <?php include 'header.php'; ?>
             
             <div class="container">
                 <h1 class="page-title">Страница услуги</h1>
