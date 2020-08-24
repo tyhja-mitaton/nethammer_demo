@@ -17,6 +17,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\data\ActiveDataProvider;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
@@ -95,6 +96,54 @@ class SiteController extends Controller
             ],
         ]);
         return $this->render('job', ['provider' => $provider]);
+    }
+
+    public function actionProducts()
+    {
+        $model = InfoBlock::find()->where(['type' => InfoBlock::PRODUCT_BLOCK]);
+        $provider = new ActiveDataProvider([
+            'query' => $model,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
+        ]);
+        return $this->render('products', ['provider' => $provider]);
+    }
+
+    public function actionProductPage($id)
+    {
+        return $this->render('product-page', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    public function actionServices()
+    {
+        $model = InfoBlock::find()->where(['type' => InfoBlock::SERVICE_BLOCK]);
+        $provider = new ActiveDataProvider([
+            'query' => $model,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
+        ]);
+        return $this->render('services', ['provider' => $provider]);
+    }
+
+    public function actionServicePage($id)
+    {
+        return $this->render('service-page', [
+            'model' => $this->findModel($id),
+        ]);
     }
 
     /**
@@ -276,5 +325,21 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+    /**
+     * Finds the InfoBlock model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return InfoBlock the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($id)
+    {
+        if (($model = InfoBlock::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

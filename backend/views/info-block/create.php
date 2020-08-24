@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\InfoBlock */
 
-$this->title = 'Create Info Block';
+$this->title = 'Создать информационный блок';
 $this->params['breadcrumbs'][] = ['label' => 'Info Blocks', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

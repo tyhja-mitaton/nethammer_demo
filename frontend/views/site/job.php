@@ -17,7 +17,7 @@ $appealModel = new \frontend\models\Appeal();
                     <h2 class="job-title" data-toggle="collapse" data-target="#vacancy<?=$i/*$model->iterator->key()*/ ?>">
                         <?=$model->title ?> <span><?=$model->salary ?> руб</span>
                     </h2>
-                    <div id="vacancy<?=$i ?>" class="collapse" data-parent="#vacancies">
+                    <div id="vacancy<?=$i ?>" class="collapse <?=$i === 1 ? 'show':'' ?>" data-parent="#vacancies">
                         <?=$model->description ?>
                     </div>
                 </div>
@@ -29,12 +29,12 @@ $appealModel = new \frontend\models\Appeal();
 </div>
 <?php
 $js = <<<JS
-var formatter = new Intl.NumberFormat("ru", {style: "currency", currency: "руб"});
+var formatter = new Intl.NumberFormat("ru", {/*style: "currency", currency: "RUB"*/});
 $(function() {
   $(document).find('h2.job-title span').each(function() {
     let salary = parseInt($(this).text(), 10);
     let fSalary = formatter.format(salary);
-    $(this).text(fSalary);
+    $(this).text(fSalary + ' руб');
   })
 });
 JS;

@@ -80,8 +80,8 @@ class InfoBlock extends \yii\db\ActiveRecord
         switch ($this->type) {
             case self::MAIN_PAGE_SLIDER: $path = 'slider';break;
             case self::INFO_BLOCK: $path = 'info';break;
-            case self::SERVICE_BLOCK: $path = 'service';break;
-            case self::PRODUCT_BLOCK: $path = 'product';break;
+            case self::SERVICE_BLOCK: $path = 'services';break;
+            case self::PRODUCT_BLOCK: $path = 'products';break;
             case self::CASE_BLOCK: $path = 'case';break;
             case self::VACANCY_BLOCK: $path = 'vacancy';break;
         }
