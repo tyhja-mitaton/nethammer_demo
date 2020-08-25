@@ -25,7 +25,7 @@ $appealModel = new \frontend\models\Appeal();
         </div>
     </div>
 </section>
-    <?= $this->render('contact', ['model' => $appealModel]); ?>
+    <?= $this->render('_contact', ['model' => $appealModel]); ?>
 </div>
 <?php
 $js = <<<JS

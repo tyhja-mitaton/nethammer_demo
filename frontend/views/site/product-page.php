@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <img class="main-img" src="images/screen.jpg" alt="">
             </div>
 
-            <div class="product-slider">
+            <div class="product-slider owl-carousel owl-theme">
                 <?php for($i = 0; $i < 12; $i++) { ?>
                     <a class="img" href="images/screen.jpg">
                         <img data-fancybox="gallery" src="images/screen.jpg" alt="">
@@ -35,3 +35,11 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+<?php
+$js = <<<JS
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({responsive:{768:{items: 3}}});
+});
+JS;
+$this->registerJs($js);
+?>

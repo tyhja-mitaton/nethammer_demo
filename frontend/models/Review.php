@@ -59,4 +59,8 @@ class Review extends \yii\db\ActiveRecord
             'is_visible' => 'Проверено',
         ];
     }
+    public function getDate()
+    {
+        return Yii::$app->formatter->asDate($this->created_at, 'dd.MM.yyyy');
+    }
 }

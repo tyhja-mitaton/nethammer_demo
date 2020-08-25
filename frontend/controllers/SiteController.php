@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use common\models\InfoBlock;
 use frontend\models\Appeal;
 use frontend\models\ResendVerificationEmailForm;
+use frontend\models\Review;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
@@ -78,7 +79,20 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = InfoBlock::find()->where(['type' => InfoBlock::MAIN_PAGE_SLIDER]);
+        $appeal = new Appeal();
+        $provider = new ActiveDataProvider([
+            'query' => $model,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
+        ]);
+        return $this->render('index', ['provider' => $provider, 'appeal' => $appeal]);
     }
 
     public function actionJob()
@@ -146,6 +160,40 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionCases()
+    {
+        $model = InfoBlock::find()->where(['type' => InfoBlock::CASE_BLOCK]);
+        $provider = new ActiveDataProvider([
+            'query' => $model,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
+        ]);
+        return $this->render('cases', ['provider' => $provider]);
+    }
+
+    public function actionReviews()
+    {
+        $model = Review::find()->where(['is_visible' => 1]);
+        $provider = new ActiveDataProvider([
+            'query' => $model,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
+        ]);
+        return $this->render('reviews', ['provider' => $provider]);
+    }
+
     /**
      * Logs in a user.
      *
@@ -198,7 +246,7 @@ class SiteController extends Controller
 
             return $this->refresh();
         } else {
-            return $this->render('contact', [
+            return $this->render('contacts', [
                 'model' => $model,
             ]);
         }

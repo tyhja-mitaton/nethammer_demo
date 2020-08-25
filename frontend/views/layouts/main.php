@@ -55,7 +55,7 @@ $menuItems = [
     ['label' => 'О компании', 'items' => [
         ['label' => 'Кейсы', 'url' => ['/site/cases']],
         ['label' => 'Вакансии', 'url' => ['/site/job']],
-        ['label' => 'Отзывы', 'url' => ['/site/review']]
+        ['label' => 'Отзывы', 'url' => ['/site/reviews']]
     ]
     ],
     ['label' => 'Продукты', 'url' => ['/site/products']],

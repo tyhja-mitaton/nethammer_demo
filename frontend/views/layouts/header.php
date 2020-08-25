@@ -5,7 +5,8 @@ use yii\bootstrap4\NavBar;
 use yii\helpers\Html;
 use yii\bootstrap4\Breadcrumbs;
 ?>
-<header class="container">
+<header>
+    <div class="container">
         <div class="row align-items-end">
             <div class="col-lg-4 d-flex align-items-center">
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#w0-collapse">
@@ -65,6 +66,7 @@ use yii\bootstrap4\Breadcrumbs;
                 </ul>
             </div>
         </div>
+    </div>
     </header>
 <div class="container">
     <h1 class="page-title"><?= Html::encode($this->title) ?></h1>
