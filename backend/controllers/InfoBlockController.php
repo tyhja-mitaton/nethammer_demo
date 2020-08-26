@@ -35,6 +35,9 @@ class InfoBlockController extends Controller
      */
     public function actionIndex()
     {
+        /*if (!Yii::$app->user->isGuest) {
+            return $this->render('//layouts/unauthorized');
+        }*/
         $searchModel = new InfoBlockSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

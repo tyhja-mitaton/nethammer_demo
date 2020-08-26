@@ -24,7 +24,7 @@ backend\assets\AppAsset::register($this);
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <?= $content ?>
+                                Unauthorized!
                             </div>
                         </div>
                     </div>

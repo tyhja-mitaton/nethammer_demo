@@ -5,13 +5,13 @@
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = $this->title;
-
+$avatar = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'avatar'])->one();
 ?>
 <div class="container">
 <div class="service-page">
     <div class="row mb-5 align-items-center">
         <div class="col-lg-6 order-lg-1 mb-4 text-center">
-            <img src="images/service-page.png" alt="">
+            <img src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="">
         </div>
         <div class="col-lg-6">
             <?=$model->description ?>

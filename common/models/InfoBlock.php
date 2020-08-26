@@ -39,6 +39,7 @@ class InfoBlock extends \yii\db\ActiveRecord
                 'class' => 'floor12\files\components\FileBehaviour',
                 'attributes' => [
                     'imgs',
+                    'avatar'
                 ],
             ],
             ];
@@ -55,6 +56,7 @@ class InfoBlock extends \yii\db\ActiveRecord
             [['type', 'salary'], 'integer'],
             [['title', 'btn_name'], 'string', 'max' => 255],
             ['imgs', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 10],
+            ['avatar', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 1],
         ];
     }
 
@@ -71,6 +73,7 @@ class InfoBlock extends \yii\db\ActiveRecord
             'type' => 'Тип',
             'salary' => 'Зарплата',
             'imgs' => 'Изображения',
+            'avatar' => 'Аватар'
         ];
     }
 

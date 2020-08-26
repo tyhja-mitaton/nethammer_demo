@@ -36,6 +36,7 @@ use dosamigos\tinymce\TinyMce;
     <?= $form->field($model, 'salary', ['options' => ['class' => $model->type !== \common\models\InfoBlock::VACANCY_BLOCK ? 'd-none': '']])->textInput() ?>
 
     <?= $form->field($model, 'imgs')->widget(floor12\files\components\FileInputWidget::class)?>
+    <?= $form->field($model, 'avatar')->widget(floor12\files\components\FileInputWidget::class)?>
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>

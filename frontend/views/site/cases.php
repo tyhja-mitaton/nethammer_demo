@@ -2,6 +2,9 @@
 /**
  * @var $provider yii\data\ActiveDataProvider
  */
+
+use yii\helpers\Html;
+
 $this->title = 'Кейсы';
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -22,15 +25,16 @@ $models = $provider->getModels();
     </div>
 
     <div class="cases-list">
-        <?php foreach ($models as $model) { ?>
+        <?php foreach ($models as $model) {
+            $imgModels = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->all();?>
         <div class="case">
             <div class="container">
                 <p class="title"><?=$model->title ?></p>
             </div>
-            <div class="case-slider">
-                <?php for($i = 0; $i < 6; $i++) { ?>
+            <div class="case-slider owl-carousel owl-theme">
+                <?php foreach ($imgModels as $img) { ?>
                     <div class="item">
-                        <img src="images/case.png" alt="">
+                        <?=Html::img($img->href); ?>
                     </div>
                 <?php } ?>
             </div>
@@ -42,3 +46,14 @@ $models = $provider->getModels();
         <?php } ?>
     </div>
 </div>
+<?php
+$js = <<<JS
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({responsive:{768:{items: 3}}});
+  /*$('[data-fancybox="products-gallery"]').fancybox({
+	parentEl:"div"
+});*/
+});
+JS;
+$this->registerJs($js);
+?>
