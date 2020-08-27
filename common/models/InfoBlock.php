@@ -24,6 +24,8 @@ class InfoBlock extends \yii\db\ActiveRecord
     const PRODUCT_BLOCK = 4;
     const CASE_BLOCK = 5;
     const VACANCY_BLOCK = 6;
+
+    private $_url;
     /**
      * {@inheritdoc}
      */
@@ -69,7 +71,7 @@ class InfoBlock extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Заголовок',
             'description' => 'Описание',
-            'btn_name' => 'Имя кнопки',
+            'btn_name' => $this->type === self::MAIN_PAGE_SLIDER ? 'Ссылка' : 'Имя кнопки',
             'type' => 'Тип',
             'salary' => 'Зарплата',
             'imgs' => 'Изображения',
@@ -79,17 +81,19 @@ class InfoBlock extends \yii\db\ActiveRecord
 
     public function getUrl()
     {
-        $path = '';
-        switch ($this->type) {
-            case self::MAIN_PAGE_SLIDER: $path = 'slider';break;
-            case self::INFO_BLOCK: $path = 'info';break;
-            case self::SERVICE_BLOCK: $path = 'services';break;
-            case self::PRODUCT_BLOCK: $path = 'products';break;
-            case self::CASE_BLOCK: $path = 'case';break;
-            case self::VACANCY_BLOCK: $path = 'vacancy';break;
+        $path = ''; $params = null;
+        if ($this->_url === null) {
+            switch ($this->type) {
+                case self::MAIN_PAGE_SLIDER: $path = 'slider';break;
+                case self::INFO_BLOCK: $path = 'info';break;
+                case self::SERVICE_BLOCK: $path = 'service-page';$params = ['id' => $this->id]; break;
+                case self::PRODUCT_BLOCK: $path = 'product-page';$params = ['id' => $this->id]; break;
+                case self::CASE_BLOCK: $path = 'cases';break;
+                case self::VACANCY_BLOCK: $path = 'job';break;
+            }
+            $this->_url = Url::toRoute("site/$path", $params);
         }
 
-        return Url::toRoute("site/$path");
-
+        return $this->_url;
     }
 }

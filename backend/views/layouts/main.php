@@ -4,11 +4,11 @@ use yii\helpers\Html;
 /** @var \yii\web\View$this  */
 /** @var string $content */
 
-if (\Yii::$app->user->isGuest)
+/*if (\Yii::$app->user->isGuest)
 {
     echo $this->render('unauthorized', $_params_);
     return;
-}
+}*/
 
 backend\assets\AppAsset::register($this);
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');

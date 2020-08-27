@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use backend\models\InfoBlockSearch;
 use common\models\InfoBlock;
 use frontend\models\Appeal;
 use frontend\models\ResendVerificationEmailForm;
@@ -194,6 +195,14 @@ class SiteController extends Controller
         return $this->render('reviews', ['provider' => $provider]);
     }
 
+    public function actionSearch()
+    {
+        $searchModel = new InfoBlockSearch();
+        $dataProvider = $searchModel->searchAll();
+
+        return $this->render('search', ['provider' => $dataProvider]);
+    }
+
     /**
      * Logs in a user.
      *
@@ -205,15 +214,13 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        $model = \Yii::createObject(\dektrium\user\models\LoginForm::class);
+        if ($model->load(\Yii::$app->request->post()) && $model->login()) {
+
+            return $this->redirect('/user/'.\Yii::$app->user->identity->id);
         } else {
             $model->password = '';
-
-            return $this->render('login', [
-                'model' => $model,
-            ]);
+            return $this->render('login', [ 'model'  => $model]);
         }
     }
 

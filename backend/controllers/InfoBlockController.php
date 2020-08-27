@@ -35,9 +35,9 @@ class InfoBlockController extends Controller
      */
     public function actionIndex()
     {
-        /*if (!Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
             return $this->render('//layouts/unauthorized');
-        }*/
+        }
         $searchModel = new InfoBlockSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

@@ -22,12 +22,12 @@ use yii\helpers\Url;
                 <li class="nav-item dropdown user user-menu">
                     <a href="#" class="nav-link dropdown-toggle"  href="#" role="button" id="dropdownUser" data-toggle="dropdown">
                         <img src="<?= Url::toRoute(['/images/logo_big.png'])?>" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs"><?= \Yii::$app->user->identity->username ?></span>
+                        <span class="hidden-xs"><?= isset(Yii::$app->user->identity->id) ? \dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->username: '' ?></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownUser">
                         <li class="user-header">
                             <img src="<?= Url::toRoute(['/images/logo_big.png'])?>" class="rounded-circle" alt="User Image"/>
-                            <p><?= \Yii::$app->user->identity->username ?></p>
+                            <p><?= isset(Yii::$app->user->identity->id) ? \dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->username: '' ?></p>
                         </li>
                         <!--
                             <li class="user-body">

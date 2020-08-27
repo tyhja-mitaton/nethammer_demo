@@ -20,8 +20,8 @@ $models = $provider->getModels();
                     <div class="col-md-6">
                         <p class="title"><?=$model->title ?></p>
                         <p><?=$model->description ?></p>
-                        <a class="btn btn-white" href="html/service-page.php">
-                            <?=$model->btn_name ?> <i>→</i>
+                        <a class="btn btn-white" href="<?=$model->btn_name ?>">
+                            Подробнее <i>→</i>
                         </a>
                     </div>
                 </div>

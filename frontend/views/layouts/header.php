@@ -4,7 +4,8 @@ use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 use yii\helpers\Html;
 use yii\bootstrap4\Breadcrumbs;
-?>
+use yii\widgets\ActiveForm;
+$searchModel = new \backend\models\InfoBlockSearch()?>
 <header>
     <div class="container">
         <div class="row align-items-end">
@@ -51,12 +52,21 @@ use yii\bootstrap4\Breadcrumbs;
         </div>
         <div class="row align-items-center pt-lg-3">
             <div class="col-lg-4">
-                <form class="search-form">
+                <?php $form = ActiveForm::begin([
+                    'action' => ['search'],
+                    'method' => 'get',
+                    'errorCssClass' => 'error',
+                    'options' => ['class' => 'search-form']
+                ]); ?>
+                <?= $form->field($searchModel, 'search')->textInput(['placeholder' => 'Поиск'])->label(false) ?>
+                <?= Html::submitButton('<img src="images/search.png" alt="">') ?>
+                <!--<form class="search-form">
                     <input type="text" placeholder="Поиск">
                     <button type="button">
                         <img src="images/search.png" alt="">
                     </button>
-                </form>
+                </form>-->
+                <?php ActiveForm::end(); ?>
             </div>
             <div class="col-lg-8 d-flex">
                 <ul class="social">
@@ -75,6 +85,7 @@ use yii\bootstrap4\Breadcrumbs;
             'tag' => 'ol',
             'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
             'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
+            'homeLink' => ['label' => 'Главная', 'url' => '/'],
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
     </nav>

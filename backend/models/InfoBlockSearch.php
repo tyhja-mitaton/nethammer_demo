@@ -11,6 +11,7 @@ use common\models\InfoBlock;
  */
 class InfoBlockSearch extends InfoBlock
 {
+    public $search ='';
     /**
      * {@inheritdoc}
      */
@@ -66,6 +67,19 @@ class InfoBlockSearch extends InfoBlock
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'btn_name', $this->btn_name])
             ->andFilterWhere(['like', 'imgs', $this->imgs]);
+
+        return $dataProvider;
+    }
+
+    public function searchAll()
+    {
+        $query = InfoBlock::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+        $param = \Yii::$app->request->get()[$this->formName()]["search"];
+        $query->andFilterWhere(['like', 'title', $param])
+            ->orFilterWhere(['like', 'description', $param]);
 
         return $dataProvider;
     }
