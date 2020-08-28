@@ -55,4 +55,14 @@ class Appeal extends \yii\db\ActiveRecord
             'updated_at' => 'Дата изменения',
         ];
     }
+
+    public function sendEmail($email, $contactData, $appeal)
+    {
+        return Yii::$app->mailer->compose()
+            ->setTo($email)
+            ->setFrom($appeal->author)
+            ->setSubject($contactData->subject)
+            ->setTextBody($appeal->phone)
+            ->send();
+    }
 }

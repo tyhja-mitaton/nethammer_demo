@@ -30,7 +30,7 @@ $searchModel = new \backend\models\InfoBlockSearch()?>
                 'renderInnerContainer' => false,
                 'togglerContent' => false//'<img src="images/menu.png" alt="">'
             ]);
-            if (Yii::$app->user->isGuest) {
+            /*if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
             } else {
                 $menuItems[] = '<li>'
@@ -41,7 +41,7 @@ $searchModel = new \backend\models\InfoBlockSearch()?>
                     )
                     . Html::endForm()
                     . '</li>';
-            }
+            }*/
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav ml-auto'],
                 'items' => $menuItems,
@@ -60,12 +60,6 @@ $searchModel = new \backend\models\InfoBlockSearch()?>
                 ]); ?>
                 <?= $form->field($searchModel, 'search')->textInput(['placeholder' => 'Поиск'])->label(false) ?>
                 <?= Html::submitButton('<img src="images/search.png" alt="">') ?>
-                <!--<form class="search-form">
-                    <input type="text" placeholder="Поиск">
-                    <button type="button">
-                        <img src="images/search.png" alt="">
-                    </button>
-                </form>-->
                 <?php ActiveForm::end(); ?>
             </div>
             <div class="col-lg-8 d-flex">

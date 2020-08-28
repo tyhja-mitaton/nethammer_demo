@@ -35,6 +35,9 @@ class ReviewController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('//site/login');
+        }
         $searchModel = new ReviewSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -52,6 +55,9 @@ class ReviewController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('//site/login');
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -64,6 +70,9 @@ class ReviewController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('//site/login');
+        }
         $model = new Review();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -84,6 +93,9 @@ class ReviewController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('//site/login');
+        }
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -104,6 +116,9 @@ class ReviewController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('//site/login');
+        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

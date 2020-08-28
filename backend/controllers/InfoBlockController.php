@@ -36,7 +36,7 @@ class InfoBlockController extends Controller
     public function actionIndex()
     {
         if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
-            return $this->render('//layouts/unauthorized');
+            return $this->redirect('//site/login');
         }
         $searchModel = new InfoBlockSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -55,6 +55,9 @@ class InfoBlockController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('//site/login');
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -67,6 +70,9 @@ class InfoBlockController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('//site/login');
+        }
         $model = new InfoBlock();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -87,6 +93,9 @@ class InfoBlockController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('//site/login');
+        }
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -107,6 +116,9 @@ class InfoBlockController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('//site/login');
+        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use backend\models\ContactData;
 use backend\models\InfoBlockSearch;
 use common\models\InfoBlock;
 use frontend\models\Appeal;
@@ -244,12 +245,14 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new Appeal();
+        $contactData = ContactData::findOne(1);
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            /*if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+            $emails = $contactData ? $contactData->getEmailsArray() : Yii::$app->params['adminEmails'];
+            if ($model->sendEmail($emails, $contactData, $model)) {
                 Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
             } else {
                 Yii::$app->session->setFlash('error', 'There was an error sending your message.');
-            }*/
+            }
 
             return $this->refresh();
         } else {
