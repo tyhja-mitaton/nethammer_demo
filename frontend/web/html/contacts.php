@@ -49,8 +49,9 @@
             
             <?php include 'contact-us.php'; ?>
             
-
-            <?php include 'footer.php'; ?>
         </div>
+        
+        <?php include 'footer.php'; ?>
+            
     </body>
 </html>

@@ -319,6 +319,14 @@ h4,
 }
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   font-size: 18px;
@@ -510,6 +518,9 @@ header {
 }
 
 header + * {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   padding-top: 180px;
 }
 
@@ -747,9 +758,7 @@ footer a:focus {
 }
 
 .category-list .item:nth-child(even) .container {
-  grid-template-areas: "img title"
-  "img desc"
-  "img btn";
+  grid-template-areas: "img title"  "img desc"  "img btn";
 }
 
 .category-list .container {
@@ -759,9 +768,7 @@ footer a:focus {
   align-items: center;
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  grid-template-areas: "title img"
-  "desc img"
-  "btn img";
+  grid-template-areas: "title img"  "desc img"  "btn img";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
 }
@@ -950,8 +957,7 @@ footer a:focus {
   align-items: center;
   grid-column-gap: 30px;
   grid-row-gap: 20px;
-  grid-template-areas: "subtitle main-img"
-  "desc main-img";
+  grid-template-areas: "subtitle main-img"  "desc main-img";
   grid-template-columns: 42% auto;
   grid-template-rows: auto;
 }
@@ -1447,17 +1453,11 @@ footer a:focus {
   }
 
   .category-list .item:nth-child(even) .container {
-    grid-template-areas: "title"
-    "img"
-    "desc"
-    "btn";
+    grid-template-areas: "title"    "img"    "desc"    "btn";
   }
 
   .category-list .container {
-    grid-template-areas: "title"
-    "img"
-    "desc"
-    "btn";
+    grid-template-areas: "title"    "img"    "desc"    "btn";
     grid-template-columns: 100%;
     grid-template-rows: auto;
   }
@@ -1515,9 +1515,7 @@ footer a:focus {
   }
 
   .product-page .product-top {
-    grid-template-areas: "subtitle"
-    "main-img"
-    "desc";
+    grid-template-areas: "subtitle"    "main-img"    "desc";
     grid-template-columns: 100%;
   }
 
@@ -1645,29 +1643,4 @@ footer a:focus {
   .home-slider img {
     margin: 20px auto;
   }
-}
-@media (min-width: 768px) {
-  footer .dropdown .dropdown-menu {
-    background: rgba(116, 135, 221, 1);
-  }
-}
-@media (max-width: 320px) {
-  footer .dropdown .dropdown-menu {
-    position: relative !important;
-    transform: none !important;
-  }
-  footer .dropdown .dropdown-item {
-    padding-left: 10px;
-    padding-right: 10px;
-    display: inline;
-  }
-}
-.site-error, .home-page, .category-page, .product-page, .contact-page, .cases-page, .job-page, .reviews-page {
-  min-height: calc(100vh - 263px);
-}
-.search-page .item:nth-child(2n+1) {
-  background: #1d2972;
-}
-.search-page .item {
-  padding: 0 10px;
 }
