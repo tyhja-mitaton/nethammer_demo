@@ -33,5 +33,5 @@ use yii\widgets\Breadcrumbs;
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2019</strong>
+    <strong>Copyright &copy; <?=date('Y')?></strong>
 </footer>

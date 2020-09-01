@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Appeal */
 
-$this->title = 'Update Appeal: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Appeals', 'url' => ['index']];
+$this->title = 'Обновить обращение: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Обращения', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Обновить';
 ?>
 <div class="appeal-update">
 

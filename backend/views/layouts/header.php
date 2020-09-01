@@ -7,10 +7,10 @@ use yii\helpers\Url;
 /** @var \yii\web\View $this */
 /** @var string $content */
 
+if (Yii::$app->user->can('admin')) {
 ?>
-
 <header class="main-header">
-    <?= Html::a('<span class="logo-mini"><img src="' . Url::to('@web/images/logo.png') . '"></span><span class="logo-lg">Департамент</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini"><img src="' . Url::to('@web/images/logo.png') . '"></span><span class="logo-lg">Разделы</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-static-top navbar-expand-lg" role="navigation">
         <a href="#" class="sidebar-toggle mr-auto" data-toggle="push-menu" role="button">
@@ -21,7 +21,7 @@ use yii\helpers\Url;
             <ul class="nav navbar-nav">
                 <li class="nav-item dropdown user user-menu">
                     <a href="#" class="nav-link dropdown-toggle"  href="#" role="button" id="dropdownUser" data-toggle="dropdown">
-                        <img src="<?= Url::toRoute(['/images/logo_big.png'])?>" class="user-image" alt="User Image"/>
+                        <img src="<?= Url::toRoute(['images/favicon.png'])?>" class="user-image" alt=""/>
                         <span class="hidden-xs"><?= isset(Yii::$app->user->identity->id) ? \dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->username: '' ?></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownUser">
@@ -62,3 +62,4 @@ use yii\helpers\Url;
         </div>
     </nav>
 </header>
+<?php } ?>

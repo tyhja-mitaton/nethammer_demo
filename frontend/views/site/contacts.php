@@ -4,8 +4,21 @@
 $this->title = 'Контакты';
 $this->params['breadcrumbs'][] = $this->title;
 
-?>
+use yii\bootstrap4\Breadcrumbs;
+use yii\helpers\Html; ?>
 <div class="contact-page">
+    <div class="container">
+        <h1 class="page-title"><?= Html::encode($this->title) ?></h1>
+        <nav>
+            <?= Breadcrumbs::widget([
+                'tag' => 'ol',
+                'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
+                'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
+                'homeLink' => ['label' => 'Главная', 'url' => '/'],
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+        </nav>
+    </div>
     <div class="container">
     <div class="row">
         <div class="col-lg-5 pl-5 order-lg-1">
@@ -28,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-lg-7">
             <div class="map">
-                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A36ec7ffcc5d138de79fb44884189e254b0a7d3f1faffdbbe005792daff7a3743&amp;width=100%25&amp;height=360&amp;lang=ru_RU&amp;scroll=false"></script>
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae93d4e092c589ae408849cecfe6bb11592e97d74c6737c66e67ac359f1884084&amp;width=100%25&amp;height=360&amp;lang=ru_RU&amp;scroll=false"></script>
             </div>
         </div>
     </div>

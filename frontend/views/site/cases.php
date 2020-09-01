@@ -3,6 +3,7 @@
  * @var $provider yii\data\ActiveDataProvider
  */
 
+use yii\bootstrap4\Breadcrumbs;
 use yii\helpers\Html;
 
 $this->title = 'Кейсы';
@@ -11,6 +12,18 @@ $this->params['breadcrumbs'][] = $this->title;
 $models = $provider->getModels();
 ?>
 <div class="cases-page">
+    <div class="container">
+        <h1 class="page-title"><?= Html::encode($this->title) ?></h1>
+        <nav>
+            <?= Breadcrumbs::widget([
+                'tag' => 'ol',
+                'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
+                'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
+                'homeLink' => ['label' => 'Главная', 'url' => '/'],
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+        </nav>
+    </div>
     <div class="cases-filter-box">
         <div class="container">
             <div class="cases-filter">

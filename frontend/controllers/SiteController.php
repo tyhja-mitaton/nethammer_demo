@@ -82,6 +82,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = InfoBlock::find()->where(['type' => InfoBlock::MAIN_PAGE_SLIDER]);
+        $advModel = InfoBlock::find()->where(['type' => InfoBlock::INFO_BLOCK]);
         $appeal = new Appeal();
         $provider = new ActiveDataProvider([
             'query' => $model,
@@ -94,7 +95,18 @@ class SiteController extends Controller
                 ]
             ],
         ]);
-        return $this->render('index', ['provider' => $provider, 'appeal' => $appeal]);
+        $advProvider = new ActiveDataProvider([
+            'query' => $advModel,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_ASC,
+                ]
+            ],
+        ]);
+        return $this->render('index', ['provider' => $provider, 'appeal' => $appeal, 'advProvider' => $advProvider]);
     }
 
     public function actionJob()

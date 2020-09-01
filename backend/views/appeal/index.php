@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\AppealSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Appeals';
+$this->title = 'Обращения';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="appeal-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Appeal', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать обращение', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -29,8 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'author',
             'phone',
-            'created_at',
-            'updated_at',
+            'created_at:date',
+            'updated_at:date',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

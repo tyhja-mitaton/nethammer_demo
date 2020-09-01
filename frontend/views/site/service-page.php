@@ -6,9 +6,23 @@
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = $this->title;
 $avatar = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'avatar'])->one();
-?>
-<div class="container">
+
+use yii\bootstrap4\Breadcrumbs;
+use yii\helpers\Html; ?>
+
 <div class="service-page">
+    <div class="container">
+        <h1 class="page-title"><?= Html::encode($this->title) ?></h1>
+        <nav>
+            <?= Breadcrumbs::widget([
+                'tag' => 'ol',
+                'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
+                'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
+                'homeLink' => ['label' => 'Главная', 'url' => '/'],
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+        </nav>
+    <!--</div>-->
     <div class="row mb-5 align-items-center">
         <div class="col-lg-6 order-lg-1 mb-4 text-center">
             <img src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="">
@@ -53,5 +67,5 @@ $avatar = floor12\files\models\File::find()->where(['object_id' => $model->id, '
             <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
         </div>
     </div>
-</div>
+    </div>
 </div>

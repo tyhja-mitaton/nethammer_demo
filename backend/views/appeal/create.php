@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Appeal */
 
-$this->title = 'Create Appeal';
-$this->params['breadcrumbs'][] = ['label' => 'Appeals', 'url' => ['index']];
+$this->title = 'Создать обращение';
+$this->params['breadcrumbs'][] = ['label' => 'Обращения', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="appeal-create">

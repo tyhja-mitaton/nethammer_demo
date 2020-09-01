@@ -6,8 +6,22 @@ $this->title = 'Отзывы';
 $this->params['breadcrumbs'][] = $this->title;
 
 $models = $provider->getModels();
-?>
+
+use yii\bootstrap4\Breadcrumbs;
+use yii\helpers\Html; ?>
 <div class="reviews-page">
+    <div class="container">
+        <h1 class="page-title"><?= Html::encode($this->title) ?></h1>
+        <nav>
+            <?= Breadcrumbs::widget([
+                'tag' => 'ol',
+                'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
+                'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
+                'homeLink' => ['label' => 'Главная', 'url' => '/'],
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+        </nav>
+    </div>
     <div class="container">
         <button class="btn btn-blue-o" type="button" data-toggle="modal" data-target="#modal">Оставить отзыв</button>
     </div>
