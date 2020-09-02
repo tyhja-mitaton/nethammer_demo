@@ -1,11 +1,14 @@
 <?php
+
+use backend\models\ContactData;
 use common\widgets\Alert;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 use yii\helpers\Html;
 use yii\bootstrap4\Breadcrumbs;
 use yii\widgets\ActiveForm;
-$searchModel = new \backend\models\InfoBlockSearch()?>
+$searchModel = new \backend\models\InfoBlockSearch();
+$contactDataModel = ContactData::find()->one();?>
 <header>
     <div class="container">
         <div class="row align-items-end">
@@ -64,9 +67,9 @@ $searchModel = new \backend\models\InfoBlockSearch()?>
             </div>
             <div class="col-lg-8 d-flex">
                 <ul class="social">
-                    <li><a href="#"><i class="fab fa-vk"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="<?=isset($contactDataModel->vk_link) ? $contactDataModel->vk_link : '#'?>"><i class="fab fa-vk"></i></a></li>
+                    <li><a href="<?=isset($contactDataModel->fb_link) ? $contactDataModel->fb_link : '#'?>"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="<?=isset($contactDataModel->twitter_link) ? $contactDataModel->twitter_link : '#'?>"><i class="fab fa-twitter"></i></a></li>
                 </ul>
             </div>
         </div>

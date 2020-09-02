@@ -81,17 +81,17 @@ class InfoBlock extends \yii\db\ActiveRecord
 
     public function getUrl()
     {
-        $path = ''; $params = null;
+        $params = null;
         if ($this->_url === null) {
             switch ($this->type) {
-                case self::MAIN_PAGE_SLIDER: $path = 'slider';break;
-                case self::INFO_BLOCK: $path = 'info';break;
-                case self::SERVICE_BLOCK: $path = 'service-page';$params = ['id' => $this->id]; break;
-                case self::PRODUCT_BLOCK: $path = 'product-page';$params = ['id' => $this->id]; break;
-                case self::CASE_BLOCK: $path = 'cases';break;
-                case self::VACANCY_BLOCK: $path = 'job';break;
+                case self::MAIN_PAGE_SLIDER: $params = ["$this->btn_name"];break;
+                case self::INFO_BLOCK: $params = ["site/index"];break;
+                case self::SERVICE_BLOCK: $params = ["site/service-page", 'id' => $this->id]; break;
+                case self::PRODUCT_BLOCK: $params = ["site/product-page", 'id' => $this->id]; break;
+                case self::CASE_BLOCK: $params = ["site/cases"];break;
+                case self::VACANCY_BLOCK: $params = ["site/job"];break;
             }
-            $this->_url = Url::toRoute("site/$path", $params);
+            $this->_url = Url::toRoute($params);
         }
 
         return $this->_url;

@@ -1,6 +1,9 @@
 <?php
 
-use yii\bootstrap4\Nav; ?>
+use backend\models\ContactData;
+use yii\bootstrap4\Nav;
+
+$contactDataModel = ContactData::find()->one();?>
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -21,9 +24,9 @@ use yii\bootstrap4\Nav; ?>
             </div>
             <div class="col-lg-3">
                 <ul class="social">
-                    <li><a href="#"><i class="fab fa-vk"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="<?=isset($contactDataModel->vk_link) ? $contactDataModel->vk_link : '#'?>"><i class="fab fa-vk"></i></a></li>
+                    <li><a href="<?=isset($contactDataModel->fb_link) ? $contactDataModel->fb_link : '#'?>"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="<?=isset($contactDataModel->twitter_link) ? $contactDataModel->twitter_link : '#'?>"><i class="fab fa-twitter"></i></a></li>
                 </ul>
             </div>
         </div>

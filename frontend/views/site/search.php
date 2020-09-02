@@ -25,7 +25,7 @@ use yii\helpers\Html; ?>
     <div class="container">
         <?php foreach ($models as $model) { ?>
         <div class="item">
-            <h3 class="page-title"><?=$model->title ?></h3>
+            <a href="<?=$model->url ?>"><h3 class="page-title"><?=$model->title ?></h3></a>
             <div class="text"><?=$model->description ?></div>
         </div>
         <?php } ?>

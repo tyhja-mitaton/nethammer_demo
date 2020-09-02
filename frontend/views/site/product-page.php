@@ -5,11 +5,13 @@
 
 use yii\bootstrap4\Breadcrumbs;
 use yii\helpers\Html;
+use yii\bootstrap4\Modal;
 
 $this->title = 'Страница продукта';
 $this->params['breadcrumbs'][] = $this->title;
 $imgModels = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->all();
 $firstImg = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->one();
+$appealModel = new \frontend\models\Appeal();
 ?>
 <div class="product-page">
     <div class="container">
@@ -40,9 +42,16 @@ $firstImg = floor12\files\models\File::find()->where(['object_id' => $model->id,
                 <?php } ?>
             </div>
 
-            <button class="btn btn-blue-o" type="button">
-                Оставить заявку <i>→</i>
-            </button>
+            <?php Modal::begin([
+                'title' => '',
+                'toggleButton' => ['label' => 'Оставить заявку <i>→</i>', 'class' => 'btn btn-blue-o'],
+                'footer' => '',
+                'size' => Modal::SIZE_EXTRA_LARGE,
+            ]);
+
+            echo $this->render('_contact', ['model' => $appealModel]);
+
+            Modal::end();?>
         </div>
     </div>
 </div>
