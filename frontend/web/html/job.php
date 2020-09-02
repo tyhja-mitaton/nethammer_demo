@@ -46,9 +46,11 @@
                 </div>
             </section>
             
-            <?php include 'contact-us.php'; ?>            
+            <?php include 'contact-us.php'; ?>  
+               
+        </div>       
 
-            <?php include 'footer.php'; ?>
-        </div>
+        <?php include 'footer.php'; ?>
+        
     </body>
 </html>
