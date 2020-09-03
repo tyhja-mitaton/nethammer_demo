@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\InfoBlockSearch */
+/* @var $searchModel backend\models\WorkProcessSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Информационные блоки';
+$this->title = 'Рабочие процессы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="info-block-index">
+<div class="work-process-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Создать информационный блок', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать рабочий процесс', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -28,9 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'description:ntext',
-            'btn_name',
-            ['attribute' => 'type', 'value' => 'typeLabel'],
+            'text',
+            'block1_text',
+            'block2_text',
+            ['attribute' => 'service_title', 'label' => 'Услуга', 'value' => 'service.title'],
 
             ['class' => 'yii\grid\ActionColumn',
                 'header'=>'Действия',

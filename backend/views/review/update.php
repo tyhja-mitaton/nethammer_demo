@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model frontend\models\Review */
 
 $this->title = 'Обновить отзыв: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Reviews', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Отзывы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Обновить';
 ?>

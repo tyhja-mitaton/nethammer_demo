@@ -1,6 +1,7 @@
 <?php
 /**
  * @var $provider yii\data\ActiveDataProvider
+ * @var $newModel \frontend\models\Review
  */
 $this->title = 'Отзывы';
 $this->params['breadcrumbs'][] = $this->title;
@@ -8,6 +9,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $models = $provider->getModels();
 
 use yii\bootstrap4\Breadcrumbs;
+use yii\bootstrap4\Modal;
 use yii\helpers\Html; ?>
 <div class="reviews-page">
     <div class="container">
@@ -23,7 +25,16 @@ use yii\helpers\Html; ?>
         </nav>
     </div>
     <div class="container">
-        <button class="btn btn-blue-o" type="button" data-toggle="modal" data-target="#modal">Оставить отзыв</button>
+        <?php Modal::begin([
+            'title' => '',
+            'toggleButton' => ['label' => 'Оставить отзыв', 'class' => 'btn btn-blue-o'],
+            'footer' => '',
+            'size' => Modal::SIZE_EXTRA_LARGE,
+        ]);
+
+        echo $this->render('_reviewForm', ['model' => $newModel]);
+
+        Modal::end();?>
     </div>
 
     <div class="container-fluid">

@@ -205,7 +205,20 @@ class SiteController extends Controller
                 ]
             ],
         ]);
-        return $this->render('reviews', ['provider' => $provider]);
+        return $this->render('reviews', ['provider' => $provider, 'newModel' => new Review()]);
+    }
+
+    public function actionLeaveReview()
+    {
+        $model = new Review();
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
+            Yii::$app->session->setFlash('success', 'Отзыв будет опубликован после проверки');
+            return $this->redirect(['reviews']);
+        } else {
+            Yii::$app->session->setFlash('error', 'Ошибка отправки.');
+            return false;
+        }
+
     }
 
     public function actionSearch()

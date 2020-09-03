@@ -96,4 +96,18 @@ class InfoBlock extends \yii\db\ActiveRecord
 
         return $this->_url;
     }
+
+    public function getTypeLabel()
+    {
+        $label = '';
+        switch ($this->type) {
+            case self::MAIN_PAGE_SLIDER: $label = 'слайдер на главной странице';break;
+            case self::INFO_BLOCK: $label = 'информационный блок с преимуществами на главной';break;
+            case self::SERVICE_BLOCK: $label = 'блок с услугой на странице "Услуги"';break;
+            case self::PRODUCT_BLOCK: $label = 'блок с продуктом на странице "Продукты"';break;
+            case self::CASE_BLOCK: $label = 'блок на странице "Кейсы"';break;
+            case self::VACANCY_BLOCK: $label = 'вакансия на странице "Вакансии"';break;
+        }
+        return  $label;
+    }
 }

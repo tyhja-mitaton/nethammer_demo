@@ -22,6 +22,14 @@ $items = [
         'url' => ['/review']
     ],
     [
+        'label' => '<i class="fa fa-circle-o"></i> Рабочие процессы',
+        'url' => ['/work-process']
+    ],
+    [
+        'label' => '<i class="fa fa-circle-o"></i> Расценки услуг',
+        'url' => ['/service-price']
+    ],
+    [
         'label' => '<i class="fa fa-circle-o"></i> Контактная форма',
         'url' => ['/site/contact']
     ],

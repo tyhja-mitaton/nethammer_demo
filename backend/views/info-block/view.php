@@ -40,7 +40,7 @@ $viewFieldsArr = [
         'title',
         'description:ntext',
         'btn_name',
-        'type',
+        ['attribute' => 'type', 'value' => $model->typeLabel],
         /*'salary',
         'imgs',*/
     ],

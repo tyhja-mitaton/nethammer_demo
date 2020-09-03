@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <section class="contact-us">
 <div class="container">
     <h2 class="section-title"><?= Html::encode($this->title) ?></h2>
-            <?php $form = ActiveForm::begin(['id' => 'contact-form', 'errorCssClass' => 'error']); ?>
+            <?php $form = ActiveForm::begin(['id' => 'contact-form', 'errorCssClass' => 'error', 'action' => '/site/contact']); ?>
 
                 <?= $form->field($model, 'author')->textInput(['placeholder' => 'Дмитрий', 'value' => 'site@mail.ru'])->label('Имя') ?>
 

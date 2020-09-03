@@ -33,7 +33,8 @@ class ServicePrice extends \yii\db\ActiveRecord
         return [
             [['service_id'], 'required'],
             [['service_id'], 'integer'],
-            [['title', 'text'], 'string', 'max' => 255],
+            [['title'], 'string', 'max' => 255],
+            [['text'], 'string'],
             [['service_id'], 'exist', 'skipOnError' => true, 'targetClass' => InfoBlock::class, 'targetAttribute' => ['service_id' => 'id']],
         ];
     }
@@ -45,9 +46,9 @@ class ServicePrice extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'text' => 'Text',
-            'service_id' => 'Service ID',
+            'title' => 'Заголовок',
+            'text' => 'Текст',
+            'service_id' => 'Услуга',
         ];
     }
 

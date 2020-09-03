@@ -35,7 +35,8 @@ class WorkProcess extends \yii\db\ActiveRecord
         return [
             [['service_id'], 'required'],
             [['service_id'], 'integer'],
-            [['title', 'text', 'block1_text', 'block2_text'], 'string', 'max' => 255],
+            [['title', 'block1_text', 'block2_text'], 'string', 'max' => 255],
+            [['text'], 'string'],
             [['service_id'], 'exist', 'skipOnError' => true, 'targetClass' => InfoBlock::class, 'targetAttribute' => ['service_id' => 'id']],
         ];
     }
@@ -47,11 +48,11 @@ class WorkProcess extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'text' => 'Text',
-            'block1_text' => 'Block1 Text',
-            'block2_text' => 'Block2 Text',
-            'service_id' => 'Service ID',
+            'title' => 'Заголовок',
+            'text' => 'Текст',
+            'block1_text' => 'Блок 1',
+            'block2_text' => 'Блок 2',
+            'service_id' => 'Услуга',
         ];
     }
 

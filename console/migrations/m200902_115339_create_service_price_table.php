@@ -15,7 +15,7 @@ class m200902_115339_create_service_price_table extends Migration
         $this->createTable('{{%service_price}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->null()->defaultValue(null),
-            'text' => $this->string()->null()->defaultValue(null),
+            'text' => $this->text()->null()->defaultValue(null),
             'service_id' => $this->integer()->notNull(),
         ]);
         $this->addForeignKey('fk-service_price-service_id',
