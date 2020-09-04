@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d48c45ab58f7cfb104fa2e86a8c94c1",
+    "content-hash": "6c101d92dd29de0d77bbdeea28bc031d",
     "packages": [
         {
             "name": "2amigos/yii2-tinymce-widget",
@@ -150,7 +150,7 @@
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "git@github.com:RobinHerbots/Inputmask.git",
+                "url": "https://github.com/RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -171,7 +171,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -626,6 +626,51 @@
             "time": "2020-05-25T17:44:05+00:00"
         },
         {
+            "name": "dvizh/yii2-seo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dvizh/yii2-seo.git",
+                "reference": "99efdc21606233908eb9ce68a82f2bb60327fece"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dvizh/yii2-seo/zipball/99efdc21606233908eb9ce68a82f2bb60327fece",
+                "reference": "99efdc21606233908eb9ce68a82f2bb60327fece",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dvizh\\seo\\": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ilya Pistol + Ivan Kartonka",
+                    "email": "admin@nethammer.ru"
+                }
+            ],
+            "description": "Модуль позволяет привязывать SEO поля к моделям",
+            "homepage": "https://github.com/dvizh/yii2-seo",
+            "keywords": [
+                "application",
+                "dvizh",
+                "seo",
+                "yii2"
+            ],
+            "time": "2018-02-05T13:09:00+00:00"
+        },
+        {
             "name": "egulias/email-validator",
             "version": "2.1.19",
             "source": {
@@ -880,6 +925,48 @@
                 "icon"
             ],
             "time": "2016-10-24T15:52:54+00:00"
+        },
+        {
+            "name": "himiklab/yii2-sitemap-module",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/himiklab/yii2-sitemap-module.git",
+                "reference": "e680cb50049102c47342d27f497f77d8c0e447b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/himiklab/yii2-sitemap-module/zipball/e680cb50049102c47342d27f497f77d8c0e447b3",
+                "reference": "e680cb50049102c47342d27f497f77d8c0e447b3",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "himiklab\\sitemap\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "HimikLab",
+                    "homepage": "https://github.com/himiklab"
+                }
+            ],
+            "description": "Yii2 module for automatically generation XML Sitemap",
+            "keywords": [
+                "Sitemap",
+                "module",
+                "xml",
+                "yii2"
+            ],
+            "time": "2019-02-11T07:32:40+00:00"
         },
         {
             "name": "kartik-v/yii2-field-range",
@@ -6213,7 +6300,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "kartik-v/yii2-widget-select2": 20
+        "kartik-v/yii2-widget-select2": 20,
+        "dvizh/yii2-seo": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

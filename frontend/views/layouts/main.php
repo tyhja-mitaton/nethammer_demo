@@ -33,12 +33,7 @@ Yii::$app->name = 'Nethammer';
     <meta name="cannonical" content="https://foodband.ru/">
 
     <meta name="og:type" content="website">
-    <meta name="og:url" content="http://site.ru/">
-    <meta name="og:title" content="Заголовок страницы">
-    <meta name="og:description" content="SEO описание страницы">
     <meta name="og:image" content="/images/logo.jpg">
-    <meta name="description" content="SEO описание страницы">
-    <meta name="keywords" content="Ключевые слова">
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/owl.theme.default.css">
     <link rel="stylesheet" href="css/font-awesome.css">

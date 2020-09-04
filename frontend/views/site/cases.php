@@ -5,9 +5,15 @@
 
 use yii\bootstrap4\Breadcrumbs;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = 'Кейсы';
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->registerMetaTag([
+    'name' => 'og:url',
+    'content' => Url::base(true).Url::current(),
+]);
 
 $models = $provider->getModels();
 ?>

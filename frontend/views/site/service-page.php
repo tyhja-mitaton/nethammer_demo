@@ -2,15 +2,47 @@
 /**
  * @var $model common\models\InfoBlock
  */
+use yii\bootstrap4\Breadcrumbs;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
-$this->title = $model->title;
+if(!$title = $model->seo->title) {
+    $title = $model->title;
+}
+
+if(!$description = $model->seo->description) {
+    $description = $model->description;
+}
+
+if(!$keywords = $model->seo->keywords) {
+    $keywords = '';
+}
+
+$this->title = $title;
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->registerMetaTag([
+    'name' => 'og:title',
+    'content' => $title,
+]);
+$this->registerMetaTag([
+    'name' => 'og:description',
+    'content' => $description,
+]);
+
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $keywords,
+]);
+$this->registerMetaTag([
+    'name' => 'og:url',
+    'content' => Url::base(true).Url::current(),
+]);
+
 $avatar = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'avatar'])->one();
 $workProcess = \frontend\models\WorkProcess::findOne(['service_id' => $model->id]);
 $servicePrice = \frontend\models\ServicePrice::findOne(['service_id' => $model->id]);
-
-use yii\bootstrap4\Breadcrumbs;
-use yii\helpers\Html; ?>
+ ?>
 
 <div class="service-page">
     <div class="container">

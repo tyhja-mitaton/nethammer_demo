@@ -48,6 +48,11 @@ $jobType = \common\models\InfoBlock::VACANCY_BLOCK;
     <?= $form->field($model, 'avatar', ['options' => [
             'class' => $model->type !== $sliderType && $model->type !== $infoType && $model->type !== $serviceType && $model->type !== $productType ? 'd-none': ''
     ]])->widget(floor12\files\components\FileInputWidget::class)?>
+    <?=\dvizh\seo\widgets\SeoForm::widget([
+        'model' => $model,
+        'form' => $form,
+        'title' => 'SEO поля',
+    ]); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>

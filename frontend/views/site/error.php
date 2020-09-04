@@ -5,23 +5,31 @@
 /* @var $message string */
 /* @var $exception Exception */
 
+use yii\bootstrap4\Breadcrumbs;
 use yii\helpers\Html;
 
-$this->title = $name;
+$this->title = $message;
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-error">
+<div class="contact-page">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="container">
+        <h1 class="page-title"><?= Html::encode($this->title) ?></h1>
+        <nav>
+            <?= Breadcrumbs::widget([
+                'tag' => 'ol',
+                'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
+                'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
+                'homeLink' => ['label' => 'Главная', 'url' => '/'],
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+        </nav>
 
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
+        <div class="text-center my-5">
+            <h1><?= Html::encode($name) ?></h1>
+            <p>Что-то пошло не так.. </p>
+            <p><a href="<?=Yii::$app->homeUrl?>" class="btn btn-blue-o d-inline-flex mt-3">Вернуться на главную</a></p>
+        </div>
     </div>
-
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
 
 </div>

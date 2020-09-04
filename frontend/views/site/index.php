@@ -5,11 +5,18 @@
  * @var $appeal frontend\models\Appeal
  * @var $advProvider yii\data\ActiveDataProvider
  */
+use yii\helpers\Url;
+
 $this->title = 'Nethammer';
+
+$this->registerMetaTag([
+    'name' => 'og:url',
+    'content' => Url::home(true),
+]);
 
 $models = $provider->getModels();
 $advModels = $advProvider->getModels();
-?>
+ ?>
 <div class="home-page">
     <div class="container">
         <div class="home-slider owl-carousel owl-theme">

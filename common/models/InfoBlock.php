@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\helpers\Url;
+use himiklab\sitemap\behaviors\SitemapBehavior;
 
 /**
  * This is the model class for table "info_block".
@@ -43,6 +44,25 @@ class InfoBlock extends \yii\db\ActiveRecord
                     'imgs',
                     'avatar'
                 ],
+            ],
+            'seo' => [
+                'class' => 'dvizh\seo\behaviors\SeoFields',
+            ],
+            'sitemap' => [
+                'class' => SitemapBehavior::class,
+                /*'scope' => function ($model) {
+                    $model->select(['url', 'lastmod']);
+                    $model->andWhere(['is_deleted' => 0]);
+                },*/
+                'dataClosure' => function () {
+                    /** @var self $model */
+                    return [
+                        'loc' => Url::to($this->url, true),
+                        /*'lastmod' => strtotime($this->lastmod),*/
+                        'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
+                        'priority' => 0.8
+                    ];
+                }
             ],
             ];
     }

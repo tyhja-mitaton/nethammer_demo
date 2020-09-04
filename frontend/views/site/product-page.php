@@ -6,9 +6,41 @@
 use yii\bootstrap4\Breadcrumbs;
 use yii\helpers\Html;
 use yii\bootstrap4\Modal;
+use yii\helpers\Url;
 
-$this->title = 'Страница продукта';
+if(!$title = $model->seo->title) {
+    $title = $model->title;
+}
+
+if(!$description = $model->seo->description) {
+    $description = $model->description;
+}
+
+if(!$keywords = $model->seo->keywords) {
+    $keywords = '';
+}
+
+$this->title = $title;
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->registerMetaTag([
+    'name' => 'og:title',
+    'content' => $title,
+]);
+$this->registerMetaTag([
+    'name' => 'og:description',
+    'content' => $description,
+]);
+
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $keywords,
+]);
+$this->registerMetaTag([
+    'name' => 'og:url',
+    'content' => Url::base(true).Url::current(),
+]);
+
 $imgModels = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->all();
 $firstImg = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->one();
 $appealModel = new \frontend\models\Appeal();
