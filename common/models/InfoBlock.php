@@ -48,22 +48,22 @@ class InfoBlock extends \yii\db\ActiveRecord
             'seo' => [
                 'class' => 'dvizh\seo\behaviors\SeoFields',
             ],
-            'sitemap' => [
+            /*'sitemap' => [
                 'class' => SitemapBehavior::class,
-                /*'scope' => function ($model) {
+                'scope' => function ($model) {
                     $model->select(['url', 'lastmod']);
                     $model->andWhere(['is_deleted' => 0]);
-                },*/
+                },
                 'dataClosure' => function () {
-                    /** @var self $model */
+
                     return [
                         'loc' => Url::to($this->url, true),
-                        /*'lastmod' => strtotime($this->lastmod),*/
+                        //'lastmod' => strtotime($this->lastmod),
                         'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
                         'priority' => 0.8
                     ];
                 }
-            ],
+            ],*/
             ];
     }
 

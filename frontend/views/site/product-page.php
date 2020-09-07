@@ -91,9 +91,13 @@ $appealModel = new \frontend\models\Appeal();
 $js = <<<JS
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel({responsive:{768:{items: 3}, 320:{items: 2}}});
-  /*$('[data-fancybox="products-gallery"]').fancybox({
-	parentEl:"div"
-});*/
+  $('[data-fancybox="products-gallery"]').fancybox({
+	//iframe:{css: {'max-width' : '1344px', width: '40%'}},
+	afterLoad: function () {
+            $('.fancybox-content').width(parseInt($('.fancybox-iframe').contents().find('html img').width()));
+            $('.fancybox-content').height(parseInt($('.fancybox-iframe').contents().find('html img').height()));
+    }
+});
 });
 JS;
 $this->registerJs($js);

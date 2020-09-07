@@ -73,7 +73,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml']
+                //['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
+                ['pattern' => 'sitemap', 'route' => 'site/sitemap', 'suffix' => '.xml']
             ],
         ],
 
