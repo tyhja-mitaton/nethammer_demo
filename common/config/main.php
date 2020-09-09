@@ -35,5 +35,9 @@ return [
                 'yii\bootstrap\BootstrapPluginAsset' => false,
             ],
         ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+        ],
     ],
 ];

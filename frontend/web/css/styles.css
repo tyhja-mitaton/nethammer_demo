@@ -1658,3 +1658,8 @@ footer a:focus {
     margin: 20px auto;
   }
 }
+@media (max-width: 320px) {
+  .row.align-items-end {
+    max-height: 35px !important;
+  }
+}

@@ -48,7 +48,7 @@ $advModels = $advProvider->getModels();
                         ?>
                     <li class="nav-item">
                         <a class="nav-link <?= $i === 1 ? 'active' : ''?>" data-toggle="tab" href="#tab<?=$i?>">
-                            <img src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="">
+                            <img src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="" style="max-width:50px;max-height:50px;">
                             <span><b><?=$model->btn_name ?></b> <span><?= $descriptShort; ?></span></span>
                         </a>
                     </li>
