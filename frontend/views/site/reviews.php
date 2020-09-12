@@ -3,14 +3,32 @@
  * @var $provider yii\data\ActiveDataProvider
  * @var $newModel \frontend\models\Review
  */
+use backend\models\SinglePageSeo;
+use yii\bootstrap4\Breadcrumbs;
+use yii\bootstrap4\Modal;
+use yii\helpers\Html;
+
 $this->title = 'Отзывы';
 $this->params['breadcrumbs'][] = $this->title;
 
 $models = $provider->getModels();
+$mainSeo = SinglePageSeo::findOne(['type' => SinglePageSeo::REVIEWS_PAGE_SEO]);
+if($mainSeo) {
+    $this->registerMetaTag([
+        'name' => 'og:title',
+        'content' => $mainSeo->seo->title,
+    ]);
+    $this->registerMetaTag([
+        'name' => 'og:description',
+        'content' => $mainSeo->seo->description,
+    ]);
 
-use yii\bootstrap4\Breadcrumbs;
-use yii\bootstrap4\Modal;
-use yii\helpers\Html; ?>
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => $mainSeo->seo->keywords,
+    ]);
+}
+ ?>
 <div class="reviews-page">
     <div class="container">
         <h1 class="page-title"><?= Html::encode($this->title) ?></h1>

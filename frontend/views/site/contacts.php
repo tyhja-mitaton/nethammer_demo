@@ -2,6 +2,7 @@
 /* @var $model \frontend\models\Appeal */
 
 use backend\models\ContactData;
+use backend\models\SinglePageSeo;
 use yii\bootstrap4\Breadcrumbs;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -14,7 +15,24 @@ $this->registerMetaTag([
     'content' => Url::base(true).Url::current(),
 ]);
 
-$contactDataModel = ContactData::find()->one();?>
+$contactDataModel = ContactData::find()->one();
+$mainSeo = SinglePageSeo::findOne(['type' => SinglePageSeo::CONTACT_PAGE_SEO]);
+if($mainSeo) {
+    $this->registerMetaTag([
+        'name' => 'og:title',
+        'content' => $mainSeo->seo->title,
+    ]);
+    $this->registerMetaTag([
+        'name' => 'og:description',
+        'content' => $mainSeo->seo->description,
+    ]);
+
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => $mainSeo->seo->keywords,
+    ]);
+}
+?>
 <div class="contact-page">
     <div class="container">
         <h1 class="page-title"><?= Html::encode($this->title) ?></h1>

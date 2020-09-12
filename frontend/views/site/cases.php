@@ -3,6 +3,7 @@
  * @var $provider yii\data\ActiveDataProvider
  */
 
+use backend\models\SinglePageSeo;
 use yii\bootstrap4\Breadcrumbs;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -16,6 +17,22 @@ $this->registerMetaTag([
 ]);
 
 $models = $provider->getModels();
+$mainSeo = SinglePageSeo::findOne(['type' => SinglePageSeo::CASES_PAGE_SEO]);
+if($mainSeo) {
+    $this->registerMetaTag([
+        'name' => 'og:title',
+        'content' => $mainSeo->seo->title,
+    ]);
+    $this->registerMetaTag([
+        'name' => 'og:description',
+        'content' => $mainSeo->seo->description,
+    ]);
+
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => $mainSeo->seo->keywords,
+    ]);
+}
 ?>
 <div class="cases-page">
     <div class="container">

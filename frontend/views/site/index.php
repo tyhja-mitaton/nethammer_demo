@@ -6,6 +6,7 @@
  * @var $advProvider yii\data\ActiveDataProvider
  */
 use yii\helpers\Url;
+use backend\models\SinglePageSeo;
 
 $this->title = 'Nethammer';
 
@@ -16,6 +17,22 @@ $this->registerMetaTag([
 
 $models = $provider->getModels();
 $advModels = $advProvider->getModels();
+$mainSeo = SinglePageSeo::findOne(['type' => SinglePageSeo::MAIN_PAGE_SEO]);
+if($mainSeo) {
+    $this->registerMetaTag([
+        'name' => 'og:title',
+        'content' => $mainSeo->seo->title,
+    ]);
+    $this->registerMetaTag([
+        'name' => 'og:description',
+        'content' => $mainSeo->seo->description,
+    ]);
+
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => $mainSeo->seo->keywords,
+    ]);
+}
  ?>
 <div class="home-page">
     <div class="container">

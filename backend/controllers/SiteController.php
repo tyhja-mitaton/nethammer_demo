@@ -2,6 +2,7 @@
 namespace backend\controllers;
 
 use backend\models\ContactData;
+use backend\models\SinglePageSeo;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -26,7 +27,9 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'contact', 'set-emails'],
+                        'actions' => ['logout', 'index', 'contact', 'set-emails', 'single-seo-main', 'update-seo',
+                            'single-seo-products', 'single-seo-services', 'single-seo-cases', 'single-seo-job',
+                            'single-seo-reviews', 'single-seo-contacts'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -109,6 +112,89 @@ class SiteController extends Controller
         $exist_model = ContactData::find()->one();
         $model = $exist_model ? $exist_model : new ContactData();
         return $this->render('contact', ['model' => $model]);
+    }
+
+    public function actionSingleSeoMain()
+    {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('login');
+        }
+        $exist_model = SinglePageSeo::find()->where(['type' => SinglePageSeo::MAIN_PAGE_SEO])->one();
+        $model = $exist_model ? $exist_model : new SinglePageSeo();
+        return $this->render('single-seo', ['model' => $model, 'type' => SinglePageSeo::MAIN_PAGE_SEO]);
+    }
+
+    public function actionSingleSeoProducts()
+    {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('login');
+        }
+        $exist_model = SinglePageSeo::find()->where(['type' => SinglePageSeo::PRODUCTS_PAGE_SEO])->one();
+        $model = $exist_model ? $exist_model : new SinglePageSeo();
+        return $this->render('single-seo', ['model' => $model, 'type' => SinglePageSeo::PRODUCTS_PAGE_SEO]);
+    }
+
+    public function actionSingleSeoServices()
+    {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('login');
+        }
+        $exist_model = SinglePageSeo::find()->where(['type' => SinglePageSeo::SERVICES_PAGE_SEO])->one();
+        $model = $exist_model ? $exist_model : new SinglePageSeo();
+        return $this->render('single-seo', ['model' => $model, 'type' => SinglePageSeo::SERVICES_PAGE_SEO]);
+    }
+
+    public function actionSingleSeoCases()
+    {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('login');
+        }
+        $exist_model = SinglePageSeo::find()->where(['type' => SinglePageSeo::CASES_PAGE_SEO])->one();
+        $model = $exist_model ? $exist_model : new SinglePageSeo();
+        return $this->render('single-seo', ['model' => $model, 'type' => SinglePageSeo::CASES_PAGE_SEO]);
+    }
+
+    public function actionSingleSeoJob()
+    {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+        return $this->redirect('login');
+        }
+        $exist_model = SinglePageSeo::find()->where(['type' => SinglePageSeo::JOB_PAGE_SEO])->one();
+        $model = $exist_model ? $exist_model : new SinglePageSeo();
+        return $this->render('single-seo', ['model' => $model, 'type' => SinglePageSeo::JOB_PAGE_SEO]);
+    }
+
+    public function actionSingleSeoReviews()
+    {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('login');
+        }
+        $exist_model = SinglePageSeo::find()->where(['type' => SinglePageSeo::REVIEWS_PAGE_SEO])->one();
+        $model = $exist_model ? $exist_model : new SinglePageSeo();
+        return $this->render('single-seo', ['model' => $model, 'type' => SinglePageSeo::REVIEWS_PAGE_SEO]);
+    }
+
+    public function actionSingleSeoContacts()
+    {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('login');
+        }
+        $exist_model = SinglePageSeo::find()->where(['type' => SinglePageSeo::CONTACT_PAGE_SEO])->one();
+        $model = $exist_model ? $exist_model : new SinglePageSeo();
+        return $this->render('single-seo', ['model' => $model, 'type' => SinglePageSeo::CONTACT_PAGE_SEO]);
+    }
+
+    public function actionUpdateSeo()
+    {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('login');
+        }
+        $model = SinglePageSeo::findOne(['type' => Yii::$app->request->post()["SinglePageSeo"]["type"]]);
+        $model = $model ? $model : new SinglePageSeo();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(SinglePageSeo::getViewPath($model->type));
+        }
+        return false;
     }
 
     public function actionSetEmails($id)

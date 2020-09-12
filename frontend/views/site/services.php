@@ -3,6 +3,7 @@
  * @var $provider yii\data\ActiveDataProvider
  */
 
+use backend\models\SinglePageSeo;
 use yii\bootstrap4\Breadcrumbs;
 use yii\helpers\Html;
 
@@ -10,6 +11,22 @@ $this->title = 'Услуги';
 $this->params['breadcrumbs'][] = $this->title;
 
 $models = $provider->getModels();
+$mainSeo = SinglePageSeo::findOne(['type' => SinglePageSeo::SERVICES_PAGE_SEO]);
+if($mainSeo) {
+    $this->registerMetaTag([
+        'name' => 'og:title',
+        'content' => $mainSeo->seo->title,
+    ]);
+    $this->registerMetaTag([
+        'name' => 'og:description',
+        'content' => $mainSeo->seo->description,
+    ]);
+
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => $mainSeo->seo->keywords,
+    ]);
+}
 ?>
 <div class="category-page">
     <div class="container">
