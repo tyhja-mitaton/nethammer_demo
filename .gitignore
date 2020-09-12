@@ -5,6 +5,8 @@
 
 # phpstorm project files
 .idea
+.vscode
+.vs
 
 # netbeans project files
 nbproject

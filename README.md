@@ -15,6 +15,8 @@ defined('CURRENT_DOMAIN') or define('CURRENT_DOMAIN', 'nethammer.test');
 ```
 php yii migrate/up --migrationPath=@yii/rbac/migrations
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
+php yii migrate/up --migrationPath=@vendor/yiisoft/yii2/i18n/migrations
+php yii migrate --migrationPath=common/modules/matodor/chat/migrations
 php yii migrate
 ```
 

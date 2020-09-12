@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c101d92dd29de0d77bbdeea28bc031d",
+    "content-hash": "0c548bcb0417c15f0c54c52682c9e6bd",
     "packages": [
         {
             "name": "2amigos/yii2-tinymce-widget",
@@ -114,7 +114,7 @@
             "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
+                "url": "git@github.com:twbs/bootstrap.git",
                 "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "dist": {
@@ -135,7 +135,7 @@
             "version": "v4.1.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:fengyuanchen/cropper.git",
+                "url": "https://github.com/fengyuanchen/cropper.git",
                 "reference": "617d9bdb8688cc4edb3b03bc49a04b83c7facbe7"
             },
             "dist": {
@@ -150,7 +150,7 @@
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "https://github.com/RobinHerbots/Inputmask.git",
+                "url": "git@github.com:RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -171,7 +171,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -183,6 +183,44 @@
             "license": [
                 "MIT"
             ]
+        },
+        {
+            "name": "bower-asset/jquery-easing-original",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:gdsmith/jquery.easing.git",
+                "reference": "249c4a53fb294860472fd02c716051d9f4f3585b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gdsmith/jquery.easing/zipball/249c4a53fb294860472fd02c716051d9f4f3585b",
+                "reference": "249c4a53fb294860472fd02c716051d9f4f3585b"
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.3.0"
+            },
+            "type": "bower-asset",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "time": "2020-08-06T11:12:45+00:00"
+        },
+        {
+            "name": "bower-asset/jquery-tmpl",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:jquery/jquery-tmpl.git",
+                "reference": "ef4ae98374e5f3d9bd84d16c54ad30801c1ec002"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jquery/jquery-tmpl/zipball/ef4ae98374e5f3d9bd84d16c54ad30801c1ec002",
+                "reference": "ef4ae98374e5f3d9bd84d16c54ad30801c1ec002"
+            },
+            "type": "bower-asset",
+            "time": "2018-12-09T05:17:11+00:00"
         },
         {
             "name": "bower-asset/jquery-ui",
@@ -608,20 +646,6 @@
                 "lexer",
                 "parser",
                 "php"
-            ],
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Flexer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-05-25T17:44:05+00:00"
         },
@@ -1287,12 +1311,6 @@
                 "widget",
                 "yii2"
             ],
-            "funding": [
-                {
-                    "url": "https://opencollective.com/yii2-widget-select2",
-                    "type": "open_collective"
-                }
-            ],
             "time": "2020-07-22T10:40:59+00:00"
         },
         {
@@ -1305,6 +1323,403 @@
             "type": "npm-asset",
             "license": [
                 "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--abbreviation",
+            "version": "0.6.6",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/abbreviation/-/abbreviation-0.6.6.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--node": ">=0.1.2,<0.2.0",
+                "npm-asset/emmetio--stream-reader": ">=2.2.0,<3.0.0",
+                "npm-asset/emmetio--stream-reader-utils": ">=0.1.0,<0.2.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--css-abbreviation",
+            "version": "0.4.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/css-abbreviation/-/css-abbreviation-0.4.0.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--node": ">=0.1.2,<0.2.0",
+                "npm-asset/emmetio--stream-reader": ">=2.2.0,<3.0.0",
+                "npm-asset/emmetio--stream-reader-utils": ">=0.1.0,<0.2.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--css-snippets-resolver",
+            "version": "0.4.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/css-snippets-resolver/-/css-snippets-resolver-0.4.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--expand-abbreviation",
+            "version": "0.7.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/expand-abbreviation/-/expand-abbreviation-0.7.1.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--abbreviation": ">=0.6.6,<0.7.0",
+                "npm-asset/emmetio--css-abbreviation": ">=0.4.0,<0.5.0",
+                "npm-asset/emmetio--css-snippets-resolver": ">=0.4.0,<0.5.0",
+                "npm-asset/emmetio--html-snippets-resolver": ">=0.1.4,<0.2.0",
+                "npm-asset/emmetio--html-transform": ">=0.3.9,<0.4.0",
+                "npm-asset/emmetio--lorem": ">=1.0.1,<2.0.0",
+                "npm-asset/emmetio--markup-formatters": ">=0.4.0,<0.5.0",
+                "npm-asset/emmetio--output-profile": ">=0.1.6,<0.2.0",
+                "npm-asset/emmetio--snippets": ">=0.2.9,<0.3.0",
+                "npm-asset/emmetio--snippets-registry": ">=0.3.1,<0.4.0",
+                "npm-asset/emmetio--stylesheet-formatters": ">=0.2.1,<0.3.0",
+                "npm-asset/emmetio--variable-resolver": ">=0.2.1,<0.3.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--field-parser",
+            "version": "0.3.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/field-parser/-/field-parser-0.3.1.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--stream-reader": ">=2.2.0,<3.0.0",
+                "npm-asset/emmetio--stream-reader-utils": ">=0.1.0,<0.2.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--html-snippets-resolver",
+            "version": "0.1.4",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/html-snippets-resolver/-/html-snippets-resolver-0.1.4.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--abbreviation": ">=0.6.0,<0.7.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--html-transform",
+            "version": "0.3.10",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/html-transform/-/html-transform-0.3.10.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--implicit-tag": ">=1.0.0,<2.0.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--implicit-tag",
+            "version": "1.0.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/implicit-tag/-/implicit-tag-1.0.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--lorem",
+            "version": "1.0.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/lorem/-/lorem-1.0.2.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--implicit-tag": ">=1.0.0,<2.0.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "ISC"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--markup-formatters",
+            "version": "0.4.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/markup-formatters/-/markup-formatters-0.4.1.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--field-parser": ">=0.3.0,<0.4.0",
+                "npm-asset/emmetio--output-renderer": ">=0.1.2,<0.2.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--node",
+            "version": "0.1.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/node/-/node-0.1.2.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--output-profile",
+            "version": "0.1.6",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/output-profile/-/output-profile-0.1.6.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--output-renderer",
+            "version": "0.1.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/output-renderer/-/output-renderer-0.1.2.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--field-parser": ">=0.3.0,<0.4.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--snippets",
+            "version": "0.2.12",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/snippets/-/snippets-0.2.12.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--snippets-registry",
+            "version": "0.3.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/snippets-registry/-/snippets-registry-0.3.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--stream-reader",
+            "version": "2.2.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/stream-reader/-/stream-reader-2.2.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--stream-reader-utils",
+            "version": "0.1.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/stream-reader-utils/-/stream-reader-utils-0.1.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--stylesheet-formatters",
+            "version": "0.2.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/stylesheet-formatters/-/stylesheet-formatters-0.2.1.tgz"
+            },
+            "require": {
+                "npm-asset/emmetio--field-parser": ">=0.3.0,<0.4.0",
+                "npm-asset/emmetio--output-renderer": ">=0.1.1,<0.2.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/emmetio--variable-resolver",
+            "version": "0.2.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@emmetio/variable-resolver/-/variable-resolver-0.2.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/form-serializer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:macek/jquery-serialize-object.git",
+                "reference": "1531b2b8962b50fd80381485e580386f4ec77135"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/macek/jquery-serialize-object/zipball/1531b2b8962b50fd80381485e580386f4ec77135",
+                "reference": "1531b2b8962b50fd80381485e580386f4ec77135"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "time": "2017-09-27T19:17:10+00:00"
+        },
+        {
+            "name": "npm-asset/lodash",
+            "version": "4.17.x-dev",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:lodash/lodash.git",
+                "reference": "ded9bc66583ed0b4e3b7dc906206d40757b4a90a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lodash/lodash/zipball/ded9bc66583ed0b4e3b7dc906206d40757b4a90a",
+                "reference": "ded9bc66583ed0b4e3b7dc906206d40757b4a90a"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ],
+            "time": "2020-08-13T16:52:55+00:00"
+        },
+        {
+            "name": "npm-asset/moment",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moment/moment.git",
+                "reference": "3e1a95b5ef0a505fec567c5b2290fd80e1da18f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moment/moment/zipball/3e1a95b5ef0a505fec567c5b2290fd80e1da18f9",
+                "reference": "3e1a95b5ef0a505fec567c5b2290fd80e1da18f9"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ],
+            "time": "2020-06-18T21:54:03+00:00"
+        },
+        {
+            "name": "npm-asset/psl",
+            "version": "1.8.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/psl/-/psl-1.8.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/punycode",
+            "version": "2.1.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/tinysort",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Sjeiti/TinySort.git",
+                "reference": "29db4799ebfd97509b2e8b16ac63fc3e56e3a303"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sjeiti/TinySort/zipball/29db4799ebfd97509b2e8b16ac63fc3e56e3a303",
+                "reference": "29db4799ebfd97509b2e8b16ac63fc3e56e3a303"
+            },
+            "require": {
+                "npm-asset/emmetio--expand-abbreviation": ">=0.7.1,<0.8.0",
+                "npm-asset/lodash": ">=4.17.11,<5.0.0",
+                "npm-asset/tough-cookie": ">=2.5.0,<3.0.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ],
+            "time": "2020-02-20T12:49:36+00:00"
+        },
+        {
+            "name": "npm-asset/tough-cookie",
+            "version": "2.5.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.5.0.tgz"
+            },
+            "require": {
+                "npm-asset/psl": ">=1.1.28,<2.0.0",
+                "npm-asset/punycode": ">=2.1.1,<3.0.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD-3-Clause"
             ]
         },
         {
@@ -1565,20 +1980,6 @@
                 "portable",
                 "shim"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -1650,20 +2051,6 @@
                 "portable",
                 "shim"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-08-04T06:02:08+00:00"
         },
         {
@@ -1731,20 +2118,6 @@
                 "portable",
                 "shim"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -1807,20 +2180,6 @@
                 "polyfill",
                 "portable",
                 "shim"
-            ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-07-14T12:35:20+00:00"
         },
@@ -1885,20 +2244,6 @@
                 "portable",
                 "shim"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -1958,20 +2303,6 @@
                 "portable",
                 "shim"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -2021,6 +2352,52 @@
                 "wysiwyg"
             ],
             "time": "2020-07-08T04:08:07+00:00"
+        },
+        {
+            "name": "workerman/workerman",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:walkor/Workerman.git",
+                "reference": "572ec1859b8e9420d873af052d5d4c0e025d2565"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/walkor/Workerman/zipball/572ec1859b8e9420d873af052d5d4c0e025d2565",
+                "reference": "572ec1859b8e9420d873af052d5d4c0e025d2565",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "suggest": {
+                "ext-event": "For better performance. "
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "walkor",
+                    "email": "walkor@workerman.net",
+                    "homepage": "http://www.workerman.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An asynchronous event driven PHP framework for easily building fast, scalable network applications.",
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "asynchronous",
+                "event-loop"
+            ],
+            "time": "2020-08-31T07:46:47+00:00"
         },
         {
             "name": "yii2mod/yii2-enum",
@@ -2168,20 +2545,6 @@
             "keywords": [
                 "framework",
                 "yii2"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/yiisoft",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/yiisoft",
-                    "type": "open_collective"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/yiisoft/yii2",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-08-07T20:11:56+00:00"
         },
@@ -2430,20 +2793,6 @@
                 "composer",
                 "extension installer",
                 "yii2"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/yiisoft",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/yiisoft",
-                    "type": "open_collective"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/yiisoft/yii2-composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-06-24T00:04:01+00:00"
         },
@@ -2736,12 +3085,6 @@
                 "acceptance testing",
                 "functional testing",
                 "unit testing"
-            ],
-            "funding": [
-                {
-                    "url": "https://opencollective.com/codeception",
-                    "type": "open_collective"
-                }
             ],
             "time": "2020-06-07T16:31:51+00:00"
         },
@@ -3169,20 +3512,6 @@
                 "constructor",
                 "instantiate"
             ],
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finstantiator",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-05-29T17:27:14+00:00"
         },
         {
@@ -3351,12 +3680,6 @@
                 "duplicate",
                 "object",
                 "object graph"
-            ],
-            "funding": [
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-06-29T13:22:24+00:00"
         },
@@ -4103,16 +4426,6 @@
                 "phpunit",
                 "testing",
                 "xunit"
-            ],
-            "funding": [
-                {
-                    "url": "https://phpunit.de/donate.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                }
             ],
             "time": "2020-06-22T07:06:58+00:00"
         },
@@ -5050,20 +5363,6 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-06T13:23:11+00:00"
         },
         {
@@ -5117,20 +5416,6 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
@@ -5181,20 +5466,6 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-06-06T08:49:21+00:00"
         },
         {
@@ -5256,20 +5527,6 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-23T08:31:43+00:00"
         },
         {
@@ -5342,20 +5599,6 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-06-18T18:24:02+00:00"
         },
         {
@@ -5418,20 +5661,6 @@
                 "interoperability",
                 "standards"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-06T13:23:11+00:00"
         },
         {
@@ -5481,20 +5710,6 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
@@ -5556,20 +5771,6 @@
                 "ctype",
                 "polyfill",
                 "portable"
-            ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-07-14T12:35:20+00:00"
         },
@@ -5635,20 +5836,6 @@
                 "portable",
                 "shim"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -5710,20 +5897,6 @@
                 "polyfill",
                 "portable",
                 "shim"
-            ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-07-14T12:35:20+00:00"
         },
@@ -5791,20 +5964,6 @@
                 "portable",
                 "shim"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -5866,20 +6025,6 @@
                 "interfaces",
                 "interoperability",
                 "standards"
-            ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-07-06T13:23:11+00:00"
         },
@@ -5952,20 +6097,6 @@
                 "utf-8",
                 "utf8"
             ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-07-08T08:27:49+00:00"
         },
         {
@@ -6029,20 +6160,6 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
@@ -6083,12 +6200,6 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "funding": [
-                {
-                    "url": "https://github.com/theseer",
-                    "type": "github"
-                }
-            ],
             "time": "2020-07-12T23:59:07+00:00"
         },
         {
@@ -6298,7 +6409,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "kartik-v/yii2-widget-select2": 20,
         "dvizh/yii2-seo": 20
@@ -6308,6 +6419,5 @@
     "platform": {
         "php": ">=5.6.0"
     },
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
