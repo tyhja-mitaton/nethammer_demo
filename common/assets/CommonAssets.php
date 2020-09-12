@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 class CommonAssets extends AssetBundle
 {
     public $css = [
-// 'css/common.css',
+        'css/font-awesome.css',
     ];
 
     public $js = [

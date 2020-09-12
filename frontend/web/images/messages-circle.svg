@@ -1,0 +1,16 @@
+<svg width="96" height="96" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_1" fill="#2059ed" r="48" cy="48" cx="48"/>
+  <path fill="none" id="svg_2" stroke-width="1.5" stroke="#ffffff" d="m53,54l-14,0l-7.293,7.293c-0.63,0.63 -1.707,0.184 -1.707,-0.707l0,-6.586l-2,0c-1.657,0 -3,-1.343 -3,-3l0,-18c0,-1.657 1.343,-3 3,-3l25,0c1.657,0 3,1.343 3,3l0,18c0,1.657 -1.343,3 -3,3z" clip-rule="evenodd" fill-rule="evenodd"/>
+  <path fill="none" id="svg_3" stroke-width="1.5" stroke="white" d="m59,38l9,0c1.657,0 3,1.343 3,3l0,18c0,1.657 -1.343,3 -3,3l-4,0l0,6.586c0,0.891 -1.077,1.337 -1.707,0.707l-7.293,-7.293l-10,0c-1.657,0 -3,-1.343 -3,-3l0,-2"/>
+  <path id="svg_4" stroke-width="1.5" stroke="white" d="m34,43l3,0"/>
+  <path id="svg_5" stroke-width="1.5" stroke="white" d="m39,43l3,0"/>
+  <path id="svg_6" stroke-width="1.5" stroke="white" d="m44,43l3,0"/>
+ </g>
+</svg>

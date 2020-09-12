@@ -5,6 +5,7 @@ return [
         '@npm'   => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'bootstrap' => ['chat'],
     'modules' => [
         'rbac' => [
             'class' => \dektrium\rbac\RbacWebModule::class,
@@ -24,6 +25,21 @@ return [
             'cache' => '@frontend/storage_cache',
             'token_salt' => 'some_random_salt',
         ],
+        'chat' => [
+            'class' => \matodor\chat\ChatModule::class,
+            'components' => [
+                'worker' => [
+                    'class' => \matodor\chat\core\ChatWorker::class,
+                    'bindIp' => '127.0.0.1',
+                    'bindPort' => 9090,
+                    'csrfParams' => [
+                        '_csrf-backend',
+                        '_csrf-frontend'
+                    ],
+                    'enableCookieValidation' => true,
+                ],
+            ],
+        ],
     ],
     'components' => [
         'cache' => [
@@ -39,5 +55,23 @@ return [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
         ],
+        'i18n' => [
+            'translations' => [
+                'matodor.chat' => [
+                    'class' => \yii\i18n\DbMessageSource::class,
+                    'enableCaching' => false,
+                    'messageTable' => '{{%message}}',
+                    'sourceMessageTable' => '{{%source_message}}',
+                    'sourceLanguage' => 'en-US',
+                    'forceTranslation' => true
+                ],
+                '*' => [
+                    'class' => \yii\i18n\DbMessageSource::class,
+                    'enableCaching' => true,
+                    'messageTable' => '{{%message}}',
+                    'sourceMessageTable' => '{{%source_message}}'
+                ],
+            ]
+        ]
     ],
 ];

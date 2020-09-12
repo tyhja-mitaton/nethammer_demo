@@ -9,6 +9,9 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 Yii::$app->name = 'Nethammer';
+
+$userIsBot = \common\helpers\Helpers::userIsBot(\Yii::$app->request->userAgent);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -30,21 +33,16 @@ Yii::$app->name = 'Nethammer';
     <meta name="theme-color" content="#ffba00">
     <link rel="manifest" href="manifest.webmanifest">
 
-    <meta name="cannonical" content="https://foodband.ru/">
-
+    <meta name="cannonical" content="https://<?= CURRENT_DOMAIN ?>/">
     <meta name="og:type" content="website">
     <meta name="og:image" content="/images/logo.jpg">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/owl.theme.default.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.css">
-    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody();
+
 $menuItems = [
     ['label' => 'Главная', 'url' => ['/site/index']],
     ['label' => 'О компании', 'items' => [
@@ -64,6 +62,19 @@ $menuItems = [
     <?= $content?>
     <?= $this->render('footer', ['menuItems' => $menuItems]); ?>
 
+    <?php if (
+        (!isset($this->params['popupChatDisabled']) || !$this->params['popupChatDisabled'])
+        && !$userIsBot
+    ) {
+        echo \matodor\chat\widgets\PopupChat::widget([
+            'options' => [
+                'requestParams' => [],
+                'toggleOptions' => [
+                    'class' => ['togglePopup']
+                ]
+            ]
+        ]);
+    } ?>
 
 <?php $this->endBody() ?>
 </body>
