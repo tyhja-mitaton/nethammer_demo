@@ -80,6 +80,9 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    /**
+     * @sitemap priority=0.5 changefreq=monthly route=['/site/index'] model=common\models\InfoBlock condition=['type'=>1]
+     */
     public function actionIndex()
     {
         $model = InfoBlock::find()->where(['type' => InfoBlock::MAIN_PAGE_SLIDER]);
@@ -110,6 +113,9 @@ class SiteController extends Controller
         return $this->render('index', ['provider' => $provider, 'appeal' => $appeal, 'advProvider' => $advProvider]);
     }
 
+    /**
+     * @sitemap priority=0.5 changefreq=monthly route=['/site/job'] model=common\models\InfoBlock condition=['type'=>6]
+     */
     public function actionJob()
     {
         $model = InfoBlock::find()->where(['type' => InfoBlock::VACANCY_BLOCK]);
@@ -127,6 +133,9 @@ class SiteController extends Controller
         return $this->render('job', ['provider' => $provider]);
     }
 
+    /**
+     * @sitemap priority=0.5 changefreq=monthly route=['/site/products'] model=common\models\InfoBlock condition=['type'=>4]
+     */
     public function actionProducts()
     {
         $model = InfoBlock::find()->where(['type' => InfoBlock::PRODUCT_BLOCK]);
@@ -144,6 +153,9 @@ class SiteController extends Controller
         return $this->render('products', ['provider' => $provider]);
     }
 
+    /**
+     * @sitemap priority=0.5 changefreq=monthly route=['/site/product-page','id'=>$model->id] model=common\models\InfoBlock condition=['type'=>4]
+     */
     public function actionProductPage($id)
     {
         return $this->render('product-page', [
@@ -151,6 +163,9 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * @sitemap priority=0.5 changefreq=monthly route=['/site/services'] model=common\models\InfoBlock condition=['type'=>3]
+     */
     public function actionServices()
     {
         $model = InfoBlock::find()->where(['type' => InfoBlock::SERVICE_BLOCK]);
@@ -168,6 +183,9 @@ class SiteController extends Controller
         return $this->render('services', ['provider' => $provider]);
     }
 
+    /**
+     * @sitemap priority=0.5 changefreq=monthly route=['/site/service-page','id'=>$model->id] model=common\models\InfoBlock condition=['type'=>3]
+     */
     public function actionServicePage($id)
     {
         return $this->render('service-page', [
@@ -175,6 +193,9 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * @sitemap priority=0.5 changefreq=monthly route=['/site/cases'] model=common\models\InfoBlock condition=['type'=>5]
+     */
     public function actionCases()
     {
         $model = InfoBlock::find()->where(['type' => InfoBlock::CASE_BLOCK]);
@@ -192,6 +213,9 @@ class SiteController extends Controller
         return $this->render('cases', ['provider' => $provider]);
     }
 
+    /**
+     * @sitemap priority=0.5 changefreq=monthly route=['/site/reviews'] model=frontend\models\Review condition=['is_visible'=>1]
+     */
     public function actionReviews()
     {
         $model = Review::find()->where(['is_visible' => 1]);
@@ -222,6 +246,9 @@ class SiteController extends Controller
 
     }
 
+    /**
+     * @sitemap priority=0.5
+     */
     public function actionSearch()
     {
         $searchModel = new InfoBlockSearch();
@@ -267,6 +294,9 @@ class SiteController extends Controller
      * Displays contact page.
      *
      * @return mixed
+     */
+    /**
+     * @sitemap priority=0.5 changefreq=monthly route=['/site/contact']
      */
     public function actionContact()
     {

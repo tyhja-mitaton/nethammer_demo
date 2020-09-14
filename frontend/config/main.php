@@ -24,13 +24,15 @@ return [
             'cache' => '@app/storage_cache',
             'token_salt' => 'some_random_salt',
         ],
-        'sitemap' => [
+        /*'sitemap' => [
             'class' => 'himiklab\sitemap\Sitemap',
             'models' => [
-                // your models
                 'common\models\InfoBlock',
-                // or configuration for creating a behavior
             ],
+        ],*/
+        'sitemap' => [
+            'class' => 'enchikiben\sitemap\Sitemap',
+            'controllerDirAlias' => '@frontend/controllers'
         ],
     ],
     'components' => [
@@ -73,8 +75,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                //['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
-                ['pattern' => 'sitemap', 'route' => 'site/sitemap', 'suffix' => '.xml']
+                ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
+                /*['pattern' => 'sitemap', 'route' => 'site/sitemap', 'suffix' => '.xml']*/
             ],
         ],
 

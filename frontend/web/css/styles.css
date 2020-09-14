@@ -1238,7 +1238,7 @@ footer a:focus {
   -webkit-transform: scale(0.7);
   -ms-transform: scale(0.7);
   transform: scale(0.7);
-  opacity: 0.5 !important;
+  /*opacity: 0.5 !important;*/
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1253,6 +1253,7 @@ footer a:focus {
 .home-page {
   background: url(../images/home-bg.png) no-repeat right top, url(../images/home-bg2.png) no-repeat left center;
   background-size: 100% auto;
+  margin-top: 25px;
 }
 
 .tab-pane {

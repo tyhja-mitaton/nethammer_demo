@@ -8,7 +8,6 @@
 use yii\helpers\Url;
 use backend\models\SinglePageSeo;
 
-$this->title = 'Nethammer';
 
 $this->registerMetaTag([
     'name' => 'og:url',
@@ -87,6 +86,7 @@ if($mainSeo) {
     <?= $this->render('_contact', ['model' => $appeal]);?>
 </div>
 <?php
+$this->title = 'Nethammer';
 $js = <<<JS
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel({responsive:{768:{items: 1}, 320:{items: 1}}});

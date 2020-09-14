@@ -33,6 +33,34 @@ $items = [
         'label' => '<i class="fa fa-circle-o"></i> Контактная форма',
         'url' => ['/site/contact']
     ],
+    [
+        'label' => '<i class="fa fa-circle-o"></i> SEO главной страницы',
+        'url' => ['/site/single-seo-main']
+    ],
+    [
+        'label' => '<i class="fa fa-circle-o"></i> SEO страницы продуктов',
+        'url' => ['/site/single-seo-products']
+    ],
+    [
+        'label' => '<i class="fa fa-circle-o"></i> SEO страницы услуг',
+        'url' => ['/site/single-seo-services']
+    ],
+    [
+        'label' => '<i class="fa fa-circle-o"></i> SEO страницы кейсов',
+        'url' => ['/site/single-seo-cases']
+    ],
+    [
+        'label' => '<i class="fa fa-circle-o"></i> SEO страницы вакансий',
+        'url' => ['/site/single-seo-job']
+    ],
+    [
+        'label' => '<i class="fa fa-circle-o"></i> SEO страницы отзывов',
+        'url' => ['/site/single-seo-reviews']
+    ],
+    [
+        'label' => '<i class="fa fa-circle-o"></i> SEO страницы контактов',
+        'url' => ['/site/single-seo-contacts']
+    ],
 ];
 
 if (Yii::$app->user->can('admin'))
