@@ -77,3 +77,6 @@ if($mainSeo) {
     </div>
     <?= $this->render('_contact', ['model' => $model]); ?>
 </div>
+<?php
+$this->title = 'Контакты';
+?>

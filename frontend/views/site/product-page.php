@@ -21,6 +21,7 @@ if(!$keywords = $model->seo->keywords) {
 }
 
 $this->title = $title;
+$this->params['breadcrumbs'][] = ['label' => 'Продукты', 'url' => Url::toRoute('/products/')];
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerMetaTag([
@@ -88,6 +89,7 @@ $appealModel = new \frontend\models\Appeal();
     </div>
 </div>
 <?php
+$this->title = $title;
 $js = <<<JS
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel({responsive:{768:{items: 3}, 320:{items: 2}}});

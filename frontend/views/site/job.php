@@ -67,6 +67,7 @@ if($mainSeo) {
     <?= $this->render('_contact', ['model' => $appealModel]); ?>
 </div>
 <?php
+$this->title = 'Вакансии';
 $js = <<<JS
 var formatter = new Intl.NumberFormat("ru", {/*style: "currency", currency: "RUB"*/});
 $(function() {
