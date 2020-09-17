@@ -559,23 +559,13 @@ input.create-dialog-block__input {
     color: #fff;
 }
 
-.chat-input__button.chat-input__button-file:before {
-    content: "\f093";
+.chat-input__button-file {
+    background-image: url(/images/upload.svg);
+    background-repeat: no-repeat;
 }
 
-.chat-input__button-file {
-    font-family: "Font Awesome 5 Free";
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-    font-weight: 900;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
+.chat-input__button-file:hover {
+    background-image: url(/images/upload-hover.svg);
 }
 
 .chat-input__button-file.loading:before {
@@ -589,13 +579,20 @@ input.create-dialog-block__input {
 .chat-input__button-ok {
     background-image: url(/images/ok-hand.svg);
     background-repeat: no-repeat;
-    background-position: 45% 49%;
-    background-size: 60%;
 }
+
+.chat-input__button-ok:hover {
+    background-image: url(/images/ok-hand-hover.svg);
+}
+
 .chat-input__button-send {
     background-image: url(/images/send.svg);
     background-repeat: no-repeat;
     background-position: 45% 49%;
+}
+
+.chat-input__button-send:hover {
+    background-image: url(/images/send-hover.svg);
 }
 
 .chat-input__button:not(:last-child) {
