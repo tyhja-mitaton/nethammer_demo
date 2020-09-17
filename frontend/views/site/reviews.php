@@ -72,3 +72,4 @@ if($mainSeo) {
         </div>
     </div>
 </div>
+<?php $this->title = 'Отзывы'; ?>

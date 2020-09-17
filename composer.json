@@ -33,7 +33,8 @@
         "npm-asset/tinysort":  "*",
         "npm-asset/form-serializer":  "*",
         "bower-asset/jquery-easing-original": "*",
-        "bower-asset/jquery-tmpl": "*"
+        "bower-asset/jquery-tmpl": "*",
+        "enchikiben/yii2-sitemap": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

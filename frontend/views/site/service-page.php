@@ -19,6 +19,7 @@ if(!$keywords = $model->seo->keywords) {
 }
 
 $this->title = $title;
+$this->params['breadcrumbs'][] = ['label' => 'Услуги', 'url' => Url::toRoute('/services/')];
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerMetaTag([

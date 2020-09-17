@@ -85,7 +85,7 @@ if($mainSeo) {
 <?php
 $js = <<<JS
 $(document).ready(function(){
-  $('.owl-carousel').owlCarousel({responsive:{768:{items: 3}}});
+  $('.owl-carousel').owlCarousel({responsive:{768:{items: 3}, 320:{items: 1}}});
   /*$('[data-fancybox="products-gallery"]').fancybox({
 	parentEl:"div"
 });*/
