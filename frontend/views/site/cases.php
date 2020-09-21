@@ -63,7 +63,7 @@ if($mainSeo) {
     <div class="cases-list">
         <?php foreach ($models as $model) {
             $imgModels = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->all();?>
-        <div class="case">
+        <div class="case" data-tag="<?=$model->tag?>">
             <div class="container">
                 <p class="title"><?=$model->title ?></p>
             </div>
@@ -85,11 +85,27 @@ if($mainSeo) {
 <?php
 $js = <<<JS
 $(document).ready(function(){
-  $('.owl-carousel').owlCarousel({responsive:{768:{items: 3}, 320:{items: 1}}});
-  /*$('[data-fancybox="products-gallery"]').fancybox({
-	parentEl:"div"
-});*/
+  $('.owl-carousel').owlCarousel({responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});
+  filterCases.call($('.cases-filter input:checked'));
 });
+$('.cases-filter input').on('click', filterCases);
+function filterCases() {
+  let checkedInputs = $(this).closest('.cases-filter').find('input:checked');
+    let tagTypes = [];
+    checkedInputs.each(function(index) {
+      tagTypes.push(parseInt($(this).attr('id').substring(2)));
+    });
+    console.log(tagTypes);
+    let cases = $('.cases-list .case');
+    
+  cases.each(function(index) {
+      if(!tagTypes.includes($(this).data('tag'))) {
+      $(this).addClass('d-none');
+      }else {
+          $(this).removeClass('d-none');
+      }
+    });
+}
 JS;
 $this->registerJs($js);
 ?>

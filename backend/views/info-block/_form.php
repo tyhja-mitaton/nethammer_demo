@@ -14,6 +14,9 @@ $serviceType = \common\models\InfoBlock::SERVICE_BLOCK;
 $productType = \common\models\InfoBlock::PRODUCT_BLOCK;
 $caseType = \common\models\InfoBlock::CASE_BLOCK;
 $jobType = \common\models\InfoBlock::VACANCY_BLOCK;
+$designCase = \common\models\InfoBlock::DESIGN;
+$photoCase = \common\models\InfoBlock::PHOTOGRAPHY;
+$artsCase = \common\models\InfoBlock::DIGITAL_ARTS;
 $imgModels = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->all();
 $avatar = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'avatar'])->one();
 $model->__set('imgs', $imgModels);
@@ -45,6 +48,11 @@ $model->__set('avatar', $avatar);
         $jobType => 'вакансия на странице "Вакансии"'
     ], ['prompt' => 'Выберите тип...']) ?>
     <?= $form->field($model, 'salary', ['options' => ['class' => $model->type !== $jobType ? 'd-none': '']])->textInput() ?>
+    <?= $form->field($model, 'tag', ['options' => ['class' => $model->type !== $caseType ? 'd-none': '']])->dropDownList([
+        $designCase => 'Design',
+        $photoCase => 'Photography',
+        $artsCase => 'Digital Arts'
+    ], ['prompt' => 'Выберите тип...']) ?>
 
     <?= $form->field($model, 'imgs', ['options' => [
             'class' => $model->type !== $serviceType && $model->type !== $productType && $model->type !== $caseType ? 'd-none': ''
@@ -79,6 +87,7 @@ $(function() {
 });
 $(document).find('[name="InfoBlock[type]"]').on('change', function() {
   let salaryBlock = $(document).find('.field-infoblock-salary');
+  let tagBlock = $(document).find('.field-infoblock-tag');
   let avatarBlock = $(document).find('.field-infoblock-avatar');
   let imgsBlock =  $(document).find('.field-infoblock-imgs');
   let seoBlock = $(document).find('.dvizh-seo');
@@ -88,11 +97,14 @@ $(document).find('[name="InfoBlock[type]"]').on('change', function() {
     case $infoType: avatarBlock.removeClass('d-none');imgsBlock.addClass('d-none');seoBlock.addClass('d-none');break;
     case $serviceType: avatarBlock.removeClass('d-none');imgsBlock.removeClass('d-none');seoBlock.removeClass('d-none');break;
     case $productType: avatarBlock.removeClass('d-none');imgsBlock.removeClass('d-none');seoBlock.removeClass('d-none');break;
-    case $caseType: avatarBlock.addClass('d-none');imgsBlock.removeClass('d-none');seoBlock.addClass('d-none');break;
+    case $caseType: avatarBlock.addClass('d-none');imgsBlock.removeClass('d-none');seoBlock.addClass('d-none');tagBlock.removeClass('d-none');break;
     case $jobType: avatarBlock.addClass('d-none');imgsBlock.addClass('d-none');salaryBlock.removeClass('d-none');seoBlock.addClass('d-none');break;
   }
     if(!salaryBlock.hasClass('d-none') && parseInt($(this).val(), 10) !== $jobType) {
         salaryBlock.addClass('d-none');
+    }
+    if(!tagBlock.hasClass('d-none') && parseInt($(this).val(), 10) !== $caseType) {
+        tagBlock.addClass('d-none');
     }
     if(btnLbl.text() === 'Ссылка' && parseInt($(this).val(), 10) !== $sliderType) {
         btnLbl.text('Имя кнопки');

@@ -15,6 +15,7 @@ use himiklab\sitemap\behaviors\SitemapBehavior;
  * @property string $btn_name
  * @property int $type
  * @property int $salary
+ * @property int $tag
  * @property string|null $imgs
  */
 class InfoBlock extends \yii\db\ActiveRecord
@@ -25,6 +26,11 @@ class InfoBlock extends \yii\db\ActiveRecord
     const PRODUCT_BLOCK = 4;
     const CASE_BLOCK = 5;
     const VACANCY_BLOCK = 6;
+
+    //только для кесов
+    const DESIGN = 1;
+    const PHOTOGRAPHY = 2;
+    const DIGITAL_ARTS = 3;
 
     private $_url;
     /**
@@ -75,7 +81,7 @@ class InfoBlock extends \yii\db\ActiveRecord
         return [
             [['title', 'btn_name', 'type'], 'required'],
             [['description'], 'string'],
-            [['type', 'salary'], 'integer'],
+            [['type', 'salary', 'tag'], 'integer'],
             [['title', 'btn_name'], 'string', 'max' => 255],
             ['imgs', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 10],
             ['avatar', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 1],
@@ -94,6 +100,7 @@ class InfoBlock extends \yii\db\ActiveRecord
             'btn_name' => $this->type === self::MAIN_PAGE_SLIDER ? 'Ссылка' : 'Имя кнопки',
             'type' => 'Тип',
             'salary' => 'Зарплата',
+            'tag' => 'Тэг кейса',
             'imgs' => 'Изображения',
             'avatar' => 'Аватар'
         ];
@@ -127,6 +134,17 @@ class InfoBlock extends \yii\db\ActiveRecord
             case self::PRODUCT_BLOCK: $label = 'блок с продуктом на странице "Продукты"';break;
             case self::CASE_BLOCK: $label = 'блок на странице "Кейсы"';break;
             case self::VACANCY_BLOCK: $label = 'вакансия на странице "Вакансии"';break;
+        }
+        return  $label;
+    }
+
+    public function getTagLabel()
+    {
+        $label = '';
+        switch ($this->tag) {
+            case self::DESIGN: $label = 'Design';break;
+            case self::PHOTOGRAPHY: $label = 'Photography';break;
+            case self::DIGITAL_ARTS: $label = 'Digital Arts';break;
         }
         return  $label;
     }

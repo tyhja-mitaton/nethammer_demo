@@ -56,7 +56,7 @@ if($mainSeo) {
     </div>
 
     <div class="container-fluid">
-        <div class="reviews-slider">
+        <div class="reviews-slider owl-carousel owl-theme">
             <?php foreach ($models as $model) { ?>
                 <div class="item">
                     <div class="d-flex align-items-center">
@@ -72,4 +72,9 @@ if($mainSeo) {
         </div>
     </div>
 </div>
-<?php $this->title = 'Отзывы'; ?>
+<?php $this->title = 'Отзывы';
+$js = <<<JS
+$('.owl-carousel').owlCarousel({responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});
+JS;
+$this->registerJs($js);
+?>

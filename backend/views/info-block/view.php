@@ -47,6 +47,7 @@ $viewFieldsArr = [
 ];
 switch ($model->type) {
     case $jobType: $viewFieldsArr['attributes'][] = 'salary'; break;
+    case $caseType: $viewFieldsArr['attributes'][] = ['attribute' => 'tag', 'value' => $model->tagLabel]; break;
 }
 ?>
     <?= DetailView::widget($viewFieldsArr) ?>
