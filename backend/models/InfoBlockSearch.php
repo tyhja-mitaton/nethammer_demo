@@ -18,7 +18,7 @@ class InfoBlockSearch extends InfoBlock
     public function rules()
     {
         return [
-            [['id', 'type'], 'integer'],
+            [['id', 'type', 'priority'], 'integer'],
             [['title', 'description', 'btn_name', 'imgs'], 'safe'],
         ];
     }
@@ -61,6 +61,7 @@ class InfoBlockSearch extends InfoBlock
         $query->andFilterWhere([
             'id' => $this->id,
             'type' => $this->type,
+            'priority' => $this->priority
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

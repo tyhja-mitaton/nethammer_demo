@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'btn_name',
             ['attribute' => 'type', 'value' => 'typeLabel'],
+            'priority',
 
             ['class' => 'yii\grid\ActionColumn',
                 'header'=>'Действия',

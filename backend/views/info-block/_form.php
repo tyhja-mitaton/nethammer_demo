@@ -53,6 +53,7 @@ $model->__set('avatar', $avatar);
         $photoCase => 'Photography',
         $artsCase => 'Digital Arts'
     ], ['prompt' => 'Выберите тип...']) ?>
+    <?= $form->field($model, 'priority')->textInput() ?>
 
     <?= $form->field($model, 'imgs', ['options' => [
             'class' => $model->type !== $serviceType && $model->type !== $productType && $model->type !== $caseType ? 'd-none': ''

@@ -16,6 +16,7 @@ use himiklab\sitemap\behaviors\SitemapBehavior;
  * @property int $type
  * @property int $salary
  * @property int $tag
+ * @property int $priority
  * @property string|null $imgs
  */
 class InfoBlock extends \yii\db\ActiveRecord
@@ -27,7 +28,7 @@ class InfoBlock extends \yii\db\ActiveRecord
     const CASE_BLOCK = 5;
     const VACANCY_BLOCK = 6;
 
-    //только для кесов
+    //только для кейсов
     const DESIGN = 1;
     const PHOTOGRAPHY = 2;
     const DIGITAL_ARTS = 3;
@@ -81,7 +82,7 @@ class InfoBlock extends \yii\db\ActiveRecord
         return [
             [['title', 'btn_name', 'type'], 'required'],
             [['description'], 'string'],
-            [['type', 'salary', 'tag'], 'integer'],
+            [['type', 'salary', 'tag', 'priority'], 'integer'],
             [['title', 'btn_name'], 'string', 'max' => 255],
             ['imgs', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 10],
             ['avatar', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 1],
@@ -101,6 +102,7 @@ class InfoBlock extends \yii\db\ActiveRecord
             'type' => 'Тип',
             'salary' => 'Зарплата',
             'tag' => 'Тэг кейса',
+            'priority' => 'Приоритет',
             'imgs' => 'Изображения',
             'avatar' => 'Аватар'
         ];

@@ -95,7 +95,7 @@ class SiteController extends Controller
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_DESC,
+                    'priority' => SORT_DESC,
                 ]
             ],
         ]);
@@ -106,7 +106,7 @@ class SiteController extends Controller
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_ASC,
+                    'priority' => SORT_DESC,
                 ]
             ],
         ]);
@@ -126,7 +126,7 @@ class SiteController extends Controller
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_DESC,
+                    'priority' => SORT_DESC,
                 ]
             ],
         ]);
@@ -146,7 +146,7 @@ class SiteController extends Controller
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_DESC,
+                    'priority' => SORT_DESC,
                 ]
             ],
         ]);
@@ -176,7 +176,7 @@ class SiteController extends Controller
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_DESC,
+                    'priority' => SORT_DESC,
                 ]
             ],
         ]);
@@ -206,7 +206,7 @@ class SiteController extends Controller
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_DESC,
+                    'priority' => SORT_DESC,
                 ]
             ],
         ]);
