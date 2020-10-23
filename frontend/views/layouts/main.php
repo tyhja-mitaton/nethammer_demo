@@ -3,6 +3,8 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use common\models\InfoBlock;
+use frontend\models\Review;
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -43,18 +45,35 @@ $userIsBot = \common\helpers\Helpers::userIsBot(\Yii::$app->request->userAgent);
 <body>
 <?php $this->beginBody();
 
+$vacanciesCount = InfoBlock::find()->where(['type' => InfoBlock::VACANCY_BLOCK])->count();
+$productsCount = InfoBlock::find()->where(['type' => InfoBlock::PRODUCT_BLOCK])->count();
+$servicesCount = InfoBlock::find()->where(['type' => InfoBlock::SERVICE_BLOCK])->count();
+$casesCount = InfoBlock::find()->where(['type' => InfoBlock::CASE_BLOCK])->count();
+$reviewsCount = Review::find()->where(['is_visible' => 1])->count();
+
 $menuItems = [
     ['label' => 'Главная', 'url' => ['/site/index']],
-    ['label' => 'О компании', 'items' => [
-        ['label' => 'Кейсы', 'url' => ['/site/cases']],
-        ['label' => 'Вакансии', 'url' => ['/site/job']],
-        ['label' => 'Отзывы', 'url' => ['/site/reviews']]
-    ]
-    ],
-    ['label' => 'Продукты', 'url' => ['/site/products']],
-    ['label' => 'Услуги', 'url' => ['/site/services']],
-    ['label' => 'Контакты', 'url' => ['/site/contact']],
 ];
+$items = [];
+if($casesCount > 0) {
+    $items[] = ['label' => 'Кейсы', 'url' => ['/site/cases']];
+}
+if($vacanciesCount > 0) {
+    $items[] = ['label' => 'Вакансии', 'url' => ['/site/job']];
+}
+if($reviewsCount > 0) {
+    $items[] = ['label' => 'Отзывы', 'url' => ['/site/reviews']];
+}
+if($casesCount > 0 || $vacanciesCount > 0 || $reviewsCount > 0) {
+    $menuItems[] = ['label' => 'О компании', 'items' => $items];
+}
+if($productsCount > 0) {
+    $menuItems[] = ['label' => 'Продукты', 'url' => ['/site/products']];
+}
+if($servicesCount > 0) {
+    $menuItems[] = ['label' => 'Услуги', 'url' => ['/site/services']];
+}
+$menuItems[] = ['label' => 'Контакты', 'url' => ['/site/contact']];
 ?>
 
     <?= $this->render('header', ['menuItems' => $menuItems]); ?>
