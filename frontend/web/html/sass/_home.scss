@@ -1,6 +1,20 @@
 .home-page {
     background: url(../images/home-bg.png) no-repeat right top, url(../images/home-bg2.png) no-repeat left center;
     background-size: 100% auto;   
+    
+    .tab-pane {
+        min-height: 400px;
+        
+        @media(max-width: 768px){
+            min-height: initial;
+        }
+    }
+    
+    .tab-content > .active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 .tab-pane {
