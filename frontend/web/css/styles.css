@@ -612,6 +612,7 @@ header .social {
 }
 
 footer {
+  margin: 40px 0 0;
   padding-top: 40px;
   padding-bottom: 120px;
   background: url(../images/footer-bg.jpg) no-repeat center center;
@@ -710,6 +711,10 @@ footer a:focus {
 
 .job-page .contact-us .section-title {
   color: #3f405f;
+}
+
+.vacancy i {
+  font-size: 20px;
 }
 
 .job-list {
@@ -1312,7 +1317,7 @@ footer a:focus {
 
 .home-slider .owl-controls {
   position: absolute;
-  top: -40px;
+  top: 0;
   right: 0;
   left: auto;
 }
@@ -1386,7 +1391,7 @@ footer a:focus {
   }
 
   header + * {
-    padding-top: 150px;
+    padding-top: 211px;
   }
 
   header {
@@ -1614,6 +1619,10 @@ footer a:focus {
 
 @media (max-width: 768px) {
   .footer-menu {
+    font-size: 14px;
+  }
+
+  .vacancy i {
     font-size: 14px;
   }
 
