@@ -33,6 +33,7 @@ if($mainSeo) {
         'content' => $mainSeo->seo->keywords,
     ]);
 }
+$tags = \common\models\InfoBlock::getTags();
 ?>
 <div class="cases-page">
     <div class="container">
@@ -50,12 +51,10 @@ if($mainSeo) {
     <div class="cases-filter-box">
         <div class="container">
             <div class="cases-filter">
-                <input type="checkbox" id="ch1" hidden checked>
-                <label for="ch1">Design</label>
-                <input type="checkbox" id="ch2" hidden>
-                <label for="ch2">Photography</label>
-                <input type="checkbox" id="ch3" hidden>
-                <label for="ch3">Digital Arts</label>
+                <?php foreach ($tags as $key => $tag){ ?>
+                    <input type="checkbox" id="ch<?=$key?>" hidden <?=$key == 1 ? 'checked': ''?>>
+                    <label for="ch<?=$key?>"><?=$tag?></label>
+                <?php }?>
             </div>
         </div>
     </div>

@@ -14,6 +14,10 @@ $items = [
         'url' => ['/info-block']
     ],
     [
+        'label' => '<i class="fa fa-circle-o"></i> Тэги кейсов',
+        'url' => ['/tag']
+    ],
+    [
         'label' => '<i class="fa fa-circle-o"></i> Обращения',
         'url' => ['/appeal']
     ],

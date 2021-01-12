@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use himiklab\sitemap\behaviors\SitemapBehavior;
 
@@ -149,5 +150,13 @@ class InfoBlock extends \yii\db\ActiveRecord
             case self::DIGITAL_ARTS: $label = 'Digital Arts';break;
         }
         return  $label;
+    }
+
+    public static function getTags()
+    {
+        $tags = Tag::find()->asArray()->all();
+        $tagsArr = ArrayHelper::map($tags, 'id', 'name');
+
+        return $tagsArr;
     }
 }

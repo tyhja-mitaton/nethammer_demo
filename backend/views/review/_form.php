@@ -1,5 +1,6 @@
 <?php
 
+use floor12\files\components\FileInputWidget;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -15,6 +16,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'dateTime')->widget(\yii\jui\DatePicker::class,['language' => 'ru', 'dateFormat' => 'php:d.m.Y']) ?>
+    <?= $form->field($model, 'logo')->widget(FileInputWidget::class)?>
 
     <?= $form->field($model, 'is_visible')->checkbox() ?>
 
