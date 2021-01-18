@@ -33,7 +33,7 @@ class ContactData extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['subject', 'emails', 'address', 'phone', 'vk_link', 'fb_link', 'twitter_link', 'map_link'], 'string', 'max' => 255],
+            [['subject', 'emails', 'address', 'phone', 'vk_link', 'fb_link', 'twitter_link', 'map_link', 'tg_link'], 'string', 'max' => 255],
         ];
     }
 
@@ -52,6 +52,7 @@ class ContactData extends \yii\db\ActiveRecord
             'fb_link' => 'Facebook',
             'twitter_link' => 'Twitter',
             'map_link' => 'Ссылка на карту',
+            'tg_link' => 'Telegram'
         ];
     }
 

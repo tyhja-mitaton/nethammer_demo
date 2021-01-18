@@ -37,7 +37,8 @@ class Appeal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['author', 'phone'], 'required'],
+            [['author'], 'required', 'message' => 'Необходимо заполнить поле "Имя"'],
+            [['phone'], 'required', 'message' => 'Необходимо заполнить поле "E-mail или телефон"'],
             [['author', 'phone'], 'string', 'max' => 255],
         ];
     }
