@@ -20,7 +20,7 @@ if(!$keywords = $model->seo->keywords) {
 
 $this->title = $title;
 $this->params['breadcrumbs'][] = ['label' => 'Услуги', 'url' => Url::toRoute('/services/')];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $model->title;
 
 $this->registerMetaTag([
     'name' => 'og:title',
@@ -47,7 +47,7 @@ $servicePrice = \frontend\models\ServicePrice::findOne(['service_id' => $model->
 
 <div class="service-page">
     <div class="container">
-        <h1 class="page-title"><?= Html::encode($this->title) ?></h1>
+        <h1 class="page-title"><?= Html::encode($model->title) ?></h1>
         <nav>
             <?= Breadcrumbs::widget([
                 'tag' => 'ol',
@@ -60,7 +60,7 @@ $servicePrice = \frontend\models\ServicePrice::findOne(['service_id' => $model->
     <!--</div>-->
     <div class="row mb-5 align-items-center">
         <div class="col-lg-6 order-lg-1 mb-4 text-center">
-            <img src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="">
+            <img src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="<?=$avatar->title?>">
         </div>
         <div class="col-lg-6">
             <?=$model->description ?>

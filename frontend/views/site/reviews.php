@@ -62,7 +62,7 @@ if($mainSeo) {
                 $logo = File::find()->where(['object_id' => $model->id, 'field' => 'logo'])->one();?>
                 <div class="item">
                     <div class="d-flex align-items-center">
-                        <img src="<?=isset($logo->href) ? $logo->href : '' ?>" alt="">
+                        <img src="<?=isset($logo->href) ? $logo->href : '' ?>" alt="<?=isset($logo->title) ? $logo->title : ''?>">
                         <div class="name">
                             <?=$model->author ?>
                             <div><?=$model->date ?></div>

@@ -48,11 +48,11 @@ $tags = \common\models\InfoBlock::getTags();
             ]) ?>
         </nav>
     </div>
-    <div class="cases-filter-box">
+    <div class="cases-filter-box" style="padding-bottom: 10px;">
         <div class="container">
             <div class="cases-filter">
                 <?php foreach ($tags as $key => $tag){ ?>
-                    <input type="checkbox" id="ch<?=$key?>" hidden <?=$key == 1 ? 'checked': ''?>>
+                    <input type="checkbox" id="ch<?=$key?>" hidden checked>
                     <label for="ch<?=$key?>"><?=$tag?></label>
                 <?php }?>
             </div>

@@ -22,7 +22,7 @@ if(!$keywords = $model->seo->keywords) {
 
 $this->title = $title;
 $this->params['breadcrumbs'][] = ['label' => 'Продукты', 'url' => Url::toRoute('/products/')];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $model->title;
 
 $this->registerMetaTag([
     'name' => 'og:title',
@@ -48,7 +48,7 @@ $appealModel = new \frontend\models\Appeal();
 ?>
 <div class="product-page">
     <div class="container">
-        <h1 class="page-title"><?= Html::encode($this->title) ?></h1>
+        <h1 class="page-title"><?= Html::encode($model->title) ?></h1>
         <nav>
             <?= Breadcrumbs::widget([
                 'tag' => 'ol',
@@ -64,13 +64,13 @@ $appealModel = new \frontend\models\Appeal();
             <div class="product-top">
                 <h2 class="subtitle"><?=$model->title ?></h2>
                 <div class="text"><?=$model->description ?></div>
-                <img class="main-img" src="<?=isset($firstImg->href) ? $firstImg->href: ''?>" alt="">
+                <img class="main-img" src="<?=isset($firstImg->href) ? $firstImg->href: ''?>" alt="<?=$firstImg->title?>">
             </div>
 
             <div class="product-slider owl-carousel owl-theme">
                 <?php foreach ($imgModels as $img) { ?>
                     <a class="img" href="<?=$img->href?>" data-fancybox="products-gallery" title="<?=$img->title?>" data-hash="<?=$img->hash?>">
-                        <?=Html::img($img->href); ?>
+                        <?=Html::img($img->href, ['alt' => $img->title]); ?>
                     </a>
                 <?php } ?>
             </div>
