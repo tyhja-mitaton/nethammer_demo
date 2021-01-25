@@ -17,7 +17,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class Review extends \yii\db\ActiveRecord
 {
-    public $logo;
+    //public $logo;//картинка сохраняется при обнавлении только когда поле непосредственно в бд
     /**
      * {@inheritdoc}
      */

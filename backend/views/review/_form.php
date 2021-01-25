@@ -1,17 +1,21 @@
 <?php
 
 use floor12\files\components\FileInputWidget;
+use floor12\files\models\File;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Review */
 /* @var $form yii\widgets\ActiveForm */
+
+$logo = File::find()->where(['object_id' => $model->id, 'field' => 'logo'])->one();
+$model->__set('logo', $logo);
 ?>
 
 <div class="review-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin();?>
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
 

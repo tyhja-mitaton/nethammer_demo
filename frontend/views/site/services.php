@@ -47,7 +47,7 @@ if($mainSeo) {
         <div class="item">
             <div class="container">
                 <h2 class="title"><?=$model->title ?></h2>
-                <img class="img" src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="">
+                <img class="img" src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="<?=isset($avatar->title) ? $avatar->title : '' ?>">
                 <div class="desc"><?=$model->description ?></div>
                 <?= Html::a("$model->btn_name <i>→</i>", [\yii\helpers\Url::to(['service-page', 'id' => $model->id, 'slug' => \yii\helpers\Inflector::slug($model->title)])], ['class' => 'btn btn-blue-o']) ?>
             </div>
