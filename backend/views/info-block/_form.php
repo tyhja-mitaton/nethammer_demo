@@ -48,11 +48,7 @@ $model->__set('avatar', $avatar);
         $jobType => 'вакансия на странице "Вакансии"'
     ], ['prompt' => 'Выберите тип...']) ?>
     <?= $form->field($model, 'salary', ['options' => ['class' => $model->type !== $jobType ? 'd-none': '']])->textInput() ?>
-    <?= $form->field($model, 'tag', ['options' => ['class' => $model->type !== $caseType ? 'd-none': '']])->dropDownList([
-        $designCase => 'Design',
-        $photoCase => 'Photography',
-        $artsCase => 'Digital Arts'
-    ], ['prompt' => 'Выберите тип...']) ?>
+    <?= $form->field($model, 'tag', ['options' => ['class' => $model->type !== $caseType ? 'd-none': '']])->dropDownList(\common\models\InfoBlock::getTags(), ['prompt' => 'Выберите тип...']) ?>
     <?= $form->field($model, 'priority')->textInput() ?>
 
     <?= $form->field($model, 'imgs', ['options' => [

@@ -78,8 +78,12 @@ return [
                 '/' => 'site/index',
                 ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
                 '<action:\w+>' => 'site/<action>',
-                'product/<id:\d+>'=>'site/product-page',
-                'service/<id:\d+>'=>'site/service-page',
+                'product/<slug:[a-z0-9_\-]+>'=>'site/product-page',
+                //'service/<id:\d+>' => 'site/service-page',
+                'service/<slug:[a-z0-9_\-]+>'=> 'site/service-page',
+
+                //'service/<slug:[a-z0-9_\-]+>' => 'service/<slug:[a-z0-9_\-]+>/<id:\d+>'
+                //'service/<slug:[a-z0-9_\-]+>' => 'service/<id:\d+>',
             ],
         ],
 

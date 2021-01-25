@@ -4,6 +4,7 @@
  * @var $newModel \frontend\models\Review
  */
 use backend\models\SinglePageSeo;
+use floor12\files\models\File;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Modal;
 use yii\helpers\Html;
@@ -57,10 +58,11 @@ if($mainSeo) {
 
     <div class="container-fluid">
         <div class="reviews-slider owl-carousel owl-theme">
-            <?php foreach ($models as $model) { ?>
+            <?php foreach ($models as $model) {
+                $logo = File::find()->where(['object_id' => $model->id, 'field' => 'logo'])->one();?>
                 <div class="item">
                     <div class="d-flex align-items-center">
-                        <img src="images/review.png" alt="">
+                        <img src="<?=isset($logo->href) ? $logo->href : '' ?>" alt="">
                         <div class="name">
                             <?=$model->author ?>
                             <div><?=$model->date ?></div>

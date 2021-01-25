@@ -17,6 +17,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class Review extends \yii\db\ActiveRecord
 {
+    public $logo;
     /**
      * {@inheritdoc}
      */
@@ -29,6 +30,12 @@ class Review extends \yii\db\ActiveRecord
     {
         return [
             TimestampBehavior::class,
+            'files' => [
+                'class' => 'floor12\files\components\FileBehaviour',
+                'attributes' => [
+                    'logo'
+                ],
+            ],
         ];
     }
 
@@ -42,6 +49,8 @@ class Review extends \yii\db\ActiveRecord
             [['text'], 'string'],
             [['is_visible'], 'integer'],
             [['author'], 'string', 'max' => 255],
+            ['dateTime', 'date', 'format' => 'php:d.m.Y'],
+            ['logo', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 1],
         ];
     }
 
@@ -57,10 +66,23 @@ class Review extends \yii\db\ActiveRecord
             'created_at' => 'Дата создания',
             'updated_at' => 'Дата последнего обновления',
             'is_visible' => 'Проверено',
+            'dateTime' => 'Дата',
+            'logo' => 'Логотип'
         ];
     }
     public function getDate()
     {
         return Yii::$app->formatter->asDate($this->created_at, 'dd.MM.yyyy');
     }
+
+    public function getDateTime()
+    {
+        return $this->created_at ? date('d.m.Y', $this->created_at) : '';
+    }
+
+    public function setDateTime($date)
+    {
+        $this->created_at = $date ? strtotime($date) : null;
+    }
+
 }

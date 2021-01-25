@@ -49,7 +49,7 @@ if($mainSeo) {
                 <h2 class="title"><?=$model->title ?></h2>
                 <img class="img" src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="">
                 <div class="desc"><?=$model->description ?></div>
-                <?= Html::a("$model->btn_name <i>→</i>", ['product-page', 'id' => $model->id], ['class' => 'btn btn-blue-o']) ?>
+                <?= Html::a("$model->btn_name <i>→</i>", [\yii\helpers\Url::to(['product-page', 'id' => $model->id, 'slug' => \yii\helpers\Inflector::slug($model->title)])], ['class' => 'btn btn-blue-o']) ?>
             </div>
         </div>
         <?php } ?>

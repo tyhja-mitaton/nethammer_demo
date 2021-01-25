@@ -14,6 +14,7 @@ $id_param = isset($model->id) ? $model->id : 1;
 <?= $form->field($model, 'vk_link')->textInput(['maxlength' => true]) ?>
 <?= $form->field($model, 'fb_link')->textInput(['maxlength' => true]) ?>
 <?= $form->field($model, 'twitter_link')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'tg_link')->textInput(['maxlength' => true]) ?>
 <?= $form->field($model, 'map_link')->textInput(['maxlength' => true, 'placeholder' => 'src="ссылка"']) ?>
 <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
 <?php ActiveForm::end(); ?>

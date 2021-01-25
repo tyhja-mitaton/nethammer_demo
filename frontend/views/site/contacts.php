@@ -66,6 +66,7 @@ if($mainSeo) {
                 <li><a href="<?=isset($contactDataModel->vk_link) ? $contactDataModel->vk_link : '#'?>"><i class="fab fa-vk"></i></a></li>
                 <li><a href="<?=isset($contactDataModel->fb_link) ? $contactDataModel->fb_link : '#'?>"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="<?=isset($contactDataModel->twitter_link) ? $contactDataModel->twitter_link : '#'?>"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="<?=isset($contactDataModel->tg_link) ? $contactDataModel->tg_link : '#'?>"><i class="fab fa-telegram"></i></a></li>
             </ul>
         </div>
         <div class="col-lg-7">
