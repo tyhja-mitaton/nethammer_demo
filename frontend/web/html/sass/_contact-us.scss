@@ -8,6 +8,7 @@
     @media(max-width:992px){
         background: transparent;
         padding-bottom: 0;
+        margin-bottom: 30px;
     }
     
     > * {
@@ -37,7 +38,7 @@
         min-height: 380px;
         
         @media(max-width:992px){
-            margin: -10px -15px 0;
+            margin: -10px -15px 30px;
             padding: 40px 15px;
         }
     
