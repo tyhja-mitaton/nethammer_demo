@@ -7,7 +7,7 @@ $contactDataModel = ContactData::find()->one();?>
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-10">
                 <a class="logo" href="<?=Yii::$app->homeUrl?>">
                     <img src="images/logo.png" alt="">
                 </a>
@@ -22,7 +22,7 @@ $contactDataModel = ContactData::find()->one();?>
                     'items' => $menuItems,
                 ]); ?>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-2">
                 <ul class="social">
                     <?php if(isset($contactDataModel->vk_link) && $contactDataModel->vk_link !== ''){ ?><li><a href="<?=isset($contactDataModel->vk_link) ? $contactDataModel->vk_link : '#'?>"><i class="fab fa-vk"></i></a></li><?php } ?>
                     <?php if(isset($contactDataModel->fb_link) && $contactDataModel->fb_link !== ''){ ?><li><a href="<?=isset($contactDataModel->fb_link) ? $contactDataModel->fb_link : '#'?>"><i class="fab fa-facebook-f"></i></a></li><?php } ?>

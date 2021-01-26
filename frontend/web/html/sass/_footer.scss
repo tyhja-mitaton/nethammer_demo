@@ -11,6 +11,54 @@ footer {
         padding-bottom: 40px;
     }
     
+    .nav-item {
+        &:first-child {
+            .nav-link {
+                padding-left: 0;
+            }
+        }
+        
+        .nav-link {
+            @media(max-width:992px){
+                padding-left: 0;
+            }
+        }
+    }
+    
+    .dropdown-toggle::after {
+        display: none;
+    }
+    
+    
+    .dropdown {
+        .dropdown-menu {
+            position: absolute;
+            display: flex;
+            top: 100%;
+            left: -124px !important;
+            padding: 20px 0 0;
+            margin: 12px 0 0;
+            background: transparent;
+            border-top: 1px solid #cfcfe4;
+            
+            @media(max-width:992px){
+                position: relative;
+                top: 0;
+                left: 0 !important;
+                width: auto;
+                border-top: 0;
+                padding: 0;
+            }
+
+            .dropdown-item {
+                padding-left: 0;
+                padding-right: 0;
+                font-size: 14px;
+                margin-right: 30px;
+            }
+        }
+    }
+    
     .logo {
         display: block;
         margin: 0 0 45px;
