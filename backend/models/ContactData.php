@@ -45,7 +45,7 @@ class ContactData extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'subject' => 'Тема',
-            'emails' => 'E-mails',
+            'emails' => 'E-mails (через пробел)',
             'address' => 'Адрес',
             'phone' => 'Телефон',
             'vk_link' => 'ВК',
@@ -58,6 +58,6 @@ class ContactData extends \yii\db\ActiveRecord
 
     public function getEmailsArray()
     {
-        return explode(' ', $this->emails);
+        return explode(' ', trim($this->emails));
     }
 }
