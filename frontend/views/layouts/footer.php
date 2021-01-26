@@ -28,6 +28,12 @@ $contactDataModel = ContactData::find()->one();?>
                     <?php if(isset($contactDataModel->fb_link) && $contactDataModel->fb_link !== ''){ ?><li><a href="<?=isset($contactDataModel->fb_link) ? $contactDataModel->fb_link : '#'?>"><i class="fab fa-facebook-f"></i></a></li><?php } ?>
                     <?php if(isset($contactDataModel->twitter_link) && $contactDataModel->twitter_link !== ''){ ?><li><a href="<?=isset($contactDataModel->twitter_link) ? $contactDataModel->twitter_link : '#'?>"><i class="fab fa-twitter"></i></a></li><?php } ?>
                 </ul>
+                <p>
+                    <a href="tel:+73522229159">+7 (3522) 229-159</a>
+                </p>
+                <p>
+                    <a href="mailto:foxis@nethammer.ru">foxis@nethammer.ru</a>
+                </p>
             </div>
         </div>
     </div>

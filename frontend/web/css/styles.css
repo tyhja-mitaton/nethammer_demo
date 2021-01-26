@@ -654,7 +654,12 @@ footer .logo {
 }
 
 footer .social {
-  float: right;
+  margin: 0 0 20px;
+}
+
+footer .social li {
+  margin-right: 30px;
+  margin-left: 0;
 }
 
 footer ul {
@@ -1465,7 +1470,7 @@ footer a:focus {
   }
 
   footer .social {
-    margin: 20px 0 0;
+    margin: 20px 0;
     font-size: 24px;
   }
 
