@@ -614,7 +614,7 @@ header .social {
 footer {
   margin: 40px 0 0;
   padding-top: 40px;
-  padding-bottom: 120px;
+  padding-bottom: 30px;
   background: url(../images/footer-bg.jpg) no-repeat center center;
   background-size: cover;
   border-top: 1px solid #7487dd;
@@ -631,7 +631,7 @@ footer .dropdown-toggle::after {
 footer .dropdown .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: -124px !important;
+  left: -105px !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -689,7 +689,7 @@ footer a:focus {
 }
 
 .footer-menu > li {
-  margin-right: 30px;
+  margin-right: 10px;
 }
 
 .footer-menu ul {
@@ -721,6 +721,12 @@ footer a:focus {
 .footer-menu ul a:hover,
 .footer-menu ul a:focus {
   color: #2059ed;
+}
+
+.copyright {
+  margin: 115px 0 0;
+  text-align: right;
+  color: #cfcfe4;
 }
 
 .job-page {
@@ -1496,6 +1502,11 @@ footer a:focus {
     margin: 0;
     padding: 20px 0 0;
     border: 0;
+  }
+
+  .copyright {
+    margin: 30px 0 0;
+    text-align: center;
   }
 
   .job-page {

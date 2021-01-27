@@ -1,6 +1,6 @@
 footer {
     padding-top: 40px;
-    padding-bottom: 120px;
+    padding-bottom: 30px;
     border-top: 1px solid #7487dd;
     background: url(../images/footer-bg.jpg) no-repeat center center;
     background-size: cover;
@@ -35,7 +35,7 @@ footer {
             position: absolute;
             display: flex;
             top: 100%;
-            left: -124px !important;
+            left: -105px !important;
             padding: 20px 0 0;
             margin: 12px 0 0;
             background: transparent;
@@ -121,7 +121,7 @@ footer {
     }
     
     > li {
-        margin-right: 30px;
+        margin-right: 10px;
         
         @media(max-width:992px){
             margin: 8px 0;
@@ -162,5 +162,16 @@ footer {
                 color: #2059ed;
             }
         }
+    }
+}
+
+.copyright {
+    text-align: right;
+    margin: 115px 0 0;
+    color: #cfcfe4;
+    
+    @media(max-width:992px){
+        text-align: center;
+        margin: 30px 0 0;
     }
 }
