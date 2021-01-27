@@ -34,6 +34,9 @@ $contactDataModel = ContactData::find()->one();?>
                 <p>
                     <a href="mailto:foxis@nethammer.ru">foxis@nethammer.ru</a>
                 </p>
+                <p>
+                    <a href="/sitemap.xml" target="_blank">sitemap</a>
+                </p>
             </div>
         </div>
     </div>

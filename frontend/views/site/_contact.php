@@ -18,9 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'author')->textInput(['placeholder' => 'Дмитрий'])->label('Имя') ?>
 
-                <?= $form->field($model, 'email')->textInput(['placeholder' => 'name@gmail.com'])->label('E-mail') ?>
-
-                <?= $form->field($model, 'phone')->textInput(['placeholder' => '+7 995 995 95 95'])->label('Телефон') ?>
+                <?= $form->field($model, 'phone')->textInput(['placeholder' => '+7 995 995 95 95'])->label('E-mail или телефон') ?>
 
                     <?= Html::submitButton('Отправить <i class="fas fa-chevron-right"></i>', ['class' => 'btn btn-blue', 'name' => 'contact-button']) ?>
     <img src="images/contacts-robot.jpg" alt="">

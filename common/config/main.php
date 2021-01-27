@@ -54,6 +54,16 @@ return [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.yandex.ru',
+                'username' => 'n3thammer@yandex.ru',
+                'password' => 'hammer45Kgn',
+                'port' => '587',
+                'encryption' => 'tls',
+                //'streamOptions' => [ 'ssl' => [ 'allow_self_signed' => true, 'verify_peer' => false, 'verify_peer_name' => false, ], ]
+            ],
         ],
         'i18n' => [
             'translations' => [

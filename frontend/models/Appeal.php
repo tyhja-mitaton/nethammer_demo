@@ -38,10 +38,10 @@ class Appeal extends \yii\db\ActiveRecord
     {
         return [
             [['author'], 'required', 'message' => 'Необходимо заполнить поле "Имя"'],
-            [['phone'], 'required', 'message' => 'Необходимо заполнить поле "Телефон"'],
-            [['email'], 'required', 'message' => 'Необходимо заполнить поле "E-mail"'],
+            [['phone'], 'required', 'message' => 'Необходимо заполнить поле "E-mail или телефон"'],
+            //[['email'], 'required', 'message' => 'Необходимо заполнить поле "E-mail"'],
             [['author', 'phone'], 'string', 'max' => 255],
-            ['email', 'email'],
+            //['email', 'email'],
         ];
     }
 
@@ -54,7 +54,7 @@ class Appeal extends \yii\db\ActiveRecord
             'id' => 'ID',
             'author' => 'Автор',
             'phone' => 'Телефон',
-            'email' => 'E-mail',
+            //'email' => 'E-mail',
             'created_at' => 'Дата создания',
             'updated_at' => 'Дата изменения',
         ];
@@ -64,7 +64,7 @@ class Appeal extends \yii\db\ActiveRecord
     {
         return Yii::$app->mailer->compose()
             ->setTo($email)
-            ->setFrom($appeal->email)
+            ->setFrom('n3thammer@yandex.ru')
             ->setSubject($contactData->subject)
             ->setTextBody($appeal->author.' '.$appeal->phone)
             ->send();
