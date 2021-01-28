@@ -64,7 +64,7 @@ class Appeal extends \yii\db\ActiveRecord
     {
         return Yii::$app->mailer->compose()
             ->setTo($email)
-            ->setFrom('n3thammer@yandex.ru')
+            ->setFrom('latter@nethammer.ru')
             ->setSubject($contactData->subject)
             ->setTextBody($appeal->author.' '.$appeal->phone)
             ->send();

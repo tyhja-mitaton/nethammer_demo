@@ -58,8 +58,8 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.yandex.ru',
-                'username' => 'n3thammer@yandex.ru',
-                'password' => 'hammer45Kgn',
+                'username' => 'latter@nethammer.ru',
+                'password' => '001002003zxz',
                 'port' => '587',
                 'encryption' => 'tls',
                 //'streamOptions' => [ 'ssl' => [ 'allow_self_signed' => true, 'verify_peer' => false, 'verify_peer_name' => false, ], ]
