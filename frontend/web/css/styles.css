@@ -1236,6 +1236,7 @@ footer a:focus {
 
 .case {
   position: relative;
+  padding-bottom: 60px;
   color: #7a7a80;
   background: #ffffff;
 }
@@ -1284,9 +1285,28 @@ footer a:focus {
 }
 
 .case-text {
+  position: relative;
+  max-width: 700px;
+  max-height: 224px;
+  margin: 0 auto;
+  padding: 20px 0 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.case-text.full {
+  max-height: 1200px;
+}
+
+.case-more {
   max-width: 700px;
   margin: 0 auto;
-  padding: 20px 0 60px;
+}
+
+.case-more a {
+  text-decoration: underline;
 }
 
 .home-page {
@@ -1645,6 +1665,11 @@ footer a:focus {
   }
 
   .case-text {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .case-more {
     padding-right: 15px;
     padding-left: 15px;
   }

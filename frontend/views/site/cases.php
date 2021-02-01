@@ -77,12 +77,23 @@ $tags = \common\models\InfoBlock::getTags();
                 <p><b>О проекте</b></p>
                 <p><?=$model->description ?></p>
             </div>
+            <p class="case-more">
+                <a href="#">
+                    <span>Подробнее..</span>
+                    <span style="display:none;">Свернуть</span>
+                </a>
+            </p>
         </div>
         <?php } ?>
     </div>
 </div>
 <?php
 $js = <<<JS
+$('.case-more a').on('click', function(e){
+  e.preventDefault();
+  $(this).closest('.case').find('.case-text').toggleClass('full');
+  $(this).find('span').toggle();
+})
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel({responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});
   filterCases.call($('.cases-filter input:checked'));
