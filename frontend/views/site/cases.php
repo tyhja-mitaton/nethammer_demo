@@ -75,11 +75,13 @@ $tags = \common\models\InfoBlock::getTags();
             </div>
             <div class="case-text">
                 <p><b>О проекте</b></p>
+                <p><?=$model->intro ?></p>
+                <br>
                 <p><?=$model->description ?></p>
             </div>
             <p class="case-more">
                 <a href="#">
-                    <span>Подробнее..</span>
+                    <span><?=$model->btn_name?></span>
                     <span style="display:none;">Свернуть</span>
                 </a>
             </p>

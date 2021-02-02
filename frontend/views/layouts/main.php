@@ -77,7 +77,6 @@ $menuItems[] = ['label' => 'Контакты', 'url' => ['/site/contact']];
 ?>
 
     <?= $this->render('header', ['menuItems' => $menuItems]); ?>
-    <?= Alert::widget() ?>
     <?= $content?>
     <?= $this->render('footer', ['menuItems' => $menuItems]); ?>
 

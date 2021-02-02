@@ -19,6 +19,7 @@ use himiklab\sitemap\behaviors\SitemapBehavior;
  * @property int $tag
  * @property int $priority
  * @property string|null $imgs
+ * @property string|null $intro
  */
 class InfoBlock extends \yii\db\ActiveRecord
 {
@@ -82,7 +83,7 @@ class InfoBlock extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'btn_name', 'type'], 'required'],
-            [['description'], 'string'],
+            [['description', 'intro'], 'string'],
             [['type', 'salary', 'tag', 'priority'], 'integer'],
             [['title', 'btn_name'], 'string', 'max' => 255],
             ['imgs', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 10],
@@ -98,6 +99,7 @@ class InfoBlock extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Заголовок',
+            'intro' => 'Введение',
             'description' => 'Описание',
             'btn_name' => $this->type === self::MAIN_PAGE_SLIDER ? 'Ссылка' : 'Имя кнопки',
             'type' => 'Тип',
