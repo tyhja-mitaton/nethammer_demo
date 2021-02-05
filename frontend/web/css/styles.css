@@ -483,6 +483,11 @@ i {
   background-size: contain;
 }
 
+.page-title + nav {
+  position: relative;
+  z-index: 2;
+}
+
 .subtitle {
   font-weight: 700;
   font-size: 30px;
