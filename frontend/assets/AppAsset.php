@@ -22,7 +22,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/owl.carousel.js',
         'js/jquery.fancybox.js',
-        'scripts.js',
+        'js/scripts.js',
     ];
 
     public $depends = [

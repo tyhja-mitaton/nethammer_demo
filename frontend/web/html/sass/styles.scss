@@ -178,6 +178,11 @@ i {
         background: url(../images/title-sircle.png) no-repeat center center;
         background-size: contain;
     }
+  
+  & + nav {
+    position: relative;
+    z-index: 2;
+  }
 }
 
 .subtitle {
