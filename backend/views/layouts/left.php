@@ -38,6 +38,10 @@ $items = [
         'url' => ['/site/contact']
     ],
     [
+        'label' => '<i class="fa fa-circle-o"></i> Дополнительные блоки',
+        'url' => ['/extra-block']
+    ],
+    [
         'label' => '<i class="fa fa-circle-o"></i> SEO главной страницы',
         'url' => ['/site/single-seo-main']
     ],

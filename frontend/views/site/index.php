@@ -4,7 +4,11 @@
  * @var $provider yii\data\ActiveDataProvider
  * @var $appeal frontend\models\Appeal
  * @var $advProvider yii\data\ActiveDataProvider
+ * @var $extraBlocksProvider yii\data\ActiveDataProvider
  */
+
+use floor12\files\models\File;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use backend\models\SinglePageSeo;
 
@@ -16,6 +20,7 @@ $this->registerMetaTag([
 
 $models = $provider->getModels();
 $advModels = $advProvider->getModels();
+$extraBlocks = $extraBlocksProvider->getModels();
 $mainSeo = SinglePageSeo::findOne(['type' => SinglePageSeo::MAIN_PAGE_SEO]);
 if($mainSeo) {
     $this->registerMetaTag([
@@ -82,6 +87,15 @@ if($mainSeo) {
                 </div>
             </div>
         </div>
+        <?php foreach($extraBlocks as $extraBlock){
+            $img = File::find()->where(['object_id' => $extraBlock->id, 'field' => 'img'])->one();?>
+        <div class="row extra-block">
+            <h2 class="title"><?=$extraBlock->title?></h2>
+            <img class="img" src="<?=isset($img->href) ? $img->href : '' ?>" alt="<?=isset($img->title) ? $img->title : '' ?>">
+            <div class="desc"><?=$extraBlock->text ?></div>
+            <?=Html::a("$extraBlock->btn_name <i>→</i>",$extraBlock->btn_link, ['class' => 'btn btn-blue-o'])?>
+        </div>
+        <?php }?>
     </div>
     <?= $this->render('_contact', ['model' => $appeal]);?>
 </div>

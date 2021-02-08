@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /
 Host: nethammer.ru
-Sitemap: http://hammer.dvizh.net/sitemap.xml
+Sitemap: https://nethammer.ru/sitemap.xml

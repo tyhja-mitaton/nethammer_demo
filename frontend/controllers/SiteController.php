@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use backend\models\ContactData;
 use backend\models\InfoBlockSearch;
+use common\models\ExtraBlock;
 use common\models\InfoBlock;
 use frontend\models\Appeal;
 use frontend\models\ResendVerificationEmailForm;
@@ -87,6 +88,7 @@ class SiteController extends Controller
     {
         $model = InfoBlock::find()->where(['type' => InfoBlock::MAIN_PAGE_SLIDER]);
         $advModel = InfoBlock::find()->where(['type' => InfoBlock::INFO_BLOCK]);
+        $extraBlocks = ExtraBlock::find();
         $appeal = new Appeal();
         $provider = new ActiveDataProvider([
             'query' => $model,
@@ -110,7 +112,13 @@ class SiteController extends Controller
                 ]
             ],
         ]);
-        return $this->render('index', ['provider' => $provider, 'appeal' => $appeal, 'advProvider' => $advProvider]);
+        $extraBlocksProvider = new ActiveDataProvider([
+            'query' => $extraBlocks,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+        return $this->render('index', ['provider' => $provider, 'appeal' => $appeal, 'advProvider' => $advProvider, 'extraBlocksProvider' => $extraBlocksProvider]);
     }
 
     /**

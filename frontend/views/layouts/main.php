@@ -19,6 +19,15 @@ $userIsBot = \common\helpers\Helpers::userIsBot(\Yii::$app->request->userAgent);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-188854628-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-188854628-1');
+    </script>
     <meta charset="<?= Yii::$app->charset ?>">
     <base href="../">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,6 +49,21 @@ $userIsBot = \common\helpers\Helpers::userIsBot(\Yii::$app->request->userAgent);
     <meta name="og:image" content="/images/logo.jpg">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
     <title><?= Html::encode($this->title) ?></title>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(71829280, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/71829280" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <?php $this->head() ?>
 </head>
 <body>
@@ -84,14 +108,14 @@ $menuItems[] = ['label' => 'Контакты', 'url' => ['/site/contact']];
         (!isset($this->params['popupChatDisabled']) || !$this->params['popupChatDisabled'])
         && !$userIsBot
     ) {
-        echo \matodor\chat\widgets\PopupChat::widget([
+        /*echo \matodor\chat\widgets\PopupChat::widget([
             'options' => [
                 'requestParams' => [],
                 'toggleOptions' => [
                     'class' => ['togglePopup']
                 ]
             ]
-        ]);
+        ]);*/
     } ?>
 
 <?php $this->endBody() ?>
