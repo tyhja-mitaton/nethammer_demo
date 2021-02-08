@@ -13,7 +13,7 @@ $contactDataModel = ContactData::find()->one();?>
     <div class="container">
         <div class="row align-items-end">
             <div class="col-lg-4 d-flex align-items-center">
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#w0-collapse">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#mynav-collapse">
                     <img src="images/menu.png" alt="">
                 </button>
                 <a class="logo" href="<?=Yii::$app->homeUrl?>">
@@ -29,6 +29,7 @@ $contactDataModel = ContactData::find()->one();?>
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar navbar-expand-lg',
+                    'id' => 'mynav'
                 ],
                 'renderInnerContainer' => false,
                 'togglerContent' => false//'<img src="images/menu.png" alt="">'
