@@ -17,6 +17,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class Review extends \yii\db\ActiveRecord
 {
+    public $verifyCode;
     //public $logo;//картинка сохраняется при обнавлении только когда поле непосредственно в бд
     /**
      * {@inheritdoc}
@@ -51,6 +52,7 @@ class Review extends \yii\db\ActiveRecord
             [['author'], 'string', 'max' => 255],
             ['dateTime', 'date', 'format' => 'php:d.m.Y'],
             ['logo', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 1],
+            ['verifyCode', 'captcha'],
         ];
     }
 
@@ -67,7 +69,8 @@ class Review extends \yii\db\ActiveRecord
             'updated_at' => 'Дата последнего обновления',
             'is_visible' => 'Проверено',
             'dateTime' => 'Дата',
-            'logo' => 'Логотип'
+            'logo' => 'Логотип',
+            'verifyCode' => 'Код подтверждения',
         ];
     }
     public function getDate()

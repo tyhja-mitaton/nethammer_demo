@@ -16,6 +16,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class Appeal extends \yii\db\ActiveRecord
 {
+    public $verifyCode;
     /**
      * {@inheritdoc}
      */
@@ -42,6 +43,7 @@ class Appeal extends \yii\db\ActiveRecord
             //[['email'], 'required', 'message' => 'Необходимо заполнить поле "E-mail"'],
             [['author', 'phone'], 'string', 'max' => 255],
             //['email', 'email'],
+            ['verifyCode', 'captcha'],
         ];
     }
 
@@ -57,6 +59,7 @@ class Appeal extends \yii\db\ActiveRecord
             //'email' => 'E-mail',
             'created_at' => 'Дата создания',
             'updated_at' => 'Дата изменения',
+            'verifyCode' => 'Код подтверждения',
         ];
     }
 

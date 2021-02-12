@@ -15,8 +15,10 @@ $this->title = 'Оставить отзыв';
 
         <?= $form->field($model, 'text')->textarea(['placeholder' => 'сообщение'])->label('Отзыв') ?>
 
+        <?= $form->field($model, 'verifyCode')->widget(Captcha::class) ?>
+
         <?= Html::submitButton('Отправить <i class="fas fa-chevron-right"></i>', ['class' => 'btn btn-blue', 'name' => 'contact-button']) ?>
-        <img src="images/contacts-robot.jpg" alt="">
+        <img class="robot" src="images/contacts-robot.jpg" alt="">
         <?php ActiveForm::end(); ?>
     </div>
 </section>

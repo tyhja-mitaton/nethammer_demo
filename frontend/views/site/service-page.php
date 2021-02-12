@@ -60,7 +60,7 @@ $servicePrice = \frontend\models\ServicePrice::findOne(['service_id' => $model->
     <!--</div>-->
     <div class="row mb-5 align-items-center">
         <div class="col-lg-6 order-lg-1 mb-4 text-center">
-            <img src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="<?=$avatar->title?>">
+            <img src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="<?=isset($avatar->title) ? $avatar->title : ''?>">
         </div>
         <div class="col-lg-6">
             <?=$model->description ?>

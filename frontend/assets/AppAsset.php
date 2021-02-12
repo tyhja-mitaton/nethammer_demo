@@ -18,6 +18,7 @@ class AppAsset extends AssetBundle
         'css/owl.theme.default.css',
         'css/jquery.fancybox.css',
     ];
+    public $cssOptions = ['position' => \yii\web\View::POS_END];
 
     public $js = [
         'js/owl.carousel.js',

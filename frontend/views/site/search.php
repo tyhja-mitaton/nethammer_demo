@@ -29,5 +29,8 @@ use yii\helpers\Html; ?>
             <div class="text"><?=$model->description ?></div>
         </div>
         <?php } ?>
+        <?php if(count($models) == 0):?>
+            <div class="item"><div class="text">По вашему запросу ничего не найдено</div></div>
+        <?php endif;?>
     </div>
 </div>

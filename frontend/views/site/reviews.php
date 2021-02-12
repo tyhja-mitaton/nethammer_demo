@@ -42,6 +42,11 @@ if($mainSeo) {
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
         </nav>
+        <?php if( Yii::$app->session->hasFlash('success-review') ): ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <?php echo Yii::$app->session->getFlash('success-review'); ?>
+            </div>
+        <?php endif;?>
     </div>
     <div class="container">
         <?php Modal::begin([

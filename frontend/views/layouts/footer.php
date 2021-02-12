@@ -38,7 +38,7 @@ $contactDataModel = ContactData::find()->one();?>
                     'items' => $menuItems,
                 ]); ?>
                 <div class="copyright">
-                    nethammer.ru © 2014-2021
+                    nethammer.ru © 2014-<?=date("Y")?>
                 </div>
             </div>
         </div>

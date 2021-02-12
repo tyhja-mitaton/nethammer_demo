@@ -245,10 +245,10 @@ class SiteController extends Controller
     {
         $model = new Review();
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Отзыв будет опубликован после проверки');
+            Yii::$app->session->setFlash('success-review', 'Отзыв будет опубликован после проверки');
             return $this->redirect(['reviews']);
         } else {
-            Yii::$app->session->setFlash('error', 'Ошибка отправки.');
+            Yii::$app->session->setFlash('error-review', 'Ошибка отправки.');
             return false;
         }
 

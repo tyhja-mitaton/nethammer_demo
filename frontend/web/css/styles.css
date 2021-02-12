@@ -942,7 +942,7 @@ footer a:focus {
   width: 45%;
 }
 
-.contact-us img {
+.contact-us img.robot {
   position: absolute;
   top: -80px;
   right: -40px;
@@ -1135,7 +1135,7 @@ footer a:focus {
 .reviews-page .name div {
   font-weight: normal;
   font-size: 12px;
-  color: #2156e2;
+  color: #fff;/*#2156e2;*/
 }
 
 .reviews-page .text {

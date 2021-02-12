@@ -78,7 +78,7 @@ class InfoBlockSearch extends InfoBlock
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-        $param = \Yii::$app->request->get()[$this->formName()]["search"];
+        $param = \Yii::$app->request->get($this->formName());
         $query->andFilterWhere(['like', 'title', $param])
             ->orFilterWhere(['like', 'description', $param]);
 

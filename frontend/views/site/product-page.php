@@ -64,7 +64,7 @@ $appealModel = new \frontend\models\Appeal();
             <div class="product-top">
                 <h2 class="subtitle"><?=$model->title ?></h2>
                 <div class="text"><?=$model->description ?></div>
-                <img class="main-img" src="<?=isset($firstImg->href) ? $firstImg->href: ''?>" alt="<?=$firstImg->title?>">
+                <img class="main-img" src="<?=isset($firstImg->href) ? $firstImg->href: ''?>" alt="<?=isset($firstImg->title) ? $firstImg->title : ''?>">
             </div>
 
             <div class="product-slider owl-carousel owl-theme">

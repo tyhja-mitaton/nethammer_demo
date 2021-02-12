@@ -69,7 +69,9 @@ $tags = \common\models\InfoBlock::getTags();
             <div class="case-slider owl-carousel owl-theme">
                 <?php foreach ($imgModels as $img) { ?>
                     <div class="item">
+                        <a class="img" href="<?=$img->href?>" data-fancybox="cases-gallery" title="<?=$img->title?>" data-hash="<?=$img->hash?>">
                         <?=Html::img($img->href); ?>
+                        </a>
                     </div>
                 <?php } ?>
             </div>
@@ -98,6 +100,12 @@ $('.case-more a').on('click', function(e){
 })
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel({responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});
+  $('[data-fancybox="cases-gallery"]').fancybox({
+	afterLoad: function () {
+            $('.fancybox-content').width(parseInt($('.fancybox-iframe').contents().find('html img').width()));
+            $('.fancybox-content').height(parseInt($('.fancybox-iframe').contents().find('html img').height()));
+    }
+  });
   filterCases.call($('.cases-filter input:checked'));
 });
 $('.cases-filter input').on('click', filterCases);
