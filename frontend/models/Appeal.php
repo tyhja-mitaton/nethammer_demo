@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\validators\RegularExpressionValidator;
 
 /**
  * This is the model class for table "appeal".
@@ -16,7 +17,10 @@ use yii\behaviors\TimestampBehavior;
  */
 class Appeal extends \yii\db\ActiveRecord
 {
+    const EMAIL = 'email';
+    const PHONE = 'phone';
     public $verifyCode;
+    public $country_code = 'RU';
     /**
      * {@inheritdoc}
      */
@@ -41,7 +45,9 @@ class Appeal extends \yii\db\ActiveRecord
             [['author'], 'required', 'message' => 'Необходимо заполнить поле "Имя"'],
             [['phone'], 'required', 'message' => 'Необходимо заполнить поле "E-mail или телефон"'],
             //[['email'], 'required', 'message' => 'Необходимо заполнить поле "E-mail"'],
-            [['author', 'phone'], 'string', 'max' => 255],
+            [['author'], 'string', 'max' => 255],
+            ['phone', 'email', 'on' => self::EMAIL, 'message' => 'Некорректный email или телефон'],
+            ['phone', 'udokmeci\yii2PhoneValidator\PhoneValidator', 'countryAttribute'=>'country_code','strict'=>false,'format'=>true, 'on' => self::PHONE],
             //['email', 'email'],
             ['verifyCode', 'captcha'],
         ];
@@ -71,5 +77,15 @@ class Appeal extends \yii\db\ActiveRecord
             ->setSubject($contactData->subject)
             ->setTextBody($appeal->author.' '.$appeal->phone)
             ->send();
+    }
+
+    public function beforeValidate()
+    {
+        if(is_numeric($this->phone)){
+            $this->scenario = self::PHONE;
+        }else{
+            $this->scenario = self::EMAIL;
+        }
+        return parent::beforeValidate();
     }
 }

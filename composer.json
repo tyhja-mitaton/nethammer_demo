@@ -34,7 +34,8 @@
         "npm-asset/form-serializer":  "*",
         "bower-asset/jquery-easing-original": "*",
         "bower-asset/jquery-tmpl": "*",
-        "enchikiben/yii2-sitemap": "*"
+        "enchikiben/yii2-sitemap": "*",
+        "udokmeci/yii2-phone-validator" : "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

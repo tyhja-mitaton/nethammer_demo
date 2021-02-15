@@ -69,7 +69,7 @@ $tags = \common\models\InfoBlock::getTags();
             <div class="case-slider owl-carousel owl-theme">
                 <?php foreach ($imgModels as $img) { ?>
                     <div class="item">
-                        <a class="img" href="<?=$img->href?>" data-fancybox="cases-gallery" title="<?=$img->title?>" data-hash="<?=$img->hash?>">
+                        <a class="img" href="<?=$img->href?>" data-fancybox="cases-gallery-<?=$model->id?>" title="<?=$img->title?>" data-hash="<?=$img->hash?>" data-type="image">
                         <?=Html::img($img->href); ?>
                         </a>
                     </div>
@@ -99,14 +99,27 @@ $('.case-more a').on('click', function(e){
   $(this).find('span').toggle();
 })
 $(document).ready(function(){
-  $('.owl-carousel').owlCarousel({responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});
-  $('[data-fancybox="cases-gallery"]').fancybox({
+  $('.owl-carousel').owlCarousel({startPosition: 1,responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});
+  /*let galleryConts = $('.owl-carousel');
+  galleryConts.each(function(index) {
+    $(this).find('.item .img').fancybox({
 	afterLoad: function () {
             $('.fancybox-content').width(parseInt($('.fancybox-iframe').contents().find('html img').width()));
             $('.fancybox-content').height(parseInt($('.fancybox-iframe').contents().find('html img').height()));
-    }
+    },
+    infobar: false
   });
+  });*/
+  /*$('[data-fancybox="cases-gallery"]').fancybox({
+	afterLoad: function () {
+            $('.fancybox-content').width(parseInt($('.fancybox-iframe').contents().find('html img').width()));
+            $('.fancybox-content').height(parseInt($('.fancybox-iframe').contents().find('html img').height()));
+    },
+    infobar: false
+  });*/
   filterCases.call($('.cases-filter input:checked'));
+  $('.owl-carousel').trigger('to.owl.carousel', [0]);
+  //$('.owl-carousel').jumpTo(0);
 });
 $('.cases-filter input').on('click', filterCases);
 function filterCases() {
@@ -115,7 +128,7 @@ function filterCases() {
     checkedInputs.each(function(index) {
       tagTypes.push(parseInt($(this).attr('id').substring(2)));
     });
-    console.log(tagTypes);
+    
     let cases = $('.cases-list .case');
     
   cases.each(function(index) {
