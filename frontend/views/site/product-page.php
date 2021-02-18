@@ -66,13 +66,16 @@ $appealModel = new \frontend\models\Appeal();
                 <div class="text"><?=$model->description ?></div>
                 <img class="main-img" src="<?=isset($firstImg->href) ? $firstImg->href: ''?>" alt="<?=isset($firstImg->title) ? $firstImg->title : ''?>">
             </div>
-
+            <?php if(!empty($model->extra_descr)):?>
+            <div class="text"><?=$model->extra_descr ?></div>
+            <?php endif;?>
             <div class="product-slider owl-carousel owl-theme">
-                <?php foreach ($imgModels as $img) { ?>
-                    <a class="img" href="<?=$img->href?>" data-fancybox="products-gallery" title="<?=$img->title?>" data-hash="<?=$img->hash?>">
+                <?php $i=0; foreach ($imgModels as $img) {$i++;
+                    if($i>1):?>
+                    <a class="img" href="<?=$img->href?>" data-fancybox="products-gallery" title="<?=$img->title?>" data-type="image">
                         <?=Html::img($img->href, ['alt' => $img->title]); ?>
                     </a>
-                <?php } ?>
+                <?php endif;} ?>
             </div>
 
             <?php Modal::begin([
@@ -94,11 +97,12 @@ $js = <<<JS
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel({responsive:{768:{items: 3}, 320:{items: 2}}});
   $('[data-fancybox="products-gallery"]').fancybox({
+  infobar: false,
 	//iframe:{css: {'max-width' : '1344px', width: '40%'}},
-	afterLoad: function () {
+	/*afterLoad: function () {
             $('.fancybox-content').width(parseInt($('.fancybox-iframe').contents().find('html img').width()));
             $('.fancybox-content').height(parseInt($('.fancybox-iframe').contents().find('html img').height()));
-    }
+    }*/
 });
 });
 JS;

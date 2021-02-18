@@ -81,7 +81,8 @@ if($mainSeo) {
 </div>
 <?php $this->title = 'Отзывы';
 $js = <<<JS
-$('.owl-carousel').owlCarousel({responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});
+$('.owl-carousel').owlCarousel({startPosition: 1, responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});
+$('.owl-carousel').trigger('to.owl.carousel', [0]);
 JS;
 $this->registerJs($js);
 ?>

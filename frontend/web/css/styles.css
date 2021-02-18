@@ -837,6 +837,8 @@ footer a:focus {
 .category-list .img {
   margin: 0 auto;
   grid-area: img;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .category-list .desc {
@@ -1380,7 +1382,7 @@ footer a:focus {
   margin: 40px 0 15px;
 }
 
-.home-slider .owl-controls {
+.home-slider .owl-controls, .home-slider .owl-dots {/*в обновлённой библиотеке контейнер owl-controls отсуствует*/
   position: absolute;
   top: 0;
   right: 0;
@@ -1813,4 +1815,16 @@ footer a:focus {
 }
 .extra-block .btn-blue-o {
   color:#fff;
+}
+.home-page .owl-theme .owl-dots .owl-dot.active span {
+  background-color: #fff;
+}
+.owl-carousel .owl-dots.disabled {
+  display: flex !important;/*в обновлённом owl-carousel точки почему-то не показываются, хотя должны быть активны по умолчанию, класс disabled тоже не удалить*/
+}
+.case-upper-block {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #7a7a80;
+  font-weight: bolder;
 }

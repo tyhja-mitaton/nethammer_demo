@@ -19,3 +19,14 @@ $this->params['breadcrumbs'][] = 'Обновить';
     ]) ?>
 
 </div>
+<?php
+/*$js = <<<JS
+$(function() {
+    let captchaImg = $(document).find('#review-verifycode-image');
+  let _captcha = captchaImg.attr('src');
+  let captcha = _captcha.replace('/admin', '');
+  captchaImg.attr('src', captcha);
+});
+JS;
+$this->registerJs($js);*/
+?>

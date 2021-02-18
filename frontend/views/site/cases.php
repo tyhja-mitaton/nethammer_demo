@@ -34,6 +34,7 @@ if($mainSeo) {
     ]);
 }
 $tags = \common\models\InfoBlock::getTags();
+$caseUpperBlock = \backend\models\CaseUpperBlock::find()->one();
 ?>
 <div class="cases-page">
     <div class="container">
@@ -48,7 +49,10 @@ $tags = \common\models\InfoBlock::getTags();
             ]) ?>
         </nav>
     </div>
-    <div class="cases-filter-box" style="padding-bottom: 10px;">
+    <div class="cases-filter-box" style="padding-bottom: 10px; <?=(isset($caseUpperBlock->text) && $caseUpperBlock->text != '') ? 'padding-top: 10px;' : ''?>">
+        <?php if(isset($caseUpperBlock->text) && $caseUpperBlock->text != ''):?>
+            <div class="container case-upper-block"><?=$caseUpperBlock->text?></div>
+        <?php endif;?>
         <div class="container">
             <div class="cases-filter">
                 <?php foreach ($tags as $key => $tag){ ?>
@@ -69,7 +73,7 @@ $tags = \common\models\InfoBlock::getTags();
             <div class="case-slider owl-carousel owl-theme">
                 <?php foreach ($imgModels as $img) { ?>
                     <div class="item">
-                        <a class="img" href="<?=$img->href?>" data-fancybox="cases-gallery-<?=$model->id?>" title="<?=$img->title?>" data-hash="<?=$img->hash?>" data-type="image">
+                        <a class="img" href="<?=$img->href?>" data-fancybox="cases-gallery-<?=$model->id?>" title="<?=$img->title?>" data-type="image">
                         <?=Html::img($img->href); ?>
                         </a>
                     </div>
@@ -93,23 +97,24 @@ $tags = \common\models\InfoBlock::getTags();
 </div>
 <?php
 $js = <<<JS
-$('.case-more a').on('click', function(e){
-  e.preventDefault();
-  $(this).closest('.case').find('.case-text').toggleClass('full');
-  $(this).find('span').toggle();
-})
 $(document).ready(function(){
-  $('.owl-carousel').owlCarousel({startPosition: 1,responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});
-  /*let galleryConts = $('.owl-carousel');
+    $('.case-more a').on('click', function(e){
+    e.preventDefault();
+    $(this).closest('.case').find('.case-text').toggleClass('full');
+    $(this).find('span').toggle();
+    });
+    
+  $('.owl-carousel').owlCarousel({center: true, loop: true, responsive:{768:{items: 3}, 320:{items: 1}}});
+  let galleryConts = $('.owl-carousel');
   galleryConts.each(function(index) {
     $(this).find('.item .img').fancybox({
-	afterLoad: function () {
+	/*afterLoad: function () {
             $('.fancybox-content').width(parseInt($('.fancybox-iframe').contents().find('html img').width()));
             $('.fancybox-content').height(parseInt($('.fancybox-iframe').contents().find('html img').height()));
-    },
+    },*/
     infobar: false
   });
-  });*/
+  });
   /*$('[data-fancybox="cases-gallery"]').fancybox({
 	afterLoad: function () {
             $('.fancybox-content').width(parseInt($('.fancybox-iframe').contents().find('html img').width()));
@@ -120,8 +125,9 @@ $(document).ready(function(){
   filterCases.call($('.cases-filter input:checked'));
   $('.owl-carousel').trigger('to.owl.carousel', [0]);
   //$('.owl-carousel').jumpTo(0);
+  $('.cases-filter input').on('click', filterCases);
 });
-$('.cases-filter input').on('click', filterCases);
+
 function filterCases() {
   let checkedInputs = $(this).closest('.cases-filter').find('input:checked');
     let tagTypes = [];

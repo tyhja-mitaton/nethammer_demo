@@ -14,9 +14,13 @@ use yii\behaviors\TimestampBehavior;
  * @property int|null $created_at
  * @property int|null $updated_at
  * @property int|null $is_visible
+ * @property int $priority
  */
 class Review extends \yii\db\ActiveRecord
 {
+    const BACKEND = 'backend';
+    const FRONTEND = 'frontend';
+
     public $verifyCode;
     //public $logo;//картинка сохраняется при обнавлении только когда поле непосредственно в бд
     /**
@@ -48,11 +52,12 @@ class Review extends \yii\db\ActiveRecord
         return [
             [['author', 'text'], 'required'],
             [['text'], 'string'],
-            [['is_visible'], 'integer'],
+            [['is_visible', 'priority'], 'integer'],
             [['author'], 'string', 'max' => 255],
             ['dateTime', 'date', 'format' => 'php:d.m.Y'],
             ['logo', 'file', 'extensions' => ['jpg', 'png', 'jpeg', 'gif'], 'maxFiles' => 1],
-            ['verifyCode', 'captcha'],
+            ['verifyCode', 'captcha', 'on' => self::FRONTEND],
+            //['verifyCode', 'captcha', 'captchaAction'=>'review/captcha', 'on' => self::BACKEND],
         ];
     }
 
@@ -71,6 +76,7 @@ class Review extends \yii\db\ActiveRecord
             'dateTime' => 'Дата',
             'logo' => 'Логотип',
             'verifyCode' => 'Код подтверждения',
+            'priority' => 'Приоритет'
         ];
     }
     public function getDate()

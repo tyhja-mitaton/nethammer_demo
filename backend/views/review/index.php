@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'text:ntext',
             'created_at:date',
             'updated_at:date',
+            'priority',
             //'is_visible',
 
             ['class' => 'yii\grid\ActionColumn',

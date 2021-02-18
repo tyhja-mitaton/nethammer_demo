@@ -103,7 +103,8 @@ if($mainSeo) {
 $this->title = 'Nethammer';
 $js = <<<JS
 $(document).ready(function(){
-  $('.owl-carousel').owlCarousel({responsive:{768:{items: 1}, 320:{items: 1}}});
+  $('.owl-carousel').owlCarousel({responsive:{768:{items: 1}, 320:{items: 1}}, loop:true, autoplay:true, autoplayTimeout:10000});
+  $('.owl-carousel').trigger('play.owl.autoplay',[10000]);
 });
 JS;
 $this->registerJs($js);

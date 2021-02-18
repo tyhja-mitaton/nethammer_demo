@@ -234,11 +234,11 @@ class SiteController extends Controller
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_DESC,
+                    'priority' => SORT_DESC,
                 ]
             ],
         ]);
-        return $this->render('reviews', ['provider' => $provider, 'newModel' => new Review()]);
+        return $this->render('reviews', ['provider' => $provider, 'newModel' => new Review(['scenario' => Review::FRONTEND])]);
     }
 
     public function actionLeaveReview()
@@ -249,7 +249,7 @@ class SiteController extends Controller
             return $this->redirect(['reviews']);
         } else {
             Yii::$app->session->setFlash('error-review', 'Ошибка отправки.');
-            return false;
+            return $this->redirect(['reviews']);
         }
 
     }

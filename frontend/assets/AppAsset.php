@@ -14,14 +14,14 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/styles.css',
-        'css/owl.carousel.css',
-        'css/owl.theme.default.css',
+        'css/owl.carousel.min.css',
+        'css/owl.theme.default.min.css',
         'css/jquery.fancybox.css',
     ];
-    public $cssOptions = ['position' => \yii\web\View::POS_END];
+    //public $cssOptions = ['position' => \yii\web\View::POS_END];
 
     public $js = [
-        'js/owl.carousel.js',
+        'js/owl.carousel.min.js',//owl.carousel.js - старый файл (нет багов в отображении, но автопрокрутка не работает)
         'js/jquery.fancybox.js',
         'js/scripts.js',
     ];

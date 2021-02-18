@@ -29,6 +29,19 @@ class ReviewController extends Controller
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
+    }
+
     /**
      * Lists all Review models.
      * @return mixed
@@ -97,6 +110,7 @@ class ReviewController extends Controller
             return $this->redirect('//site/login');
         }
         $model = $this->findModel($id);
+        //$model->scenario = Review::BACKEND;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

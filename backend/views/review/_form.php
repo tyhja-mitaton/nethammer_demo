@@ -2,6 +2,7 @@
 
 use floor12\files\components\FileInputWidget;
 use floor12\files\models\File;
+use yii\captcha\Captcha;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -24,6 +25,8 @@ $model->__set('logo', $logo);
     <?= $form->field($model, 'logo')->widget(FileInputWidget::class)?>
 
     <?= $form->field($model, 'is_visible')->checkbox() ?>
+
+    <?= $form->field($model, 'priority')->input('number', ['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>

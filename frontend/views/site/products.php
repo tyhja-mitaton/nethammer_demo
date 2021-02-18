@@ -48,7 +48,7 @@ if($mainSeo) {
             <div class="container">
                 <h2 class="title"><?=$model->title ?></h2>
                 <img class="img" src="<?=isset($avatar->href) ? $avatar->href : '' ?>" alt="<?=isset($avatar->title) ? $avatar->title : '' ?>">
-                <div class="desc"><?=$model->description ?></div>
+                <div class="desc"><?=yii\helpers\StringHelper::truncate($model->description, 250) ?></div>
                 <?= Html::a("$model->btn_name <i>→</i>", [\yii\helpers\Url::to(['product-page', 'id' => $model->id, 'slug' => \yii\helpers\Inflector::slug($model->title)])], ['class' => 'btn btn-blue-o']) ?>
             </div>
         </div>
