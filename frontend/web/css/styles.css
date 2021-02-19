@@ -1946,9 +1946,9 @@ footer a:focus {
 .home-page .owl-theme .owl-dots .owl-dot.active span {
   background-color: #fff;
 }
-.owl-carousel .owl-dots.disabled {
-  display: flex !important;/*в обновлённом owl-carousel точки почему-то не показываются, хотя должны быть активны по умолчанию, класс disabled тоже не удалить*/
-}
+/*.owl-carousel .owl-dots.disabled {
+  display: flex !important;!*в обновлённом owl-carousel точки почему-то не показываются, хотя должны быть активны по умолчанию, класс disabled тоже не удалить*!
+}*/
 .case-upper-block {
   padding-top: 15px;
   padding-bottom: 15px;

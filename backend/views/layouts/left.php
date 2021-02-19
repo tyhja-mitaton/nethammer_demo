@@ -46,6 +46,10 @@ $items = [
         'url' => ['/site/case-upper-block']
     ],
     [
+        'label' => '<i class="fa fa-circle-o"></i> Сертификат',
+        'url' => ['/site/create-cert']
+    ],
+    [
         'label' => '<i class="fa fa-circle-o"></i> SEO главной страницы',
         'url' => ['/site/single-seo-main']
     ],
