@@ -38,6 +38,7 @@ class AppealController extends Controller
         if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
             return $this->redirect('//site/login');
         }
+
         $searchModel = new AppealSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
