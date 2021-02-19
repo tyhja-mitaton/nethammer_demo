@@ -627,6 +627,10 @@ footer {
   border-top: 1px solid #7487dd;
 }
 
+.footer__contacts i {
+  min-width: 25px;
+}
+
 footer .nav-item:first-child .nav-link {
   padding-left: 0;
 }

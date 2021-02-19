@@ -35,7 +35,7 @@ $certFile = $certModel ? floor12\files\models\File::find()->where(['object_id' =
                     <?php if(isset($contactDataModel->twitter_link) && $contactDataModel->twitter_link !== ''){ ?><li><a href="<?=isset($contactDataModel->twitter_link) ? $contactDataModel->twitter_link : '#'?>" target="_blank"><i class="fab fa-twitter"></i></a></li><?php } ?>
                 </ul>
 
-                <div class="mb-n2">
+                <div class="mb-n2 footer__contacts">
                     <p>
                         <i class="fa fa-phone"></i> <a href="tel:+73522229159">+7 (3522) 229-159</a>
                     </p>
