@@ -65,6 +65,7 @@ function initCasesSlider($element) {
         autoplay: true,
         autoplaySpeed: 10000,
         slidesToScroll: 1,
+        speed: 1000,
         touch: false,
         backFocus : false,
         responsive: [
