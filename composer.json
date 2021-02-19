@@ -22,11 +22,11 @@
 		"dektrium/yii2-user": "*",
 		"kartik-v/yii2-widget-datepicker": "*",
 		"kartik-v/yii2-field-range": "*",
-		"kartik-v/yii2-widget-select2": "dev-master",
+		"kartik-v/yii2-widget-select2": "*",
 		"2amigos/yii2-tinymce-widget": "~1.1",
 		"dmstr/yii2-adminlte-asset": "2.1",
         "floor12/yii2-module-files": "^1.1",
-        "dvizh/yii2-seo": "@dev",
+        "dvizh/yii2-seo": "*",
         "himiklab/yii2-sitemap-module": "*",
         "workerman/workerman": "*",
         "npm-asset/moment":  "*",
@@ -35,7 +35,7 @@
         "bower-asset/jquery-easing-original": "*",
         "bower-asset/jquery-tmpl": "*",
         "enchikiben/yii2-sitemap": "*",
-        "udokmeci/yii2-phone-validator" : "dev-master"
+        "udokmeci/yii2-phone-validator" : "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
