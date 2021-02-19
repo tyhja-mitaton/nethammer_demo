@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'pager' => Yii::$app->params['pagerParams'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
