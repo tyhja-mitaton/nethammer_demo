@@ -5,7 +5,7 @@ $(document).ready(function () {
         $(this).find('span').toggle();
     });
 
-    $(document).on('click', '.case-slider .slick-slide .item__img-wrapper', function (e) {
+    $(document).one('click', '.case-slider .slick-slide .item__img-wrapper', function (e) {
         const $link = $(this);
         const $slider = $link.parents('.case-slider');
 
@@ -18,6 +18,13 @@ $(document).ready(function () {
                 $(this).data('fancybox', $(this).data('fancybox-id'));
             });
 
+            const options = {
+                "arrows": true,
+                "infobar": false,
+                "buttons": ["slideShow", "fullScreen", "zoom", "arrowLeft", "arrowRight", "close"],
+            };
+
+            $slider.find('.item.slick-slide .item__img-wrapper').fancybox(options);
             e.preventDefault();
 
             setTimeout(function () {

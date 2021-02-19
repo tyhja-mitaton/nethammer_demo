@@ -14,7 +14,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/owl.carousel.min.css',
         'css/owl.theme.default.min.css',
-        'css/jquery.fancybox.css',
+        'css/jquery.fancybox.min.css',
         'css/site.css',
         'css/styles.css',
     ];
@@ -22,7 +22,7 @@ class AppAsset extends AssetBundle
 
     public $js = [
         'js/owl.carousel.min.js',//owl.carousel.js - старый файл (нет багов в отображении, но автопрокрутка не работает)
-        'js/jquery.fancybox.js',
+        'js/jquery.fancybox.min.js',
         'js/scripts.js',
     ];
 
