@@ -2,6 +2,7 @@
 namespace backend\controllers;
 
 use backend\models\CaseUpperBlock;
+use backend\models\Cert;
 use backend\models\ContactData;
 use backend\models\SinglePageSeo;
 use Yii;
@@ -30,7 +31,7 @@ class SiteController extends Controller
                     [
                         'actions' => ['logout', 'index', 'contact', 'set-emails', 'single-seo-main', 'update-seo',
                             'single-seo-products', 'single-seo-services', 'single-seo-cases', 'single-seo-job',
-                            'single-seo-reviews', 'single-seo-contacts', 'case-upper-block'],
+                            'single-seo-reviews', 'single-seo-contacts', 'case-upper-block', 'create-cert'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -126,6 +127,19 @@ class SiteController extends Controller
             return $this->render('upper-block', ['model' => $model]);
         }
         return $this->render('upper-block', ['model' => $model]);
+    }
+
+    public function actionCreateCert()
+    {
+        if (Yii::$app->user->isGuest || !\dektrium\user\models\User::findIdentity(Yii::$app->user->identity->id)->isAdmin) {
+            return $this->redirect('login');
+        }
+        $exist_model = Cert::find()->one();
+        $model = $exist_model ? $exist_model : new Cert();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->render('cert', ['model' => $model]);
+        }
+        return $this->render('cert', ['model' => $model]);
     }
 
     public function actionSingleSeoMain()

@@ -1,12 +1,16 @@
 <?php
 
 use backend\models\ContactData;
+use floor12\files\models\File;
 use yii\bootstrap4\Nav;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 $searchModel = new \backend\models\InfoBlockSearch();
-$contactDataModel = ContactData::find()->one();?>
+$contactDataModel = ContactData::find()->one();
+$certModel = \backend\models\Cert::find()->one();
+$certFile = $certModel ? floor12\files\models\File::find()->where(['object_id' => $certModel->id, 'field' => 'file'])->one() : null;
+?>
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -37,6 +41,11 @@ $contactDataModel = ContactData::find()->one();?>
                 <p>
                     <i class="fa fa-link"></i> <a href="http://support.nethammer.ru">support.nethammer.ru</a>
                 </p>
+                <?php if(isset($certFile->href)): ?>
+                <p>
+                    <i class="fas fa-certificate"></i> <a href="<?=$certFile->href?>" target="_blank">Сертификат</a>
+                </p>
+                <?php endif;?>
             </div>
             <div class="col-lg-9">
                 <?= Nav::widget([
