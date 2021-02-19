@@ -1,12 +1,14 @@
 <?php
-/**
- * @var $provider yii\data\ActiveDataProvider
- */
+
+/** @var \yii\data\ActiveDataProvider $provider */
+/** @var \yii\web\View $this */
 
 use backend\models\SinglePageSeo;
 use yii\bootstrap4\Breadcrumbs;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\LinkPager;
 
 $this->title = 'Кейсы';
 $this->params['breadcrumbs'][] = $this->title;
@@ -16,8 +18,10 @@ $this->registerMetaTag([
     'content' => Url::base(true).Url::current(),
 ]);
 
+// $models = [$provider->getModels()[0]];
 $models = $provider->getModels();
 $mainSeo = SinglePageSeo::findOne(['type' => SinglePageSeo::CASES_PAGE_SEO]);
+
 if($mainSeo) {
     $this->registerMetaTag([
         'name' => 'og:title',
@@ -33,9 +37,13 @@ if($mainSeo) {
         'content' => $mainSeo->seo->keywords,
     ]);
 }
+
 $tags = \common\models\InfoBlock::getTags();
 $caseUpperBlock = \backend\models\CaseUpperBlock::find()->one();
+$this->registerJsFile('/js/scripts_cases.js', ['depends' => [\frontend\assets\SlickSliderAssets::class]]);
+
 ?>
+
 <div class="cases-page">
     <div class="container">
         <h1 class="page-title"><?= Html::encode($this->title) ?></h1>
@@ -49,6 +57,7 @@ $caseUpperBlock = \backend\models\CaseUpperBlock::find()->one();
             ]) ?>
         </nav>
     </div>
+
     <div class="cases-filter-box" style="padding-bottom: 10px; <?=(isset($caseUpperBlock->text) && $caseUpperBlock->text != '') ? 'padding-top: 10px;' : ''?>">
         <?php if(isset($caseUpperBlock->text) && $caseUpperBlock->text != ''):?>
             <div class="container case-upper-block"><?=$caseUpperBlock->text?></div>
@@ -64,87 +73,54 @@ $caseUpperBlock = \backend\models\CaseUpperBlock::find()->one();
     </div>
 
     <div class="cases-list">
-        <?php foreach ($models as $model) {
-            $imgModels = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->all();?>
-        <div class="case" data-tag="<?=$model->tag?>">
-            <div class="container">
-                <p class="title"><?=$model->title ?></p>
+        <?php foreach ($models as $model) { ?>
+            <?php $imgModels = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->all(); ?>
+            <div class="case" data-tag="<?=$model->tag?>">
+                <div class="container">
+                    <p class="title"><?=$model->title ?></p>
+                </div>
+
+                <div class="case-slider">
+                    <?php foreach ($imgModels as $img) { ?>
+                        <div class="item">
+                            <a class="item__img-wrapper" data-fancybox-id="cases-gallery-<?=$model->id?>" href="<?=$img->href?>" title="<?=$img->title?>" data-type="image">
+                                <?= Html::img($img->href); ?>
+                            </a>
+                        </div>
+                    <?php } ?>
+
+                </div>
+
+                <div class="case-slider__fake-dots">
+                    <ul class="slick-dots" style="" role="tablist">
+                        <li class="slick-active" role="presentation">
+                            <button type="button" role="tab" aria-controls="slick-slide00" tabindex="0" aria-selected="true">1</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="case-text">
+                    <p><b>О проекте</b></p>
+                    <p><?=$model->intro ?></p>
+                    <br>
+                    <p><?=$model->description ?></p>
+                </div>
+
+                <p class="case-more">
+                    <a href="#">
+                        <span><?=$model->btn_name?></span>
+                        <span style="display:none;">Свернуть</span>
+                    </a>
+                </p>
             </div>
-            <div class="case-slider owl-carousel owl-theme">
-                <?php foreach ($imgModels as $img) { ?>
-                    <div class="item">
-                        <a class="img" href="<?=$img->href?>" data-fancybox="cases-gallery-<?=$model->id?>" title="<?=$img->title?>" data-type="image">
-                        <?=Html::img($img->href); ?>
-                        </a>
-                    </div>
-                <?php } ?>
-            </div>
-            <div class="case-text">
-                <p><b>О проекте</b></p>
-                <p><?=$model->intro ?></p>
-                <br>
-                <p><?=$model->description ?></p>
-            </div>
-            <p class="case-more">
-                <a href="#">
-                    <span><?=$model->btn_name?></span>
-                    <span style="display:none;">Свернуть</span>
-                </a>
-            </p>
-        </div>
         <?php } ?>
     </div>
-</div>
-<?php
-$js = <<<JS
-$(document).ready(function(){
-    $('.case-more a').on('click', function(e){
-    e.preventDefault();
-    $(this).closest('.case').find('.case-text').toggleClass('full');
-    $(this).find('span').toggle();
-    });
-    
-  $('.owl-carousel').owlCarousel({center: true, loop: true, responsive:{768:{items: 3}, 320:{items: 1}}});
-  let galleryConts = $('.owl-carousel');
-  galleryConts.each(function(index) {
-    $(this).find('.item .img').fancybox({
-	/*afterLoad: function () {
-            $('.fancybox-content').width(parseInt($('.fancybox-iframe').contents().find('html img').width()));
-            $('.fancybox-content').height(parseInt($('.fancybox-iframe').contents().find('html img').height()));
-    },*/
-    infobar: false
-  });
-  });
-  /*$('[data-fancybox="cases-gallery"]').fancybox({
-	afterLoad: function () {
-            $('.fancybox-content').width(parseInt($('.fancybox-iframe').contents().find('html img').width()));
-            $('.fancybox-content').height(parseInt($('.fancybox-iframe').contents().find('html img').height()));
-    },
-    infobar: false
-  });*/
-  filterCases.call($('.cases-filter input:checked'));
-  $('.owl-carousel').trigger('to.owl.carousel', [0]);
-  //$('.owl-carousel').jumpTo(0);
-  $('.cases-filter input').on('click', filterCases);
-});
 
-function filterCases() {
-  let checkedInputs = $(this).closest('.cases-filter').find('input:checked');
-    let tagTypes = [];
-    checkedInputs.each(function(index) {
-      tagTypes.push(parseInt($(this).attr('id').substring(2)));
-    });
-    
-    let cases = $('.cases-list .case');
-    
-  cases.each(function(index) {
-      if(!tagTypes.includes($(this).data('tag'))) {
-      $(this).addClass('d-none');
-      }else {
-          $(this).removeClass('d-none');
-      }
-    });
-}
-JS;
-$this->registerJs($js);
-?>
+    <div class="bg-white py-4">
+        <?= LinkPager::widget(ArrayHelper::merge(Yii::$app->params['pagerParams'], [
+            'pagination' => $provider->pagination,
+            'hideOnSinglePage' => false,
+            'view' => $this,
+        ])); ?>
+    </div>
+</div>

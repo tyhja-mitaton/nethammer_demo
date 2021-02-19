@@ -8,10 +8,9 @@ class CommonAssets extends AssetBundle
     public $css = [
         'css/font-awesome.css',
     ];
-    public $cssOptions = ['position' => \yii\web\View::POS_END];
 
-    public $js = [
-// 'js/common.js',
+    public $cssOptions = [
+        'position' => \yii\web\View::POS_END,
     ];
 
     public $depends = [

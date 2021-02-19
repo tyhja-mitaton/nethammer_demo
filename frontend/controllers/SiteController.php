@@ -15,11 +15,9 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use frontend\models\Sitemap;
@@ -204,20 +202,27 @@ class SiteController extends Controller
     /**
      * @sitemap priority=0.5 changefreq=monthly route=['/site/cases'] model=common\models\InfoBlock condition=['type'=>5]
      */
-    public function actionCases()
+    public function actionCases($page = null)
     {
-        $model = InfoBlock::find()->where(['type' => InfoBlock::CASE_BLOCK]);
+        $page = $page === null ? 1 : max(1, min(999, (int) $page));
+        $model = InfoBlock::find()
+            ->where(['type' => InfoBlock::CASE_BLOCK]);
+
         $provider = new ActiveDataProvider([
             'query' => $model,
-            'pagination' => [
-                'pageSize' => 20,
-            ],
             'sort' => [
                 'defaultOrder' => [
                     'priority' => SORT_DESC,
                 ]
             ],
         ]);
+
+        $provider->pagination->defaultPageSize = 5;
+        $provider->pagination->route = 'site/cases';
+
+        // $provider->pagination->setPageSize(10);
+        // $provider->pagination->setPage($page);
+
         return $this->render('cases', ['provider' => $provider]);
     }
 
