@@ -40,7 +40,7 @@ $model->__set('avatar', $avatar);
     <?= $form->field($model, 'description')->widget(TinyMce::class, [
         'language' => 'ru',
         'clientOptions' => [
-            'plugins' => 'paste',
+            'plugins' => 'paste,link',
             'paste_as_text' => true,
         ]
     ]) ?>

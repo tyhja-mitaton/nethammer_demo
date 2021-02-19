@@ -731,7 +731,6 @@ footer a:focus {
 }
 
 .copyright {
-  margin: 155px 0 0;
   text-align: right;
   color: #cfcfe4;
 }
@@ -1958,9 +1957,37 @@ footer a:focus {
 
 .page-link {
   padding: 0.5rem 0.9rem;
+  background: transparent;
+  border: 1px solid #2059ed;
+  color: #2059ed;
+  min-width: 40px;
 }
 
 .page-item.active .page-link {
     background-color: #2059ed;
-    border-color: #007bff;
+    border-color: #2059ed;
+}
+
+.page-item.active .page-link:hover,
+.page-link:hover {
+  z-index: unset;
+  text-decoration: unset;
+  color: #ffffff;
+  background-color: #2a56c9;
+  border-color: #2a56c9;
+}
+
+.page-item {
+  margin: 0 10px;
+}
+
+.page-item:first-child .page-link {
+  margin-left: unset;
+  border-top-left-radius: unset;
+  border-bottom-left-radius: unset;
+}
+
+.page-item:last-child .page-link {
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
 }

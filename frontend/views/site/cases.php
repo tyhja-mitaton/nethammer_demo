@@ -18,7 +18,7 @@ $this->registerMetaTag([
     'content' => Url::base(true).Url::current(),
 ]);
 
-// $models = [$provider->getModels()[0]];
+/** @var \common\models\InfoBlock[] $models */
 $models = $provider->getModels();
 $mainSeo = SinglePageSeo::findOne(['type' => SinglePageSeo::CASES_PAGE_SEO]);
 
@@ -75,7 +75,7 @@ $this->registerJsFile('/js/scripts_cases.js', ['depends' => [\frontend\assets\Sl
     <div class="cases-list">
         <?php foreach ($models as $model) { ?>
             <?php $imgModels = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->all(); ?>
-            <div class="case" data-tag="<?=$model->tag?>">
+            <div class="case" data-tag="<?= $model->tag ?>">
                 <div class="container">
                     <p class="title"><?=$model->title ?></p>
                 </div>
