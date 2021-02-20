@@ -122,8 +122,8 @@ $this->registerJsFile('/js/scripts_cases.js', ['depends' => [\frontend\assets\Sl
                     <p><?=$model->description ?></p>
                 </div>
 
-                <p class="case-more">
-                    <a href="#">
+                <p class="case-more mt-2">
+                    <a href="#" class="case-more__link">
                         <span><?=$model->btn_name?></span>
                         <span style="display:none;">Свернуть</span>
                     </a>
