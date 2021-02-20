@@ -277,6 +277,7 @@ i {
   width: 0.6em;
   height: 0.6em;
   margin-left: 0.255em;
+  margin-top: 4px;
   vertical-align: 0.255em;
   border-top: 0.3em solid transparent;
   border-right: 0;
@@ -799,7 +800,7 @@ footer a:focus {
 }
 
 .category-list {
-  color: #7a7a80;
+  color: #4a4a4c;
   background: #ffffff;
 }
 
@@ -1007,7 +1008,7 @@ footer a:focus {
 
 .product-page .content {
   padding: 60px 0;
-  color: #7a7a80;
+  color: #4a4a4c;
   background: #e0e5f1;
 }
 
@@ -1205,51 +1206,31 @@ footer a:focus {
   align-items: center;
 }
 
-.cases-filter input:checked + label:not(:hover) {
-  color: #ffffff;
-  background: #2059ed;
-}
-
-.cases-filter input:checked + label:after {
-  background: url(../images/close.png) no-repeat center center;
-  background-size: contain;
-}
-
-.cases-filter label {
+.cases-filter__btn {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   min-height: 40px;
   margin: 0 8px 0 0;
-  padding: 0 40px 0 10px;
+  padding: 10px 15px;
   font-size: 12px;
-  color: #8f9399;
+  color: #ffffff;
   letter-spacing: 0.5px;
-  background: #ffffff;
+  background: #2059ed;
   border-radius: 6px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  font-weight: 700;
 }
 
-.cases-filter label:hover {
+.cases-filter__btn_selected {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.cases-filter__btn:hover {
   color: #ffffff;
   background: #1a4ac7;
-}
-
-.cases-filter label:after {
-  content: "";
-  position: absolute;
-  top: 14px;
-  right: 10px;
-  left: auto;
-  width: 14px;
-  height: 14px;
 }
 
 .case {
@@ -1429,8 +1410,11 @@ footer a:focus {
   transition: all 0.3s ease-in-out;
 }
 
+.case-text {
+}
+
 .case-text.full {
-  max-height: 1200px;
+  max-height: 9999px;
 }
 
 .case-more {
@@ -1953,6 +1937,7 @@ footer a:focus {
 /*.owl-carousel .owl-dots.disabled {
   display: flex !important;!*в обновлённом owl-carousel точки почему-то не показываются, хотя должны быть активны по умолчанию, класс disabled тоже не удалить*!
 }*/
+
 .case-upper-block {
   padding-top: 15px;
   padding-bottom: 15px;

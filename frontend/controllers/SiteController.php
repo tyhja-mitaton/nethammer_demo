@@ -5,6 +5,7 @@ use backend\models\ContactData;
 use backend\models\InfoBlockSearch;
 use common\models\ExtraBlock;
 use common\models\InfoBlock;
+use common\models\Tag;
 use frontend\models\Appeal;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\Review;
@@ -202,11 +203,16 @@ class SiteController extends Controller
     /**
      * @sitemap priority=0.5 changefreq=monthly route=['/site/cases'] model=common\models\InfoBlock condition=['type'=>5]
      */
-    public function actionCases($page = null)
+    public function actionCases($tagId = null)
     {
-        $page = $page === null ? 1 : max(1, min(999, (int) $page));
+        $tag = null;
+        if ($tagId !== null) {
+            $tag = Tag::findOne((int) $tagId);
+        }
+
         $model = InfoBlock::find()
-            ->where(['type' => InfoBlock::CASE_BLOCK]);
+            ->andFilterWhere(['type' => InfoBlock::CASE_BLOCK])
+            ->andFilterWhere(['tag' => $tagId]);
 
         $provider = new ActiveDataProvider([
             'query' => $model,
@@ -220,10 +226,11 @@ class SiteController extends Controller
         $provider->pagination->defaultPageSize = 5;
         $provider->pagination->route = 'site/cases';
 
-        // $provider->pagination->setPageSize(10);
-        // $provider->pagination->setPage($page);
-
-        return $this->render('cases', ['provider' => $provider]);
+        return $this->render('cases', [
+            'provider' => $provider,
+            'models' => $provider->getModels(),
+            'currentTag' => $tag,
+        ]);
     }
 
     /**
@@ -240,7 +247,7 @@ class SiteController extends Controller
             'sort' => [
                 'defaultOrder' => [
                     'priority' => SORT_DESC,
-                ]
+                ],
             ],
         ]);
         return $this->render('reviews', ['provider' => $provider, 'newModel' => new Review(['scenario' => Review::FRONTEND])]);

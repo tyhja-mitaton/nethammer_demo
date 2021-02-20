@@ -9,9 +9,7 @@ $(document).ready(function () {
         const $link = $(this);
         const $slider = $link.parents('.case-slider');
 
-        if ($slider.hasClass('fancybox-initialized')) {
-            // do nothing
-        } else {
+        if ($slider.hasClass('fancybox-initialized') === false) {
             $slider.addClass('fancybox-initialized');
             $slider.find('.item.slick-slide .item__img-wrapper').each(function () {
                 $(this).attr('data-fancybox', $(this).data('fancybox-id'));
@@ -32,26 +30,7 @@ $(document).ready(function () {
             }, 0);
         }
     });
-
-    filterCases.call($('.cases-filter input:checked'));
-    $('.cases-filter input').on('click', filterCases);
 });
-
-function filterCases() {
-    const tagTypes = [];
-
-    $(this).closest('.cases-filter').find('input:checked').each(function () {
-        tagTypes.push(parseInt($(this).attr('id').substring(2)));
-    });
-
-    $('.cases-list .case').each(function () {
-        if (!tagTypes.includes($(this).data('tag'))) {
-            $(this).addClass('d-none');
-        } else {
-            $(this).removeClass('d-none');
-        }
-    });
-}
 
 function initCasesSlider($element) {
     // $element.find('.item__img-wrapper img').each(function () {

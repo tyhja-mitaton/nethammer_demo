@@ -1,5 +1,7 @@
 <?php
 
+use common\models\InfoBlock;
+use dvizh\seo\widgets\SeoForm;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
@@ -8,15 +10,15 @@ use dosamigos\tinymce\TinyMce;
 /* @var $model common\models\InfoBlock */
 /* @var $form yii\widgets\ActiveForm */
 
-$sliderType = \common\models\InfoBlock::MAIN_PAGE_SLIDER;
-$infoType = \common\models\InfoBlock::INFO_BLOCK;
-$serviceType = \common\models\InfoBlock::SERVICE_BLOCK;
-$productType = \common\models\InfoBlock::PRODUCT_BLOCK;
-$caseType = \common\models\InfoBlock::CASE_BLOCK;
-$jobType = \common\models\InfoBlock::VACANCY_BLOCK;
-$designCase = \common\models\InfoBlock::DESIGN;
-$photoCase = \common\models\InfoBlock::PHOTOGRAPHY;
-$artsCase = \common\models\InfoBlock::DIGITAL_ARTS;
+$sliderType = InfoBlock::MAIN_PAGE_SLIDER;
+$infoType = InfoBlock::INFO_BLOCK;
+$serviceType = InfoBlock::SERVICE_BLOCK;
+$productType = InfoBlock::PRODUCT_BLOCK;
+$caseType = InfoBlock::CASE_BLOCK;
+$jobType = InfoBlock::VACANCY_BLOCK;
+$designCase = InfoBlock::DESIGN;
+$photoCase = InfoBlock::PHOTOGRAPHY;
+$artsCase = InfoBlock::DIGITAL_ARTS;
 $imgModels = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'imgs'])->all();
 $avatar = floor12\files\models\File::find()->where(['object_id' => $model->id, 'field' => 'avatar'])->one();
 $model->__set('imgs', $imgModels);
@@ -45,7 +47,14 @@ $model->__set('avatar', $avatar);
         ]
     ]) ?>
 
-    <?= $form->field($model, 'extra_descr', ['options' => ['class' => $model->type !== $productType ? 'd-none': '']])->widget(TinyMce::class, [
+    <?= $form->field($model, 'extra_descr', [
+        'options' => [
+            'class' => $model->type !== $productType
+                ? 'd-none'
+                : '',
+            ],
+        ]
+    )->widget(TinyMce::class, [
         'language' => 'ru',
         'clientOptions' => [
             'plugins' => 'paste',
@@ -63,17 +72,36 @@ $model->__set('avatar', $avatar);
         $caseType => 'блок на странице "Кейсы"',
         $jobType => 'вакансия на странице "Вакансии"'
     ], ['prompt' => 'Выберите тип...']) ?>
-    <?= $form->field($model, 'salary', ['options' => ['class' => $model->type !== $jobType ? 'd-none': '']])->textInput() ?>
-    <?= $form->field($model, 'tag', ['options' => ['class' => $model->type !== $caseType ? 'd-none': '']])->dropDownList(\common\models\InfoBlock::getTags(), ['prompt' => 'Выберите тип...']) ?>
-    <?= $form->field($model, 'priority')->textInput() ?>
 
+    <?= $form->field($model, 'salary', [
+        'options' => [
+            'class' => $model->type !== $jobType
+                ? 'd-none'
+                : '',
+            ],
+        ]
+    )->textInput() ?>
+
+    <?= $form->field($model, 'tag', [
+        'options' => [
+            'class' => $model->type !== $caseType
+                ? 'd-none'
+                : '',
+            ],
+        ]
+    )->dropDownList(InfoBlock::getTags(), [
+        'prompt' => 'Выберите тип...',
+    ]) ?>
+
+    <?= $form->field($model, 'priority')->textInput() ?>
     <?= $form->field($model, 'imgs', ['options' => [
             'class' => $model->type !== $serviceType && $model->type !== $productType && $model->type !== $caseType ? 'd-none': ''
     ]])->widget(floor12\files\components\FileInputWidget::class)?>
     <?= $form->field($model, 'avatar', ['options' => [
             'class' => $model->type !== $sliderType && $model->type !== $infoType && $model->type !== $serviceType && $model->type !== $productType ? 'd-none': ''
     ]])->widget(floor12\files\components\FileInputWidget::class)?>
-    <?=\dvizh\seo\widgets\SeoForm::widget([
+
+    <?= SeoForm::widget([
         'model' => $model,
         'form' => $form,
         'title' => 'SEO поля',

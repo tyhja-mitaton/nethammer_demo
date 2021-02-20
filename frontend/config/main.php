@@ -77,8 +77,12 @@ return [
             'rules' => [
                 '/' => 'site/index',
                 ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
+
+                'cases/<tag:[a-z0-9_\-]+>-<tagId:\d+>/<page:\d+>'=> 'site/cases',
+                'cases/<tag:[a-z0-9_\-]+>-<tagId:\d+>'=> 'site/cases',
                 'cases/<page:\d+>'=> 'site/cases',
-                'product/<slug:[a-z0-9_\-]+>'=>'site/product-page',
+
+                'product/<slug:[a-z0-9_\-]+>' => 'site/product-page',
                 //'service/<id:\d+>' => 'site/service-page',
                 'service/<slug:[a-z0-9_\-]+>'=> 'site/service-page',
 

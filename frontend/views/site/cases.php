@@ -1,14 +1,21 @@
 <?php
 
-/** @var \yii\data\ActiveDataProvider $provider */
-/** @var \yii\web\View $this */
-
 use backend\models\SinglePageSeo;
+use common\models\InfoBlock;
+use common\models\Tag;
 use yii\bootstrap4\Breadcrumbs;
+use yii\data\ActiveDataProvider;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Inflector;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\LinkPager;
+
+/** @var ActiveDataProvider $provider */
+/** @var View $this */
+/** @var InfoBlock[] $models */
+/** @var Tag $currentTag */
 
 $this->title = 'Кейсы';
 $this->params['breadcrumbs'][] = $this->title;
@@ -18,8 +25,6 @@ $this->registerMetaTag([
     'content' => Url::base(true).Url::current(),
 ]);
 
-/** @var \common\models\InfoBlock[] $models */
-$models = $provider->getModels();
 $mainSeo = SinglePageSeo::findOne(['type' => SinglePageSeo::CASES_PAGE_SEO]);
 
 if($mainSeo) {
@@ -38,7 +43,7 @@ if($mainSeo) {
     ]);
 }
 
-$tags = \common\models\InfoBlock::getTags();
+$tags = InfoBlock::getTags(InfoBlock::CASE_BLOCK)                                          ;
 $caseUpperBlock = \backend\models\CaseUpperBlock::find()->one();
 $this->registerJsFile('/js/scripts_cases.js', ['depends' => [\frontend\assets\SlickSliderAssets::class]]);
 
@@ -64,9 +69,20 @@ $this->registerJsFile('/js/scripts_cases.js', ['depends' => [\frontend\assets\Sl
         <?php endif;?>
         <div class="container">
             <div class="cases-filter">
-                <?php foreach ($tags as $key => $tag){ ?>
-                    <input type="checkbox" id="ch<?=$key?>" hidden checked>
-                    <label for="ch<?=$key?>"><?=$tag?></label>
+                <?= Html::a('Все кейсы', ['site/cases'], [
+                    'class' => 'cases-filter__btn' . ($currentTag === null
+                        ? ' cases-filter__btn_selected'
+                        : null
+                    ),
+                ]) ?>
+
+                <?php foreach ($tags as $tagId => $tag) { ?>
+                    <?= Html::a($tag, ['site/cases', 'tagId' => $tagId, 'tag' => Inflector::slug($tag)], [
+                        'class' => 'cases-filter__btn' . ($currentTag && $currentTag->id == $tagId
+                            ? ' cases-filter__btn_selected'
+                            : ''
+                        ),
+                    ]) ?>
                 <?php }?>
             </div>
         </div>

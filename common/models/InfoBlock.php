@@ -156,11 +156,18 @@ class InfoBlock extends \yii\db\ActiveRecord
         return  $label;
     }
 
-    public static function getTags()
+    public static function getTags($type = null)
     {
-        $tags = Tag::find()->asArray()->all();
-        $tagsArr = ArrayHelper::map($tags, 'id', 'name');
+        $tagQuery = Tag::find()->select(['tags.*']);
 
-        return $tagsArr;
+        if ($type !== null) {
+            $subQuery = static::find()
+                ->select(['tag'])
+                ->where(['type' => $type])
+                ->groupBy(['tag']);
+            $tagQuery->innerJoin(['t' => $subQuery], 'tags.id = t.tag');
+        }
+
+        return ArrayHelper::map($tagQuery->asArray()->all(), 'id', 'name');
     }
 }

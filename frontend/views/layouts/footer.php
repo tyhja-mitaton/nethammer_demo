@@ -1,7 +1,6 @@
 <?php
 
 use backend\models\ContactData;
-use floor12\files\models\File;
 use yii\bootstrap4\Nav;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -9,7 +8,10 @@ use yii\widgets\ActiveForm;
 $searchModel = new \backend\models\InfoBlockSearch();
 $contactDataModel = ContactData::find()->one();
 $certModel = \backend\models\Cert::find()->one();
-$certFile = $certModel ? floor12\files\models\File::find()->where(['object_id' => $certModel->id, 'field' => 'file'])->one() : null;
+$certFile = $certModel ? floor12\files\models\File::find()
+    ->where(['object_id' => $certModel->id, 'field' => 'file'])
+    ->one() : null;
+
 ?>
 
 <footer class="footer">
@@ -47,7 +49,8 @@ $certFile = $certModel ? floor12\files\models\File::find()->where(['object_id' =
                     </p>
                     <?php if(isset($certFile->href)): ?>
                         <p>
-                            <i class="fas fa-file-pdf"></i> <a href="<?=$certFile->href?>" target="_blank">Сертификат</a>
+                            <i class="fas fa-file-pdf"></i>
+                            <a href="<?=$certFile->href?>" target="_blank">SLA</a>
                         </p>
                     <?php endif;?>
                 </div>
