@@ -843,9 +843,8 @@ footer a:focus {
 .category-list .img {
   margin: 0 auto;
   grid-area: img;
-  min-width: 100%;
-  min-height: 100%;
   object-fit: scale-down;
+  max-width: 400px;
 }
 
 .category-list .desc {
