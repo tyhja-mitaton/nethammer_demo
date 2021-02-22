@@ -23,7 +23,7 @@ $model->__set('img', $img);
     <?= $form->field($model, 'text')->widget(TinyMce::class, [
         'language' => 'ru',
         'clientOptions' => [
-            'plugins' => 'paste',
+            'plugins' => 'paste,link',
             'paste_as_text' => true,
         ]
     ]) ?>

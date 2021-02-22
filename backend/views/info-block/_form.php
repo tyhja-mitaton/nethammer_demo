@@ -34,7 +34,7 @@ $model->__set('avatar', $avatar);
     <?= $form->field($model, 'intro', ['options' => ['class' => $model->type !== $caseType ? 'd-none': '']])->widget(TinyMce::class, [
         'language' => 'ru',
         'clientOptions' => [
-            'plugins' => 'paste',
+            'plugins' => 'paste,link',
             'paste_as_text' => true,
         ]
     ]) ?>
@@ -57,7 +57,7 @@ $model->__set('avatar', $avatar);
     )->widget(TinyMce::class, [
         'language' => 'ru',
         'clientOptions' => [
-            'plugins' => 'paste',
+            'plugins' => 'paste,link',
             'paste_as_text' => true,
         ]
     ]) ?>
