@@ -85,6 +85,7 @@ return [
                 'product/<slug:[a-z0-9_\-]+>' => 'site/product-page',
                 //'service/<id:\d+>' => 'site/service-page',
                 'service/<slug:[a-z0-9_\-]+>'=> 'site/service-page',
+                'conf-policy' => 'site/conf-policy',
 
                 //'service/<slug:[a-z0-9_\-]+>' => 'service/<slug:[a-z0-9_\-]+>/<id:\d+>'
                 //'service/<slug:[a-z0-9_\-]+>' => 'service/<id:\d+>',
