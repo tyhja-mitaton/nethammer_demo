@@ -1989,3 +1989,6 @@ footer a:focus {
   border-top-right-radius: unset;
   border-bottom-right-radius: unset;
 }
+.conf-pol {
+  font-size: 14px;
+}

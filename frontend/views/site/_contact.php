@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <?= Html::submitButton('Отправить <i class="fas fa-chevron-right"></i>', ['class' => 'btn btn-blue', 'name' => 'contact-button']) ?>
     <img class="robot" src="images/contacts-robot.jpg" alt="">
+    <?=Html::a('Политика конфиденциальности', \yii\helpers\Url::to(['conf-policy']), ['class' => 'conf-pol', 'target' => '_blank'])?>
             <?php ActiveForm::end(); ?>
 </div>
 </section>

@@ -477,6 +477,13 @@ class SiteController extends Controller
         $sitemap->showXml($xml_sitemap);
     }
 
+    public function actionConfPolicy()
+    {
+        $confidPolModel = \backend\models\ConfidPol::find()->one();
+
+        return $this->render('conf-policy', ['confidPolModel' => $confidPolModel]);
+    }
+
     /**
      * Finds the InfoBlock model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

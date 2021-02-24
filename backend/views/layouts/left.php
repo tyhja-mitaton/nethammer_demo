@@ -50,6 +50,10 @@ $items = [
         'url' => ['/site/create-cert']
     ],
     [
+        'label' => '<i class="fa fa-circle-o"></i> Полит.конфиденциал.',
+        'url' => ['/site/create-confid-pol']
+    ],
+    [
         'label' => '<i class="fa fa-circle-o"></i> SEO главной страницы',
         'url' => ['/site/single-seo-main']
     ],
