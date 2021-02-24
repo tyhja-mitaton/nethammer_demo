@@ -75,9 +75,11 @@ if($mainSeo) {
             </ul>
         </div>
         <div class="col-lg-7">
-            <div class="map">
-                <script type="text/javascript" charset="utf-8" async src="<?=isset($contactDataModel->map_link) ? $contactDataModel->map_link : ''?>"></script>
-            </div>
+            <?php if (isset($contactDataModel->map_link)) { ?>
+                <div class="map">
+                    <?= $contactDataModel->map_link ?>
+                </div>
+            <?php } ?>
         </div>
     </div>
     </div>
