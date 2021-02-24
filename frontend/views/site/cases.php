@@ -68,9 +68,9 @@ $this->registerJsFile('/js/scripts_cases.js', ['depends' => [\frontend\assets\Sl
             <div class="container case-upper-block"><?=$caseUpperBlock->text?></div>
         <?php endif;?>
         <div class="container">
-            <div class="cases-filter">
+            <div class="cases-filter d-flex flex-wrap m-n1">
                 <?= Html::a('Все кейсы', ['site/cases'], [
-                    'class' => 'cases-filter__btn' . ($currentTag === null
+                    'class' => 'm-1 cases-filter__btn' . ($currentTag === null
                         ? ' cases-filter__btn_selected'
                         : null
                     ),
@@ -78,7 +78,7 @@ $this->registerJsFile('/js/scripts_cases.js', ['depends' => [\frontend\assets\Sl
 
                 <?php foreach ($tags as $tagId => $tag) { ?>
                     <?= Html::a($tag, ['site/cases', 'tagId' => $tagId, 'tag' => Inflector::slug($tag)], [
-                        'class' => 'cases-filter__btn' . ($currentTag && $currentTag->id == $tagId
+                        'class' => 'm-1 cases-filter__btn' . ($currentTag && $currentTag->id == $tagId
                             ? ' cases-filter__btn_selected'
                             : ''
                         ),

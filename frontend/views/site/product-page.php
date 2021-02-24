@@ -62,20 +62,38 @@ $appealModel = new \frontend\models\Appeal();
     <div class="content">
         <div class="container">
             <div class="product-top">
-                <h2 class="subtitle"><?=$model->title ?></h2>
-                <div class="text"><?=$model->description ?></div>
-                <img class="main-img" src="<?=isset($firstImg->href) ? $firstImg->href: ''?>" alt="<?=isset($firstImg->title) ? $firstImg->title : ''?>">
+                <div class="row">
+                    <h2 class="subtitle col-lg-6"><?=$model->title ?></h2>
+                </div>
+
+                <div class="row flex-column-reverse flex-lg-row">
+                    <div class="col-lg-6">
+                        <div class="text">
+                            <?=$model->description ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex justify-content-center py-4 py-lg-0 align-items-start">
+                        <img class="main-img" src="<?=isset($firstImg->href) ? $firstImg->href: ''?>" alt="<?=isset($firstImg->title) ? $firstImg->title : ''?>">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <?php if(!empty($model->extra_descr)) { ?>
+                            <div class="text"><?=$model->extra_descr ?></div>
+                        <?php } ?>
+                    </div>
+                </div>
             </div>
-            <?php if(!empty($model->extra_descr)):?>
-            <div class="text"><?=$model->extra_descr ?></div>
-            <?php endif;?>
+
             <div class="product-slider owl-carousel owl-theme">
-                <?php $i=0; foreach ($imgModels as $img) {$i++;
-                    if($i>1):?>
-                    <a class="img" href="<?=$img->href?>" data-fancybox="products-gallery" title="<?=$img->title?>" data-type="image">
-                        <?=Html::img($img->href, ['alt' => $img->title]); ?>
-                    </a>
-                <?php endif;} ?>
+                <?php $i = 0; foreach ($imgModels as $img) { ?>
+                    <?php if($i++ > 0) { ?>
+                        <a class="img" href="<?=$img->href?>" data-fancybox="products-gallery" title="<?=$img->title?>" data-type="image">
+                            <?=Html::img($img->href, ['alt' => $img->title]); ?>
+                        </a>
+                    <?php } ?>
+                <?php } ?>
             </div>
 
             <?php Modal::begin([
@@ -83,11 +101,9 @@ $appealModel = new \frontend\models\Appeal();
                 'toggleButton' => ['label' => 'Оставить заявку <i>→</i>', 'class' => 'btn btn-blue-o'],
                 'footer' => '',
                 'size' => Modal::SIZE_EXTRA_LARGE,
-            ]);
-
-            echo $this->render('_contact', ['model' => $appealModel]);
-
-            Modal::end();?>
+            ]); ?>
+                <?= $this->render('_contact', ['model' => $appealModel]); ?>
+            <?php Modal::end();?>
         </div>
     </div>
 </div>
