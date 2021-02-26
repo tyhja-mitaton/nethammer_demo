@@ -4,6 +4,7 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\Appeal */
 
+use yii\bootstrap4\Modal;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
@@ -24,7 +25,30 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <?= Html::submitButton('Отправить <i class="fas fa-chevron-right"></i>', ['class' => 'btn btn-blue', 'name' => 'contact-button']) ?>
     <img class="robot" src="images/contacts-robot.jpg" alt="">
-    <?=Html::a('Политика конфиденциальности', \yii\helpers\Url::to(['conf-policy']), ['class' => 'conf-pol', 'target' => '_blank'])?>
+    <?php $confidPolModel = \backend\models\ConfidPol::find()->one(); echo '<span class="conf-pol">Отправляя заявку, Вы соглашаетесь с нашей </span>';
+    Modal::begin([
+        'title' => 'Политика защиты и обработки персональных данных',
+        'toggleButton' => ['label' => 'политикой конфиденциальности', 'tag' => 'a', 'class' => 'conf-pol'],
+        'footer' => '',
+        'size' => Modal::SIZE_EXTRA_LARGE,
+        'id' => 'conf-pol-modal',
+    ]);
+
+    echo $this->render('conf-policy', ['confidPolModel' => $confidPolModel]);
+
+    Modal::end();?>
             <?php ActiveForm::end(); ?>
 </div>
 </section>
+<?php
+$js = <<<JS
+$(function() {
+  $('#conf-pol-modal').on('shown.bs.modal', function() {console.log('tessst', $(document).find('.modal-backdrop'));
+    $(document).find('.modal-backdrop').hide();
+    let h5 = $(this).find('.modal-header h5');
+    h5.appendTo('#conf-pol-modal .modal-header');
+  });
+});
+JS;
+$this->registerJs($js);
+?>
