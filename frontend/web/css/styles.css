@@ -647,10 +647,8 @@ footer .dropdown-toggle::after {
 footer .dropdown .dropdown-menu {
   position: absolute;
   top: 100%;
-  z-index: 10;
+  z-index: 1;
   left: -105px !important;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 12px 0 0;
   padding: 20px 0 0;
