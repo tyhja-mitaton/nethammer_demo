@@ -1024,6 +1024,8 @@ footer a:focus {
   border-radius: 20px;
   -webkit-box-shadow: 3px 0 36px rgba(13, 14, 41, 0.36);
   box-shadow: 3px 0 36px rgba(13, 14, 41, 0.36);
+  float: right;
+  margin: 0 0 20px 20px;
 }
 
 .product-page .btn {
@@ -1888,6 +1890,13 @@ footer a:focus {
 
   .home-slider img {
     margin: 20px auto;
+  }
+
+  .product-page .main-img {
+    float: none;
+    margin: 35px 50%;
+    text-align: center;
+    transform: translateX(-50%);
   }
 }
 .extra-block {

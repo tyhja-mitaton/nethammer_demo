@@ -35,6 +35,7 @@ $certFile = $certModel ? floor12\files\models\File::find()
                     <?php if(isset($contactDataModel->vk_link) && $contactDataModel->vk_link !== ''){ ?><li><a href="<?=isset($contactDataModel->vk_link) ? $contactDataModel->vk_link : '#'?>" target="_blank"><i class="fab fa-vk"></i></a></li><?php } ?>
                     <?php if(isset($contactDataModel->fb_link) && $contactDataModel->fb_link !== ''){ ?><li><a href="<?=isset($contactDataModel->fb_link) ? $contactDataModel->fb_link : '#'?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li><?php } ?>
                     <?php if(isset($contactDataModel->twitter_link) && $contactDataModel->twitter_link !== ''){ ?><li><a href="<?=isset($contactDataModel->twitter_link) ? $contactDataModel->twitter_link : '#'?>" target="_blank"><i class="fab fa-twitter"></i></a></li><?php } ?>
+                    <?php if(isset($contactDataModel->tg_link) && $contactDataModel->tg_link !== ''){ ?><li><a href="<?=isset($contactDataModel->tg_link) ? $contactDataModel->tg_link : '#'?>" target="_blank"><i class="fab fa-telegram"></i></a></li><?php } ?>
                 </ul>
 
                 <div class="mb-n2 footer__contacts">
