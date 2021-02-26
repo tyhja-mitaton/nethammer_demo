@@ -19,10 +19,9 @@ use yii\validators\EmailValidator;
  */
 class Appeal extends \yii\db\ActiveRecord
 {
-    const EMAIL = 'email';
-    const PHONE = 'phone';
     public $verifyCode;
     public $country_code = 'RU';
+
     /**
      * {@inheritdoc}
      */
@@ -105,7 +104,7 @@ class Appeal extends \yii\db\ActiveRecord
         if (!$validEmail) {
             (new PhoneValidator([
                 'countryAttribute' => 'country_code',
-                'strict' => false,
+                'strict' => true,
                 'format' => true,
             ]))->validateAttribute($this, 'phone');
         }
