@@ -1027,6 +1027,7 @@ footer a:focus {
   box-shadow: 3px 0 36px rgba(13, 14, 41, 0.36);
   float: right;
   margin: 0 0 20px 20px;
+  max-width: 500px;
 }
 
 .product-page .btn {
