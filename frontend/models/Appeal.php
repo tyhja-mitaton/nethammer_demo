@@ -2,9 +2,11 @@
 
 namespace frontend\models;
 
+use udokmeci\yii2PhoneValidator\PhoneValidator;
 use Yii;
 use yii\behaviors\TimestampBehavior;
-use yii\validators\RegularExpressionValidator;
+use yii\captcha\CaptchaAction;
+use yii\validators\EmailValidator;
 
 /**
  * This is the model class for table "appeal".
@@ -44,14 +46,28 @@ class Appeal extends \yii\db\ActiveRecord
         return [
             [['author'], 'required', 'message' => 'Необходимо заполнить поле "Имя"'],
             [['phone'], 'required', 'message' => 'Необходимо заполнить поле "E-mail или телефон"'],
-            //[['email'], 'required', 'message' => 'Необходимо заполнить поле "E-mail"'],
             [['author'], 'string', 'max' => 255],
-            ['phone', 'validateScenario'],
-            ['phone', 'email', 'on' => self::EMAIL, 'message' => 'Некорректный email или телефон'],
-            ['phone', 'udokmeci\yii2PhoneValidator\PhoneValidator', 'countryAttribute'=>'country_code','strict'=>false,'format'=>true, 'on' => self::PHONE],
-            //['email', 'email'],
-            ['verifyCode', 'captcha'],
+            [['phone'], 'validatePhoneOrEmail'],
+            [['verifyCode'], 'codeVerify'],
         ];
+    }
+
+    /**
+     * @param $attribute
+     *
+     * @noinspection PhpUnused
+     */
+    public function codeVerify($attribute)
+    {
+        $captchaValidate  = new CaptchaAction('captcha', Yii::$app->controller);
+
+        if ($this->$attribute) {
+            $code = $captchaValidate->getVerifyCode();
+
+            if ($this->$attribute != $code) {
+                $this->addError($attribute, 'Код проверки некорректен');
+            }
+        }
     }
 
     /**
@@ -63,7 +79,6 @@ class Appeal extends \yii\db\ActiveRecord
             'id' => 'ID',
             'author' => 'Автор',
             'phone' => 'Телефон',
-            //'email' => 'E-mail',
             'created_at' => 'Дата создания',
             'updated_at' => 'Дата изменения',
             'verifyCode' => 'Код подтверждения',
@@ -83,12 +98,22 @@ class Appeal extends \yii\db\ActiveRecord
     /**
      * @noinspection PhpUnused
      */
-    public function validateScenario()
+    public function validatePhoneOrEmail()
     {
-        if (is_numeric($this->phone)) {
-            $this->scenario = self::PHONE;
-        } else {
-            $this->scenario = self::EMAIL;
+        $validEmail = (new EmailValidator())->validate($this->phone);
+
+        if (!$validEmail) {
+            (new PhoneValidator([
+                'countryAttribute' => 'country_code',
+                'strict' => false,
+                'format' => true,
+            ]))->validateAttribute($this, 'phone');
+        }
+
+        if ($this->hasErrors('phone')) {
+            $this->clearErrors('phone');
+            $this->addError('phone', 'Некорректный E-mail или телефон');
+            return false;
         }
 
         return true;

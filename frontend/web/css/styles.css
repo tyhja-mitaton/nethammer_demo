@@ -647,6 +647,7 @@ footer .dropdown-toggle::after {
 footer .dropdown .dropdown-menu {
   position: absolute;
   top: 100%;
+  z-index: 10;
   left: -105px !important;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -990,7 +991,7 @@ footer a:focus {
   left: -30px;
 }
 
-.contact-page a {
+.contact-page .contact-phone {
   color: #ffffff;
 }
 
@@ -1139,14 +1140,17 @@ footer a:focus {
   margin: 15px 0 0;
 }
 
-.reviews-page .btn-blue-o {
-  position: absolute;
-  top: -120px;
-  right: 15px;
-  left: auto;
+.reviews-page .show-modal-btn {
   width: 300px;
   max-width: 100%;
   color: #ffffff;
+}
+
+.reviews-page .show-modal-btn__offset {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  left: auto;
 }
 
 .reviews-slider {
@@ -1748,8 +1752,8 @@ footer a:focus {
     font-size: 32px;
   }
 
-  .reviews-page .btn-blue-o {
-    top: -65px;
+  .reviews-page .show-modal-btn__offset {
+    top: 0px;
     width: 160px;
     font-size: 14px;
   }
