@@ -97,9 +97,15 @@ $this->registerJsFile('/js/scripts_cases.js', ['depends' => [\frontend\assets\Sl
                 </div>
 
                 <div class="case-slider">
+                    <?php $imgIndex = 0; ?>
                     <?php foreach ($imgModels as $img) { ?>
                         <div class="item">
-                            <a class="item__img-wrapper" data-fancybox-id="cases-gallery-<?=$model->id?>" href="<?=$img->href?>" title="<?=$img->title?>" data-type="image">
+                            <a class="item__img-wrapper"
+                                href="javascript:;"
+                                title="<?= $img->title ?>"
+                                data-index="<?= $imgIndex++ ?>"
+                                data-src="<?= $img->href ?>"
+                            >
                                 <?= Html::img($img->href); ?>
                             </a>
                         </div>
