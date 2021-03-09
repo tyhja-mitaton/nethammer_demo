@@ -27,7 +27,7 @@ $(document).ready(function () {
             buttons: ["slideShow", "fullScreen", "zoom", "arrowLeft", "arrowRight", "close"],
         };
 
-         $.fancybox.open(images, options);
+        $.fancybox.open(images, options);
     });
 });
 
