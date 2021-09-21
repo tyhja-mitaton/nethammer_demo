@@ -66,24 +66,19 @@ $appealModel = new \frontend\models\Appeal();
                     <h2 class="subtitle col-lg-6"><?=$model->title ?></h2>
                 </div>
 
-                <div class="row flex-column-reverse flex-lg-row">
-                    <div class="col-lg-6">
-                        <div class="text">
-                            <?=$model->description ?>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 d-flex justify-content-center py-4 py-lg-0 align-items-start">
-                        <img class="main-img" src="<?=isset($firstImg->href) ? $firstImg->href: ''?>" alt="<?=isset($firstImg->title) ? $firstImg->title : ''?>">
-                    </div>
+                <div class="text">
+                    <?php if (isset($firstImg->href)) { ?>
+                        <img class="main-img" src="<?= $firstImg->href ?>" alt="<?= isset($firstImg->title) ? $firstImg->title : ''?>">
+                    <?php } ?>
+
+                    <?=$model->description ?>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <?php if(!empty($model->extra_descr)) { ?>
-                            <div class="text"><?=$model->extra_descr ?></div>
-                        <?php } ?>
+                <?php if(!empty($model->extra_descr)) { ?>
+                    <div class="text">
+                        <?=$model->extra_descr ?>
                     </div>
-                </div>
+                <?php } ?>
             </div>
 
             <div class="product-slider owl-carousel owl-theme">

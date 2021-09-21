@@ -42,24 +42,17 @@ if($mainSeo) {
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
         </nav>
-        <?php if( Yii::$app->session->hasFlash('success-review') ): ?>
-            <div class="alert alert-success alert-dismissible" role="alert">
+
+        <button type="button" class="btn btn-blue-o show-modal-btn show-modal-btn__offset" data-toggle="modal" data-target="#w1">Оставить отзыв</button>
+    </div>
+
+    <?php if( Yii::$app->session->hasFlash('success-review') ): ?>
+        <div class="container">
+            <div class="alert alert-success alert-dismissible my-4" role="alert">
                 <?php echo Yii::$app->session->getFlash('success-review'); ?>
             </div>
-        <?php endif;?>
-    </div>
-    <div class="container">
-        <?php Modal::begin([
-            'title' => '',
-            'toggleButton' => ['label' => 'Оставить отзыв', 'class' => 'btn btn-blue-o'],
-            'footer' => '',
-            'size' => Modal::SIZE_EXTRA_LARGE,
-        ]);
-
-        echo $this->render('_reviewForm', ['model' => $newModel]);
-
-        Modal::end();?>
-    </div>
+        </div>
+    <?php endif;?>
 
     <div class="container-fluid">
         <div class="reviews-slider owl-carousel owl-theme">
@@ -79,6 +72,15 @@ if($mainSeo) {
         </div>
     </div>
 </div>
+
+<?php Modal::begin([
+    'title' => '',
+    'footer' => '',
+    'size' => Modal::SIZE_EXTRA_LARGE,
+]); ?>
+    <?= $this->render('_reviewForm', ['model' => $newModel]); ?>
+<?php Modal::end();?>
+
 <?php $this->title = 'Отзывы';
 $js = <<<JS
 $('.owl-carousel').owlCarousel({startPosition: 1, responsive:{768:{items: 3, center: true, loop: true}, 320:{items: 1, center: true, loop: true}}});

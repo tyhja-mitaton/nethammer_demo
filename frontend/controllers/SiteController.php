@@ -22,6 +22,8 @@ use frontend\models\SignupForm;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use frontend\models\Sitemap;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 /**
  * Site controller
@@ -336,6 +338,21 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionValidateContactForm()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        if (Yii::$app->request->isAjax) {
+            $model = new Appeal();
+
+            if ($model->load(Yii::$app->request->post())) {
+                return ActiveForm::validate($model);
+            }
+        }
+
+        throw new BadRequestHttpException();
     }
 
     /**

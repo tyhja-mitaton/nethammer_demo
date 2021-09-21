@@ -32,9 +32,20 @@ $certFile = $certModel ? floor12\files\models\File::find()
                 <?php ActiveForm::end(); ?>
 
                 <ul class="social">
-                    <?php if(isset($contactDataModel->vk_link) && $contactDataModel->vk_link !== ''){ ?><li><a href="<?=isset($contactDataModel->vk_link) ? $contactDataModel->vk_link : '#'?>" target="_blank"><i class="fab fa-vk"></i></a></li><?php } ?>
-                    <?php if(isset($contactDataModel->fb_link) && $contactDataModel->fb_link !== ''){ ?><li><a href="<?=isset($contactDataModel->fb_link) ? $contactDataModel->fb_link : '#'?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li><?php } ?>
-                    <?php if(isset($contactDataModel->twitter_link) && $contactDataModel->twitter_link !== ''){ ?><li><a href="<?=isset($contactDataModel->twitter_link) ? $contactDataModel->twitter_link : '#'?>" target="_blank"><i class="fab fa-twitter"></i></a></li><?php } ?>
+                    <?php foreach ([
+                        [$contactDataModel->vk_link, 'fab fa-vk'],
+                        [$contactDataModel->fb_link, 'fab fa-facebook-f'],
+                        [$contactDataModel->twitter_link, 'fab fa-twitter'],
+                        [$contactDataModel->tg_link, 'fab fa-telegram'],
+                    ] as $item) { ?>
+                        <?php if ($item[0] !== null && $item[0] !== '') { ?>
+                            <li>
+                                <a href="<?= $item[0] ?>" target="_blank">
+                                    <i class="<?= $item[1] ?>"></i>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    <?php } ?>
                 </ul>
 
                 <div class="mb-n2 footer__contacts">

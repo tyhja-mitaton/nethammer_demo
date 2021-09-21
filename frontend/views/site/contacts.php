@@ -62,18 +62,29 @@ if($mainSeo) {
                 <i class="fas fa-phone-alt"></i> Телефон:
             </div>
             <p><a class="contact-phone" href="tel:<?=isset($contactDataModel->phone) ? $contactDataModel->phone : Yii::$app->params['phone']?>">
-                    <?=isset($contactDataModel->phone) ? $contactDataModel->phone : Yii::$app->params['phone']?>
-                </a></p>
+                <?=isset($contactDataModel->phone) ? $contactDataModel->phone : Yii::$app->params['phone']?>
+            </a></p>
             <div class="label">
                 <img src="" alt=""> Соц сети:
             </div>
             <ul class="social">
-                <li><a href="<?=isset($contactDataModel->vk_link) ? $contactDataModel->vk_link : '#'?>" target="_blank"><i class="fab fa-vk"></i></a></li>
-                <li><a href="<?=isset($contactDataModel->fb_link) ? $contactDataModel->fb_link : '#'?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="<?=isset($contactDataModel->twitter_link) ? $contactDataModel->twitter_link : '#'?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="<?=isset($contactDataModel->tg_link) ? $contactDataModel->tg_link : '#'?>" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                <?php foreach ([
+                    [$contactDataModel->vk_link, 'fab fa-vk'],
+                    [$contactDataModel->fb_link, 'fab fa-facebook-f'],
+                    [$contactDataModel->twitter_link, 'fab fa-twitter'],
+                    [$contactDataModel->tg_link, 'fab fa-telegram'],
+                ] as $item) { ?>
+                    <?php if ($item[0] !== null && $item[0] !== '') { ?>
+                        <li>
+                            <a href="<?= $item[0] ?>" target="_blank">
+                                <i class="<?= $item[1] ?>"></i>
+                            </a>
+                        </li>
+                    <?php } ?>
+                <?php } ?>
             </ul>
         </div>
+
         <div class="col-lg-7">
             <?php if (isset($contactDataModel->map_link)) { ?>
                 <div class="map">

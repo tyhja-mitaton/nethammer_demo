@@ -15,6 +15,7 @@ use Yii;
  * @property string $vk_link
  * @property string $fb_link
  * @property string $twitter_link
+ * @property string $tg_link
  * @property string $map_link
  */
 class ContactData extends \yii\db\ActiveRecord
