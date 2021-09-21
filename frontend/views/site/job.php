@@ -54,7 +54,7 @@ if($mainSeo) {
             <?php $i = 0; foreach ($models as $model) { $i++; ?>
                 <div class="vacancy">
                     <h2 class="job-title" data-toggle="collapse" data-target="#vacancy<?=$i/*$model->iterator->key()*/ ?>">
-                        <?=$model->title ?> <i class="fas fa-chevron-down"></i> <span><?=$model->salary ?> руб</span>
+                        <?=$model->title ?> <i class="fas fa-chevron-down"></i> <?php if(!empty($model->salary)):?><span><?=$model->salary ?> руб</span><?php endif;?>
                     </h2>
                     <div id="vacancy<?=$i ?>" class="collapse <?=$i === 1 ? 'show':'' ?>" data-parent="#vacancies">
                         <?=$model->description ?>
